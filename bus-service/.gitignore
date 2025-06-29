@@ -1,0 +1,9 @@
+
+# IDE
+.idea
+
+# Environment files
+.env
+
+# Temporary files
+/tmp
