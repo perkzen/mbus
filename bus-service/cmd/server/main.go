@@ -1,16 +1,18 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"github.com/perkzen/mbus/bus-service/internal/app"
+	"github.com/perkzen/mbus/bus-service/internal/config"
 	"github.com/perkzen/mbus/bus-service/internal/server"
 	"log"
 	"net/http"
 )
 
 func main() {
-
-	restApp, _ := app.NewApplication()
+	env, _ := config.LoadEnvironment()
+	restApp, _ := app.NewApplication(env)
 	httpServer := server.NewHttpServer(restApp)
 
 	done := make(chan bool, 1)
@@ -18,7 +20,7 @@ func main() {
 	go server.GracefulShutdown(httpServer, done)
 
 	err := httpServer.ListenAndServe()
-	if err != nil && err != http.ErrServerClosed {
+	if err != nil && !errors.Is(err, http.ErrServerClosed) {
 		panic(fmt.Sprintf("http server error: %s", err))
 	}
 

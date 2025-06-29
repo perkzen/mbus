@@ -1,15 +1,16 @@
 package config
 
 import (
-	"github.com/caarlos0/env/v10"
+	"github.com/caarlos0/env/v11"
 	"github.com/joho/godotenv"
 )
 
 type Environment struct {
-	Port int `env:"PORT" envDefault:"8080"`
+	Port        int    `env:"PORT" envDefault:"8080"`
+	PostgresURL string `env:"POSTGRES_URL"`
 }
 
-func Load() (*Environment, error) {
+func LoadEnvironment() (*Environment, error) {
 	_ = godotenv.Load()
 
 	cfg := &Environment{}

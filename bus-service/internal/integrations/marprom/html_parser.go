@@ -4,8 +4,6 @@ import (
 	"bytes"
 	"fmt"
 	"github.com/PuerkitoBio/goquery"
-	"github.com/perkzen/mbus/bus-service/internal/common/logger"
-	"github.com/perkzen/mbus/bus-service/internal/types"
 	"regexp"
 	"strconv"
 	"strings"
@@ -13,22 +11,22 @@ import (
 
 var stopIDRegex = regexp.MustCompile(`stop=(\d+)`)
 
-type MarpromHTMLParser struct{}
+type HTMLParser struct{}
 
-func NewMarpromHTMLParser() *MarpromHTMLParser {
-	return &MarpromHTMLParser{}
+func NewHTMLParser() *HTMLParser {
+	return &HTMLParser{}
 }
 
-func (p *MarpromHTMLParser) ParseBusStations(html []byte) ([]types.BusStation, error) {
+func (p *HTMLParser) ParseBusStations(html []byte) ([]BusStation, error) {
 	doc, err := goquery.NewDocumentFromReader(bytes.NewReader(html))
 	if err != nil {
-		logger.Error(err.Error())
+		fmt.Printf("Error creating document from HTML: %v\n", err)
 		return nil, fmt.Errorf("failed to create document: %w", err)
 	}
 
 	locations := extractLocations(doc)
 
-	var stations []types.BusStation
+	var stations []BusStation
 	doc.Find("#TableOfStops tr").Each(func(_ int, tr *goquery.Selection) {
 		if station := parseStationRow(tr, locations); station != nil {
 			stations = append(stations, *station)
@@ -68,7 +66,7 @@ func extractLocations(doc *goquery.Document) map[string][2]float64 {
 	return locations
 }
 
-func parseStationRow(tr *goquery.Selection, locations map[string][2]float64) *types.BusStation {
+func parseStationRow(tr *goquery.Selection, locations map[string][2]float64) *BusStation {
 	onclick, exists := tr.Attr("onclick")
 	if !exists {
 		return nil
@@ -92,7 +90,7 @@ func parseStationRow(tr *goquery.Selection, locations map[string][2]float64) *ty
 
 	id, err := strconv.Atoi(idStr)
 	if err != nil {
-		logger.Error(err.Error())
+		fmt.Printf("Error parsing ID '%s': %v\n", idStr, err)
 		return nil
 	}
 
@@ -102,16 +100,16 @@ func parseStationRow(tr *goquery.Selection, locations map[string][2]float64) *ty
 	}
 
 	// Store ID = 1, Code = "192"
-	return types.NewBusStation(id, code, name, lat, lon)
+	return NewBusStation(id, code, name, lat, lon)
 }
 
-func (p *MarpromHTMLParser) ParseBusStationDetails(html []byte) (*types.BusStationDetails, error) {
+func (p *HTMLParser) ParseBusStationDetails(html []byte) (*BusStationDetails, error) {
 	doc, err := goquery.NewDocumentFromReader(bytes.NewReader(html))
 	if err != nil {
 		return nil, err
 	}
 
-	details := &types.BusStationDetails{}
+	details := &BusStationDetails{}
 
 	// Extract station ID
 	doc.Find("#ModalBodyStopInfo table").First().Find("tr").Each(func(i int, s *goquery.Selection) {
@@ -189,7 +187,7 @@ func (p *MarpromHTMLParser) ParseBusStationDetails(html []byte) (*types.BusStati
 
 			times := strings.Fields(rawTimes)
 
-			details.Departures = append(details.Departures, types.Departure{
+			details.Departures = append(details.Departures, Departure{
 				Line:      line,
 				Direction: direction,
 				Times:     times,

@@ -1,28 +1,28 @@
 package app
 
 import (
-	"github.com/go-chi/chi/v5"
-	"github.com/go-chi/chi/v5/middleware"
-	"github.com/perkzen/mbus/bus-service/internal/common/config"
+	"database/sql"
+	"github.com/perkzen/mbus/bus-service/internal/config"
+	databasepackage "github.com/perkzen/mbus/bus-service/internal/database"
 	"log"
-	"net/http"
 )
 
 type Application struct {
-	Handler *chi.Mux
-	Logger  *log.Logger
-	Env     *config.Environment
+	Logger *log.Logger
+	Env    *config.Environment
+	DB     *sql.DB
 }
 
-func NewApplication() (*Application, error) {
+func NewApplication(env *config.Environment) (*Application, error) {
 
-	r := chi.NewRouter()
-	r.Use(middleware.Logger)
-	r.Get("/", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("Hello World"))
-	})
+	pgDb := databasepackage.NewPostgresDB(env.PostgresURL)
+	dbConn, err := pgDb.Open()
+	if err != nil {
+		return nil, err
+	}
 
 	return &Application{
-		Handler: r,
+		Env: env,
+		DB:  dbConn,
 	}, nil
 }

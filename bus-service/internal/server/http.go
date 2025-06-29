@@ -2,7 +2,9 @@ package server
 
 import (
 	"context"
+	"fmt"
 	"github.com/perkzen/mbus/bus-service/internal/app"
+	"github.com/perkzen/mbus/bus-service/internal/routes"
 	"log"
 	"net/http"
 	"os/signal"
@@ -11,17 +13,13 @@ import (
 )
 
 func NewHttpServer(app *app.Application) *http.Server {
-
-	// read port from environment variable or use default
-
 	return &http.Server{
-		Addr:           ":8000",
-		Handler:        app.Handler,
+		Addr:           fmt.Sprintf(":%d", app.Env.Port),
+		Handler:        routes.RegisterRoutes(app),
 		ReadTimeout:    10 * 60, // 10 minutes
 		WriteTimeout:   10 * 60, // 10 minutes
 		MaxHeaderBytes: 1 << 20, // 1 MB
 		IdleTimeout:    5 * 60,  // 5 minutes
-
 	}
 }
 
