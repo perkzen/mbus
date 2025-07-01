@@ -21,12 +21,10 @@ func main() {
 		if err != nil {
 			panic(err)
 		}
-		println("Station:", station.Name, "Details:", details)
 
 		data = append(data, marprom.NewBusStationWithDetails(station, *details))
 
 	}
 
-	utils.SaveJSON("data/scraper.json", data)
-
+	utils.SaveJSON("data/seed.json", data)
 }

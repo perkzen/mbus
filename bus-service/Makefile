@@ -22,3 +22,6 @@ migrate-create:
 
 seed:
 	@go run ./cmd/seed/main.go
+
+scraper:
+	@go run ./cmd/scraper/main.go

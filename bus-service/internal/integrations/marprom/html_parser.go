@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"fmt"
 	"github.com/PuerkitoBio/goquery"
+	"log"
 	"regexp"
 	"strconv"
 	"strings"
@@ -20,8 +21,9 @@ func NewHTMLParser() *HTMLParser {
 func (p *HTMLParser) ParseBusStations(html []byte) ([]BusStation, error) {
 	doc, err := goquery.NewDocumentFromReader(bytes.NewReader(html))
 	if err != nil {
-		fmt.Printf("Error creating document from HTML: %v\n", err)
-		return nil, fmt.Errorf("failed to create document: %w", err)
+		err := fmt.Errorf("failed to parse HTML: %w", err)
+		log.Fatalf("Error parsing HTML: %s", err)
+		return nil, err
 	}
 
 	locations := extractLocations(doc)
@@ -90,7 +92,7 @@ func parseStationRow(tr *goquery.Selection, locations map[string][2]float64) *Bu
 
 	id, err := strconv.Atoi(idStr)
 	if err != nil {
-		fmt.Printf("Error parsing ID '%s': %v\n", idStr, err)
+		log.Fatalf("Error parsing ID %s: %s", idStr, err)
 		return nil
 	}
 
@@ -160,7 +162,7 @@ func (p *HTMLParser) ParseBusStationDetails(html []byte) (*BusStationDetails, er
 		// Get the next <table> after this <div>
 		table := div.NextAllFiltered("table").First()
 		if table.Length() == 0 {
-			fmt.Printf("No table found for line %s\n", line)
+			log.Printf("No table found for line %s", line)
 			return
 		}
 

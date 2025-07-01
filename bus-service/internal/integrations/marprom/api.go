@@ -3,6 +3,7 @@ package marprom
 import (
 	"fmt"
 	"github.com/perkzen/mbus/bus-service/internal/utils"
+	"log"
 )
 
 type API interface {
@@ -26,9 +27,11 @@ func NewAPIClient() *APIClient {
 
 func (client *APIClient) GetAvailableBusStations() ([]BusStation, error) {
 
-	html, err := client.fetcher.FetchHTML(nil)
+	html, err := client.fetcher.FetchHTML(&FetchOptions{
+		URL: client.baseURL,
+	})
 	if err != nil {
-		fmt.Printf("Error fetching stations: %v\n", err)
+		log.Fatalf("failed to fetch HTML: %s", err)
 		return nil, err
 	}
 
@@ -36,11 +39,11 @@ func (client *APIClient) GetAvailableBusStations() ([]BusStation, error) {
 
 	stations, err := client.parser.ParseBusStations(html)
 	if err != nil {
-		fmt.Printf("Error fetching stations: %v\n", err)
+		log.Fatalf("failed to parse bus stations: %s", err)
 		return nil, err
 	}
 
-	fmt.Printf("Parsed %d bus stations successfully\n", len(stations))
+	log.Println("Parsed bus stations HTML successfully")
 
 	return stations, nil
 
@@ -51,22 +54,22 @@ func (client *APIClient) GetBusStationDetails(code string) (*BusStationDetails, 
 		URL: fmt.Sprintf("%s?stop=%s&datum=%s", client.baseURL, code, utils.Today()),
 	}
 
-	fmt.Println("Fetching bus station details for code:", code)
+	log.Println("Fetching bus station details from", opts.URL)
 
 	html, err := client.fetcher.FetchHTML(opts)
 	if err != nil {
-		fmt.Printf("Error fetching station details: %v\n", err)
+		log.Fatalf("failed to fetch HTML: %s", err)
 		return nil, err
 	}
 
 	details, err := client.parser.ParseBusStationDetails(html)
 
 	if err != nil {
-		fmt.Printf("Error parsing station details: %v\n", err)
+		log.Fatalf("failed to parse bus station details: %s", err)
 		return nil, err
 	}
 
-	fmt.Println("Parsed bus station details successfully for code:", code)
+	log.Println("Parsed bus station details successfully for code:", code)
 
 	return details, nil
 }

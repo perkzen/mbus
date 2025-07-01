@@ -4,7 +4,9 @@
     "code": "192",
     "name": "Avtobusna postaja",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s1.jpg",
-    "routes": [
+    "lat": 46.559717,
+    "lon": 15.65543,
+    "lines": [
       "G1",
       "G2",
       "G4",
@@ -431,18 +433,16 @@
         ],
         "line": "P19"
       }
-    ],
-    "location": {
-      "lat": 46.559717,
-      "lon": 15.65543
-    }
+    ]
   },
   {
     "id": 2,
     "code": "210",
     "name": "Avtobusna postaja",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s2.jpg",
-    "routes": [
+    "lat": 46.559717,
+    "lon": 15.65543,
+    "lines": [
       "P15"
     ],
     "departures": [
@@ -471,18 +471,16 @@
         ],
         "line": "P15"
       }
-    ],
-    "location": {
-      "lat": 46.559717,
-      "lon": 15.65543
-    }
+    ]
   },
   {
     "id": 3,
     "code": "424",
     "name": "ŽP Maribor",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s3.jpg",
-    "routes": [
+    "lat": 46.561852,
+    "lon": 15.656836,
+    "lines": [
       "G3",
       "P15",
       "P17"
@@ -569,18 +567,16 @@
         ],
         "line": "P17"
       }
-    ],
-    "location": {
-      "lat": 46.561852,
-      "lon": 15.656836
-    }
+    ]
   },
   {
     "id": 4,
     "code": "423",
     "name": "ŽP Maribor",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s4.jpg",
-    "routes": [
+    "lat": 46.561852,
+    "lon": 15.656836,
+    "lines": [
       "G3",
       "P15",
       "P17"
@@ -666,18 +662,16 @@
         ],
         "line": "P17"
       }
-    ],
-    "location": {
-      "lat": 46.561852,
-      "lon": 15.656836
-    }
+    ]
   },
   {
     "id": 5,
     "code": "199",
     "name": "Prlek",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s5.jpg",
-    "routes": [
+    "lat": 46.560667,
+    "lon": 15.657971,
+    "lines": [
       "G3"
     ],
     "departures": [
@@ -717,18 +711,16 @@
         ],
         "line": "G3"
       }
-    ],
-    "location": {
-      "lat": 46.560667,
-      "lon": 15.657971
-    }
+    ]
   },
   {
     "id": 6,
     "code": "200",
     "name": "Prlek",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s6.jpg",
-    "routes": [
+    "lat": 46.560667,
+    "lon": 15.657971,
+    "lines": [
       "G3",
       "P10"
     ],
@@ -798,18 +790,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.560667,
-      "lon": 15.657971
-    }
+    ]
   },
   {
     "id": 7,
     "code": "358",
     "name": "City - zdravstveni dom",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s7.jpg",
-    "routes": [
+    "lat": 46.558644,
+    "lon": 15.650901,
+    "lines": [
       "G1",
       "G2",
       "G4",
@@ -1311,18 +1301,16 @@
         ],
         "line": "P19"
       }
-    ],
-    "location": {
-      "lat": 46.558644,
-      "lon": 15.650901
-    }
+    ]
   },
   {
     "id": 8,
     "code": "359",
     "name": "City - zdravstveni dom",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s8.jpg",
-    "routes": [
+    "lat": 46.558644,
+    "lon": 15.650901,
+    "lines": [
       "G1",
       "G2",
       "G4",
@@ -1851,18 +1839,16 @@
         ],
         "line": "P19"
       }
-    ],
-    "location": {
-      "lat": 46.558644,
-      "lon": 15.650901
-    }
+    ]
   },
   {
     "id": 9,
     "code": "84",
     "name": "Glavni trg - Elektro",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s9.jpg",
-    "routes": [
+    "lat": 46.557378,
+    "lon": 15.646796,
+    "lines": [
       "G2",
       "G4",
       "G6",
@@ -2240,18 +2226,16 @@
         ],
         "line": "P18"
       }
-    ],
-    "location": {
-      "lat": 46.557378,
-      "lon": 15.646796
-    }
+    ]
   },
   {
     "id": 10,
     "code": "85",
     "name": "Glavni trg - Elektro",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s10.jpg",
-    "routes": [
+    "lat": 46.557378,
+    "lon": 15.646796,
+    "lines": [
       "G2",
       "G4",
       "G6",
@@ -2601,18 +2585,16 @@
         ],
         "line": "P18"
       }
-    ],
-    "location": {
-      "lat": 46.557378,
-      "lon": 15.646796
-    }
+    ]
   },
   {
     "id": 18,
     "code": "130",
     "name": "Koroški veter",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s18.jpg",
-    "routes": [
+    "lat": 46.559293,
+    "lon": 15.635065,
+    "lines": [
       "G5"
     ],
     "departures": [
@@ -2658,18 +2640,16 @@
         ],
         "line": "G5"
       }
-    ],
-    "location": {
-      "lat": 46.559293,
-      "lon": 15.635065
-    }
+    ]
   },
   {
     "id": 19,
     "code": "131",
     "name": "Koroški veter",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s19.jpg",
-    "routes": [
+    "lat": 46.559293,
+    "lon": 15.635065,
+    "lines": [
       "G5"
     ],
     "departures": [
@@ -2713,18 +2693,16 @@
         ],
         "line": "G5"
       }
-    ],
-    "location": {
-      "lat": 46.559293,
-      "lon": 15.635065
-    }
+    ]
   },
   {
     "id": 20,
     "code": "133",
     "name": "Koroška vrata - Mirni zaliv",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s20.jpg",
-    "routes": [
+    "lat": 46.560616,
+    "lon": 15.629859,
+    "lines": [
       "G5"
     ],
     "departures": [
@@ -2768,18 +2746,16 @@
         ],
         "line": "G5"
       }
-    ],
-    "location": {
-      "lat": 46.560616,
-      "lon": 15.629859
-    }
+    ]
   },
   {
     "id": 21,
     "code": "134",
     "name": "Koroška vrata - Mirni zaliv",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s21.jpg",
-    "routes": [
+    "lat": 46.560616,
+    "lon": 15.629859,
+    "lines": [
       "G5"
     ],
     "departures": [
@@ -2825,18 +2801,16 @@
         ],
         "line": "G5"
       }
-    ],
-    "location": {
-      "lat": 46.560616,
-      "lon": 15.629859
-    }
+    ]
   },
   {
     "id": 22,
     "code": "88",
     "name": "Univerzitetni kampus 1",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s22.jpg",
-    "routes": [
+    "lat": 46.562801,
+    "lon": 15.628989,
+    "lines": [
       "G3",
       "P15",
       "P19"
@@ -2924,18 +2898,16 @@
         ],
         "line": "P19"
       }
-    ],
-    "location": {
-      "lat": 46.562801,
-      "lon": 15.628989
-    }
+    ]
   },
   {
     "id": 23,
     "code": "89",
     "name": "Univerzitetni kampus 1",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s23.jpg",
-    "routes": [
+    "lat": 46.562801,
+    "lon": 15.628989,
+    "lines": [
       "G3",
       "P15",
       "P19"
@@ -3023,18 +2995,16 @@
         ],
         "line": "P19"
       }
-    ],
-    "location": {
-      "lat": 46.562801,
-      "lon": 15.628989
-    }
+    ]
   },
   {
     "id": 25,
     "code": "92",
     "name": "Gosposvetska - Kosarjeva",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s25.jpg",
-    "routes": [
+    "lat": 46.561857,
+    "lon": 15.633332,
+    "lines": [
       "G3",
       "P7",
       "P15",
@@ -3157,18 +3127,16 @@
         ],
         "line": "P19"
       }
-    ],
-    "location": {
-      "lat": 46.561857,
-      "lon": 15.633332
-    }
+    ]
   },
   {
     "id": 26,
     "code": "93",
     "name": "Gosposvetska - Kosarjeva",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s26.jpg",
-    "routes": [
+    "lat": 46.561857,
+    "lon": 15.633332,
+    "lines": [
       "G3",
       "P7",
       "P15",
@@ -3291,18 +3259,16 @@
         ],
         "line": "P19"
       }
-    ],
-    "location": {
-      "lat": 46.561857,
-      "lon": 15.633332
-    }
+    ]
   },
   {
     "id": 27,
     "code": "94",
     "name": "Gosposvetska - Vrbanska",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s27.jpg",
-    "routes": [
+    "lat": 46.561235,
+    "lon": 15.636851,
+    "lines": [
       "G3",
       "P7",
       "P15",
@@ -3425,18 +3391,16 @@
         ],
         "line": "P19"
       }
-    ],
-    "location": {
-      "lat": 46.561235,
-      "lon": 15.636851
-    }
+    ]
   },
   {
     "id": 28,
     "code": "95",
     "name": "Gosposvetska - Vrbanska",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s28.jpg",
-    "routes": [
+    "lat": 46.561235,
+    "lon": 15.636851,
+    "lines": [
       "G3",
       "P7",
       "P15",
@@ -3559,18 +3523,16 @@
         ],
         "line": "P19"
       }
-    ],
-    "location": {
-      "lat": 46.561235,
-      "lon": 15.636851
-    }
+    ]
   },
   {
     "id": 29,
     "code": "90",
     "name": "Tretja gimnazija",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s29.jpg",
-    "routes": [
+    "lat": 46.560691,
+    "lon": 15.640481,
+    "lines": [
       "G3",
       "P7",
       "P15",
@@ -3719,18 +3681,16 @@
         ],
         "line": "P19"
       }
-    ],
-    "location": {
-      "lat": 46.560691,
-      "lon": 15.640481
-    }
+    ]
   },
   {
     "id": 30,
     "code": "91",
     "name": "Tretja gimnazija",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s30.jpg",
-    "routes": [
+    "lat": 46.560691,
+    "lon": 15.640481,
+    "lines": [
       "G3",
       "P7",
       "P15",
@@ -3879,18 +3839,16 @@
         ],
         "line": "P19"
       }
-    ],
-    "location": {
-      "lat": 46.560691,
-      "lon": 15.640481
-    }
+    ]
   },
   {
     "id": 32,
     "code": "393",
     "name": "Mitnica",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s32.jpg",
-    "routes": [
+    "lat": 46.566171,
+    "lon": 15.632983,
+    "lines": [
       "P7"
     ],
     "departures": [
@@ -3928,18 +3886,16 @@
         ],
         "line": "P7"
       }
-    ],
-    "location": {
-      "lat": 46.566171,
-      "lon": 15.632983
-    }
+    ]
   },
   {
     "id": 33,
     "code": "394",
     "name": "Mitnica",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s33.jpg",
-    "routes": [
+    "lat": 46.566171,
+    "lon": 15.632983,
+    "lines": [
       "P7"
     ],
     "departures": [
@@ -3977,18 +3933,16 @@
         ],
         "line": "P7"
       }
-    ],
-    "location": {
-      "lat": 46.566171,
-      "lon": 15.632983
-    }
+    ]
   },
   {
     "id": 37,
     "code": "144",
     "name": "Krekova - občina",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s37.jpg",
-    "routes": [
+    "lat": 46.562065,
+    "lon": 15.649602,
+    "lines": [
       "G3",
       "P7",
       "P15",
@@ -4137,18 +4091,16 @@
         ],
         "line": "P19"
       }
-    ],
-    "location": {
-      "lat": 46.562065,
-      "lon": 15.649602
-    }
+    ]
   },
   {
     "id": 39,
     "code": "303",
     "name": "Razlagova - EPF",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s39.jpg",
-    "routes": [
+    "lat": 46.562136,
+    "lon": 15.654084,
+    "lines": [
       "G3"
     ],
     "departures": [
@@ -4189,18 +4141,16 @@
         ],
         "line": "G3"
       }
-    ],
-    "location": {
-      "lat": 46.562136,
-      "lon": 15.654084
-    }
+    ]
   },
   {
     "id": 40,
     "code": "143",
     "name": "Krekova",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s40.jpg",
-    "routes": [
+    "lat": 46.562017,
+    "lon": 15.643599,
+    "lines": [
       "G3",
       "P7",
       "P15",
@@ -4349,18 +4299,16 @@
         ],
         "line": "P19"
       }
-    ],
-    "location": {
-      "lat": 46.562017,
-      "lon": 15.643599
-    }
+    ]
   },
   {
     "id": 41,
     "code": "395",
     "name": "Kamniški drevored",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s41.jpg",
-    "routes": [
+    "lat": 46.570316,
+    "lon": 15.627311,
+    "lines": [
       "P7"
     ],
     "departures": [
@@ -4398,18 +4346,16 @@
         ],
         "line": "P7"
       }
-    ],
-    "location": {
-      "lat": 46.570316,
-      "lon": 15.627311
-    }
+    ]
   },
   {
     "id": 42,
     "code": "396",
     "name": "Kamniški drevored",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s42.jpg",
-    "routes": [
+    "lat": 46.570316,
+    "lon": 15.627311,
+    "lines": [
       "P7"
     ],
     "departures": [
@@ -4447,18 +4393,16 @@
         ],
         "line": "P7"
       }
-    ],
-    "location": {
-      "lat": 46.570316,
-      "lon": 15.627311
-    }
+    ]
   },
   {
     "id": 43,
     "code": "105",
     "name": "Kamnica - hipodrom",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s43.jpg",
-    "routes": [
+    "lat": 46.574209,
+    "lon": 15.622491,
+    "lines": [
       "P7"
     ],
     "departures": [
@@ -4496,18 +4440,16 @@
         ],
         "line": "P7"
       }
-    ],
-    "location": {
-      "lat": 46.574209,
-      "lon": 15.622491
-    }
+    ]
   },
   {
     "id": 44,
     "code": "106",
     "name": "Kamnica - hipodrom",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s44.jpg",
-    "routes": [
+    "lat": 46.574209,
+    "lon": 15.622491,
+    "lines": [
       "P7"
     ],
     "departures": [
@@ -4545,18 +4487,16 @@
         ],
         "line": "P7"
       }
-    ],
-    "location": {
-      "lat": 46.574209,
-      "lon": 15.622491
-    }
+    ]
   },
   {
     "id": 45,
     "code": "111",
     "name": "Kamnica - šola",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s45.jpg",
-    "routes": [
+    "lat": 46.573495,
+    "lon": 15.617011,
+    "lines": [
       "P7"
     ],
     "departures": [
@@ -4594,18 +4534,16 @@
         ],
         "line": "P7"
       }
-    ],
-    "location": {
-      "lat": 46.573495,
-      "lon": 15.617011
-    }
+    ]
   },
   {
     "id": 46,
     "code": "112",
     "name": "Kamnica - šola",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s46.jpg",
-    "routes": [
+    "lat": 46.573495,
+    "lon": 15.617011,
+    "lines": [
       "P7"
     ],
     "departures": [
@@ -4643,18 +4581,16 @@
         ],
         "line": "P7"
       }
-    ],
-    "location": {
-      "lat": 46.573495,
-      "lon": 15.617011
-    }
+    ]
   },
   {
     "id": 47,
     "code": "113",
     "name": "Kamnica - trgovina",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s47.jpg",
-    "routes": [
+    "lat": 46.574042,
+    "lon": 15.612542,
+    "lines": [
       "P7"
     ],
     "departures": [
@@ -4680,18 +4616,16 @@
         ],
         "line": "P7"
       }
-    ],
-    "location": {
-      "lat": 46.574042,
-      "lon": 15.612542
-    }
+    ]
   },
   {
     "id": 48,
     "code": "114",
     "name": "Kamnica - trgovina",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s48.jpg",
-    "routes": [
+    "lat": 46.574042,
+    "lon": 15.612542,
+    "lines": [
       "P7"
     ],
     "departures": [
@@ -4717,18 +4651,16 @@
         ],
         "line": "P7"
       }
-    ],
-    "location": {
-      "lat": 46.574042,
-      "lon": 15.612542
-    }
+    ]
   },
   {
     "id": 49,
     "code": "31",
     "name": "Cesta v Rošpoh 65",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s49.jpg",
-    "routes": [
+    "lat": 46.579404,
+    "lon": 15.613768,
+    "lines": [
       "P7"
     ],
     "departures": [
@@ -4754,18 +4686,16 @@
         ],
         "line": "P7"
       }
-    ],
-    "location": {
-      "lat": 46.579404,
-      "lon": 15.613768
-    }
+    ]
   },
   {
     "id": 50,
     "code": "32",
     "name": "Cesta v Rošpoh 65",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s50.jpg",
-    "routes": [
+    "lat": 46.579404,
+    "lon": 15.613768,
+    "lines": [
       "P7"
     ],
     "departures": [
@@ -4791,18 +4721,16 @@
         ],
         "line": "P7"
       }
-    ],
-    "location": {
-      "lat": 46.579404,
-      "lon": 15.613768
-    }
+    ]
   },
   {
     "id": 51,
     "code": "29",
     "name": "Cesta v Rošpoh 115",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s51.jpg",
-    "routes": [
+    "lat": 46.583887,
+    "lon": 15.615325,
+    "lines": [
       "P7"
     ],
     "departures": [
@@ -4828,18 +4756,16 @@
         ],
         "line": "P7"
       }
-    ],
-    "location": {
-      "lat": 46.583887,
-      "lon": 15.615325
-    }
+    ]
   },
   {
     "id": 52,
     "code": "30",
     "name": "Cesta v Rošpoh 115",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s52.jpg",
-    "routes": [
+    "lat": 46.583887,
+    "lon": 15.615325,
+    "lines": [
       "P7"
     ],
     "departures": [
@@ -4865,18 +4791,16 @@
         ],
         "line": "P7"
       }
-    ],
-    "location": {
-      "lat": 46.583887,
-      "lon": 15.615325
-    }
+    ]
   },
   {
     "id": 53,
     "code": "316",
     "name": "Rošpoh - odcep Urban",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s53.jpg",
-    "routes": [
+    "lat": 46.587338,
+    "lon": 15.616655,
+    "lines": [
       "P7"
     ],
     "departures": [
@@ -4902,18 +4826,16 @@
         ],
         "line": "P7"
       }
-    ],
-    "location": {
-      "lat": 46.587338,
-      "lon": 15.616655
-    }
+    ]
   },
   {
     "id": 54,
     "code": "315",
     "name": "Rošpoh - odcep Urban",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s54.jpg",
-    "routes": [
+    "lat": 46.587338,
+    "lon": 15.616655,
+    "lines": [
       "P7"
     ],
     "departures": [
@@ -4939,18 +4861,16 @@
         ],
         "line": "P7"
       }
-    ],
-    "location": {
-      "lat": 46.587338,
-      "lon": 15.616655
-    }
+    ]
   },
   {
     "id": 55,
     "code": "313",
     "name": "Rošpoh - Hojnik",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s55.jpg",
-    "routes": [
+    "lat": 46.597776,
+    "lon": 15.619418,
+    "lines": [
       "P7"
     ],
     "departures": [
@@ -4976,18 +4896,16 @@
         ],
         "line": "P7"
       }
-    ],
-    "location": {
-      "lat": 46.597776,
-      "lon": 15.619418
-    }
+    ]
   },
   {
     "id": 56,
     "code": "312",
     "name": "Rošpoh",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s56.jpg",
-    "routes": [
+    "lat": 46.601692,
+    "lon": 15.621163,
+    "lines": [
       "P7"
     ],
     "departures": [
@@ -5024,18 +4942,16 @@
         ],
         "line": "P7"
       }
-    ],
-    "location": {
-      "lat": 46.601692,
-      "lon": 15.621163
-    }
+    ]
   },
   {
     "id": 57,
     "code": "110",
     "name": "Kamnica",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s57.jpg",
-    "routes": [
+    "lat": 46.572481,
+    "lon": 15.612652,
+    "lines": [
       "P7"
     ],
     "departures": [
@@ -5073,18 +4989,16 @@
         ],
         "line": "P7"
       }
-    ],
-    "location": {
-      "lat": 46.572481,
-      "lon": 15.612652
-    }
+    ]
   },
   {
     "id": 58,
     "code": "107",
     "name": "Kamnica - križišče",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s58.jpg",
-    "routes": [
+    "lat": 46.571064,
+    "lon": 15.614065,
+    "lines": [
       "P15"
     ],
     "departures": [
@@ -5113,18 +5027,16 @@
         ],
         "line": "P15"
       }
-    ],
-    "location": {
-      "lat": 46.571064,
-      "lon": 15.614065
-    }
+    ]
   },
   {
     "id": 59,
     "code": "108",
     "name": "Kamnica - križišče",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s59.jpg",
-    "routes": [
+    "lat": 46.571064,
+    "lon": 15.614065,
+    "lines": [
       "G5",
       "P15"
     ],
@@ -5184,18 +5096,16 @@
         ],
         "line": "P15"
       }
-    ],
-    "location": {
-      "lat": 46.571064,
-      "lon": 15.614065
-    }
+    ]
   },
   {
     "id": 60,
     "code": "194",
     "name": "Mariborski otok - HE",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s60.jpg",
-    "routes": [
+    "lat": 46.570119,
+    "lon": 15.601352,
+    "lines": [
       "P15"
     ],
     "departures": [
@@ -5224,18 +5134,16 @@
         ],
         "line": "P15"
       }
-    ],
-    "location": {
-      "lat": 46.570119,
-      "lon": 15.601352
-    }
+    ]
   },
   {
     "id": 61,
     "code": "195",
     "name": "Mariborski otok - HE",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s61.jpg",
-    "routes": [
+    "lat": 46.570119,
+    "lon": 15.601352,
+    "lines": [
       "P15"
     ],
     "departures": [
@@ -5264,18 +5172,16 @@
         ],
         "line": "P15"
       }
-    ],
-    "location": {
-      "lat": 46.570119,
-      "lon": 15.601352
-    }
+    ]
   },
   {
     "id": 62,
     "code": "35",
     "name": "Čolnarna",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s62.jpg",
-    "routes": [
+    "lat": 46.568481,
+    "lon": 15.593426,
+    "lines": [
       "P15"
     ],
     "departures": [
@@ -5304,18 +5210,16 @@
         ],
         "line": "P15"
       }
-    ],
-    "location": {
-      "lat": 46.568481,
-      "lon": 15.593426
-    }
+    ]
   },
   {
     "id": 63,
     "code": "36",
     "name": "Čolnarna",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s63.jpg",
-    "routes": [
+    "lat": 46.568481,
+    "lon": 15.593426,
+    "lines": [
       "P15"
     ],
     "departures": [
@@ -5344,18 +5248,16 @@
         ],
         "line": "P15"
       }
-    ],
-    "location": {
-      "lat": 46.568481,
-      "lon": 15.593426
-    }
+    ]
   },
   {
     "id": 64,
     "code": "21",
     "name": "Bresternica - odcep",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s64.jpg",
-    "routes": [
+    "lat": 46.567599,
+    "lon": 15.585017,
+    "lines": [
       "P15"
     ],
     "departures": [
@@ -5384,18 +5286,16 @@
         ],
         "line": "P15"
       }
-    ],
-    "location": {
-      "lat": 46.567599,
-      "lon": 15.585017
-    }
+    ]
   },
   {
     "id": 65,
     "code": "22",
     "name": "Bresternica - odcep",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s65.jpg",
-    "routes": [
+    "lat": 46.567599,
+    "lon": 15.585017,
+    "lines": [
       "P15"
     ],
     "departures": [
@@ -5424,18 +5324,16 @@
         ],
         "line": "P15"
       }
-    ],
-    "location": {
-      "lat": 46.567599,
-      "lon": 15.585017
-    }
+    ]
   },
   {
     "id": 66,
     "code": "23",
     "name": "Bresternica - rondo",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s66.jpg",
-    "routes": [
+    "lat": 46.566701,
+    "lon": 15.57866,
+    "lines": [
       "P15"
     ],
     "departures": [
@@ -5464,18 +5362,16 @@
         ],
         "line": "P15"
       }
-    ],
-    "location": {
-      "lat": 46.566701,
-      "lon": 15.57866
-    }
+    ]
   },
   {
     "id": 67,
     "code": "24",
     "name": "Bresternica - rondo",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s67.jpg",
-    "routes": [
+    "lat": 46.566701,
+    "lon": 15.57866,
+    "lines": [
       "P15"
     ],
     "departures": [
@@ -5504,18 +5400,16 @@
         ],
         "line": "P15"
       }
-    ],
-    "location": {
-      "lat": 46.566701,
-      "lon": 15.57866
-    }
+    ]
   },
   {
     "id": 70,
     "code": "18",
     "name": "Bresternica",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s70.jpg",
-    "routes": [
+    "lat": 46.566056,
+    "lon": 15.571947,
+    "lines": [
       "P15"
     ],
     "departures": [
@@ -5544,18 +5438,16 @@
         ],
         "line": "P15"
       }
-    ],
-    "location": {
-      "lat": 46.566056,
-      "lon": 15.571947
-    }
+    ]
   },
   {
     "id": 72,
     "code": "193",
     "name": "Mariborski otok",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s72.jpg",
-    "routes": [
+    "lat": 46.568666,
+    "lon": 15.614559,
+    "lines": [
       "G5"
     ],
     "departures": [
@@ -5589,18 +5481,16 @@
         ],
         "line": "G5"
       }
-    ],
-    "location": {
-      "lat": 46.568666,
-      "lon": 15.614559
-    }
+    ]
   },
   {
     "id": 73,
     "code": "349",
     "name": "Fontana",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s73.jpg",
-    "routes": [
+    "lat": 46.564968,
+    "lon": 15.624263,
+    "lines": [
       "G5",
       "P15"
     ],
@@ -5660,18 +5550,16 @@
         ],
         "line": "P15"
       }
-    ],
-    "location": {
-      "lat": 46.564968,
-      "lon": 15.624263
-    }
+    ]
   },
   {
     "id": 74,
     "code": "350",
     "name": "Fontana",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s74.jpg",
-    "routes": [
+    "lat": 46.564968,
+    "lon": 15.624263,
+    "lines": [
       "P15"
     ],
     "departures": [
@@ -5700,18 +5588,16 @@
         ],
         "line": "P15"
       }
-    ],
-    "location": {
-      "lat": 46.564968,
-      "lon": 15.624263
-    }
+    ]
   },
   {
     "id": 81,
     "code": "337",
     "name": "Šentiljska - Medved",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s81.jpg",
-    "routes": [
+    "lat": 46.567289,
+    "lon": 15.658896,
+    "lines": [
       "P15",
       "P17"
     ],
@@ -5760,18 +5646,16 @@
         ],
         "line": "P17"
       }
-    ],
-    "location": {
-      "lat": 46.567289,
-      "lon": 15.658896
-    }
+    ]
   },
   {
     "id": 82,
     "code": "338",
     "name": "Šentiljska - Medved",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s82.jpg",
-    "routes": [
+    "lat": 46.567289,
+    "lon": 15.658896,
+    "lines": [
       "P15",
       "P17"
     ],
@@ -5820,18 +5704,16 @@
         ],
         "line": "P17"
       }
-    ],
-    "location": {
-      "lat": 46.567289,
-      "lon": 15.658896
-    }
+    ]
   },
   {
     "id": 83,
     "code": "346",
     "name": "Šubičeva - vrtec",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s83.jpg",
-    "routes": [
+    "lat": 46.568791,
+    "lon": 15.657067,
+    "lines": [
       "P15"
     ],
     "departures": [
@@ -5860,18 +5742,16 @@
         ],
         "line": "P15"
       }
-    ],
-    "location": {
-      "lat": 46.568791,
-      "lon": 15.657067
-    }
+    ]
   },
   {
     "id": 84,
     "code": "215",
     "name": "Nadvoz",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s84.jpg",
-    "routes": [
+    "lat": 46.568097,
+    "lon": 15.659518,
+    "lines": [
       "P15"
     ],
     "departures": [
@@ -5900,18 +5780,16 @@
         ],
         "line": "P15"
       }
-    ],
-    "location": {
-      "lat": 46.568097,
-      "lon": 15.659518
-    }
+    ]
   },
   {
     "id": 85,
     "code": "135",
     "name": "Koš. dol - Pod vinogradi",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s85.jpg",
-    "routes": [
+    "lat": 46.572788,
+    "lon": 15.659274,
+    "lines": [
       "P15"
     ],
     "departures": [
@@ -5940,18 +5818,16 @@
         ],
         "line": "P15"
       }
-    ],
-    "location": {
-      "lat": 46.572788,
-      "lon": 15.659274
-    }
+    ]
   },
   {
     "id": 86,
     "code": "138",
     "name": "Košaški dol - V zavoju",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s86.jpg",
-    "routes": [
+    "lat": 46.574861,
+    "lon": 15.662986,
+    "lines": [
       "P15"
     ],
     "departures": [
@@ -5980,18 +5856,16 @@
         ],
         "line": "P15"
       }
-    ],
-    "location": {
-      "lat": 46.574861,
-      "lon": 15.662986
-    }
+    ]
   },
   {
     "id": 87,
     "code": "137",
     "name": "Košaški dol",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s87.jpg",
-    "routes": [
+    "lat": 46.576146,
+    "lon": 15.666803,
+    "lines": [
       "P15"
     ],
     "departures": [
@@ -6020,18 +5894,16 @@
         ],
         "line": "P15"
       }
-    ],
-    "location": {
-      "lat": 46.576146,
-      "lon": 15.666803
-    }
+    ]
   },
   {
     "id": 88,
     "code": "136",
     "name": "Košaki - stiskalnica",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s88.jpg",
-    "routes": [
+    "lat": 46.578054,
+    "lon": 15.666996,
+    "lines": [
       "P15"
     ],
     "departures": [
@@ -6060,18 +5932,16 @@
         ],
         "line": "P15"
       }
-    ],
-    "location": {
-      "lat": 46.578054,
-      "lon": 15.666996
-    }
+    ]
   },
   {
     "id": 89,
     "code": "214",
     "name": "Na prehodu",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s89.jpg",
-    "routes": [
+    "lat": 46.581964,
+    "lon": 15.666229,
+    "lines": [
       "P15"
     ],
     "departures": [
@@ -6100,18 +5970,16 @@
         ],
         "line": "P15"
       }
-    ],
-    "location": {
-      "lat": 46.581964,
-      "lon": 15.666229
-    }
+    ]
   },
   {
     "id": 93,
     "code": "341",
     "name": "Šentiljska - veterinar",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s93.jpg",
-    "routes": [
+    "lat": 46.581055,
+    "lon": 15.663103,
+    "lines": [
       "P15",
       "P17"
     ],
@@ -6160,18 +6028,16 @@
         ],
         "line": "P17"
       }
-    ],
-    "location": {
-      "lat": 46.581055,
-      "lon": 15.663103
-    }
+    ]
   },
   {
     "id": 95,
     "code": "339",
     "name": "Šentiljska - Počehovska",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s95.jpg",
-    "routes": [
+    "lat": 46.57709,
+    "lon": 15.657794,
+    "lines": [
       "P15",
       "P17"
     ],
@@ -6220,18 +6086,16 @@
         ],
         "line": "P17"
       }
-    ],
-    "location": {
-      "lat": 46.57709,
-      "lon": 15.657794
-    }
+    ]
   },
   {
     "id": 97,
     "code": "340",
     "name": "Šentiljska - TMI Košaki",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s97.jpg",
-    "routes": [
+    "lat": 46.571096,
+    "lon": 15.658169,
+    "lines": [
       "P15",
       "P17"
     ],
@@ -6280,18 +6144,16 @@
         ],
         "line": "P17"
       }
-    ],
-    "location": {
-      "lat": 46.571096,
-      "lon": 15.658169
-    }
+    ]
   },
   {
     "id": 98,
     "code": "201",
     "name": "Meljska - trgovina",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s98.jpg",
-    "routes": [
+    "lat": 46.560514,
+    "lon": 15.662161,
+    "lines": [
       "G3",
       "P10"
     ],
@@ -6361,18 +6223,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.560514,
-      "lon": 15.662161
-    }
+    ]
   },
   {
     "id": 99,
     "code": "202",
     "name": "Meljska - trgovina",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s99.jpg",
-    "routes": [
+    "lat": 46.560514,
+    "lon": 15.662161,
+    "lines": [
       "G3"
     ],
     "departures": [
@@ -6412,18 +6272,16 @@
         ],
         "line": "G3"
       }
-    ],
-    "location": {
-      "lat": 46.560514,
-      "lon": 15.662161
-    }
+    ]
   },
   {
     "id": 101,
     "code": "230",
     "name": "Oreško nabrežje 1",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s101.jpg",
-    "routes": [
+    "lat": 46.556392,
+    "lon": 15.66144,
+    "lines": [
       "G3"
     ],
     "departures": [
@@ -6463,18 +6321,16 @@
         ],
         "line": "G3"
       }
-    ],
-    "location": {
-      "lat": 46.556392,
-      "lon": 15.66144
-    }
+    ]
   },
   {
     "id": 103,
     "code": "198",
     "name": "Melje",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s103.jpg",
-    "routes": [
+    "lat": 46.559977,
+    "lon": 15.66818,
+    "lines": [
       "P10"
     ],
     "departures": [
@@ -6506,18 +6362,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.559977,
-      "lon": 15.66818
-    }
+    ]
   },
   {
     "id": 104,
     "code": "56",
     "name": "Dravograjska - Sokolska",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s104.jpg",
-    "routes": [
+    "lat": 46.557368,
+    "lon": 15.625449,
+    "lines": [
       "G3",
       "P19"
     ],
@@ -6579,18 +6433,16 @@
         ],
         "line": "P19"
       }
-    ],
-    "location": {
-      "lat": 46.557368,
-      "lon": 15.625449
-    }
+    ]
   },
   {
     "id": 105,
     "code": "52",
     "name": "Prometna šola Maribor",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s105.jpg",
-    "routes": [
+    "lat": 46.553664,
+    "lon": 15.624005,
+    "lines": [
       "G3",
       "G4",
       "P19"
@@ -6693,18 +6545,16 @@
         ],
         "line": "P19"
       }
-    ],
-    "location": {
-      "lat": 46.553664,
-      "lon": 15.624005
-    }
+    ]
   },
   {
     "id": 106,
     "code": "50",
     "name": "Dravograjska",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s106.jpg",
-    "routes": [
+    "lat": 46.549942,
+    "lon": 15.621805,
+    "lines": [
       "G3"
     ],
     "departures": [
@@ -6745,18 +6595,16 @@
         ],
         "line": "G3"
       }
-    ],
-    "location": {
-      "lat": 46.549942,
-      "lon": 15.621805
-    }
+    ]
   },
   {
     "id": 108,
     "code": "397",
     "name": "Supernova",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s108.jpg",
-    "routes": [
+    "lat": 46.545991,
+    "lon": 15.618611,
+    "lines": [
       "P12"
     ],
     "departures": [
@@ -6784,18 +6632,16 @@
         ],
         "line": "P12"
       }
-    ],
-    "location": {
-      "lat": 46.545991,
-      "lon": 15.618611
-    }
+    ]
   },
   {
     "id": 109,
     "code": "54",
     "name": "Supernova",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s109.jpg",
-    "routes": [
+    "lat": 46.545991,
+    "lon": 15.618611,
+    "lines": [
       "G3"
     ],
     "departures": [
@@ -6835,18 +6681,16 @@
         ],
         "line": "G3"
       }
-    ],
-    "location": {
-      "lat": 46.545991,
-      "lon": 15.618611
-    }
+    ]
   },
   {
     "id": 110,
     "code": "280",
     "name": "Supernova 1",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s110.jpg",
-    "routes": [
+    "lat": 46.545432,
+    "lon": 15.620348,
+    "lines": [
       "G3",
       "P12",
       "P14",
@@ -6979,18 +6823,16 @@
         ],
         "line": "P18"
       }
-    ],
-    "location": {
-      "lat": 46.545432,
-      "lon": 15.620348
-    }
+    ]
   },
   {
     "id": 111,
     "code": "51",
     "name": "Dravograjska",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s111.jpg",
-    "routes": [
+    "lat": 46.549942,
+    "lon": 15.621805,
+    "lines": [
       "G3"
     ],
     "departures": [
@@ -7030,18 +6872,16 @@
         ],
         "line": "G3"
       }
-    ],
-    "location": {
-      "lat": 46.549942,
-      "lon": 15.621805
-    }
+    ]
   },
   {
     "id": 112,
     "code": "53",
     "name": "Prometna šola Maribor",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s112.jpg",
-    "routes": [
+    "lat": 46.553664,
+    "lon": 15.624005,
+    "lines": [
       "G3",
       "P19"
     ],
@@ -7103,18 +6943,16 @@
         ],
         "line": "P19"
       }
-    ],
-    "location": {
-      "lat": 46.553664,
-      "lon": 15.624005
-    }
+    ]
   },
   {
     "id": 113,
     "code": "55",
     "name": "Dravograjska - Sokolska",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s113.jpg",
-    "routes": [
+    "lat": 46.557368,
+    "lon": 15.625449,
+    "lines": [
       "G3",
       "P19"
     ],
@@ -7176,18 +7014,16 @@
         ],
         "line": "P19"
       }
-    ],
-    "location": {
-      "lat": 46.557368,
-      "lon": 15.625449
-    }
+    ]
   },
   {
     "id": 114,
     "code": "163",
     "name": "Limbuška - Pekrska",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s114.jpg",
-    "routes": [
+    "lat": 46.556416,
+    "lon": 15.620624,
+    "lines": [
       "P8"
     ],
     "departures": [
@@ -7220,18 +7056,16 @@
         ],
         "line": "P8"
       }
-    ],
-    "location": {
-      "lat": 46.556416,
-      "lon": 15.620624
-    }
+    ]
   },
   {
     "id": 115,
     "code": "164",
     "name": "Limbuška - Pekrska",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s115.jpg",
-    "routes": [
+    "lat": 46.556416,
+    "lon": 15.620624,
+    "lines": [
       "P8"
     ],
     "departures": [
@@ -7265,18 +7099,16 @@
         ],
         "line": "P8"
       }
-    ],
-    "location": {
-      "lat": 46.556416,
-      "lon": 15.620624
-    }
+    ]
   },
   {
     "id": 116,
     "code": "166",
     "name": "Limbuška 47",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s116.jpg",
-    "routes": [
+    "lat": 46.557069,
+    "lon": 15.616917,
+    "lines": [
       "P8"
     ],
     "departures": [
@@ -7309,18 +7141,16 @@
         ],
         "line": "P8"
       }
-    ],
-    "location": {
-      "lat": 46.557069,
-      "lon": 15.616917
-    }
+    ]
   },
   {
     "id": 117,
     "code": "167",
     "name": "Limbuška 47",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s117.jpg",
-    "routes": [
+    "lat": 46.557069,
+    "lon": 15.616917,
+    "lines": [
       "P8"
     ],
     "departures": [
@@ -7354,18 +7184,16 @@
         ],
         "line": "P8"
       }
-    ],
-    "location": {
-      "lat": 46.557069,
-      "lon": 15.616917
-    }
+    ]
   },
   {
     "id": 118,
     "code": "331",
     "name": "Studenci",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s118.jpg",
-    "routes": [
+    "lat": 46.556847,
+    "lon": 15.610385,
+    "lines": [
       "G4",
       "P8"
     ],
@@ -7421,18 +7249,16 @@
         ],
         "line": "P8"
       }
-    ],
-    "location": {
-      "lat": 46.556847,
-      "lon": 15.610385
-    }
+    ]
   },
   {
     "id": 119,
     "code": "330",
     "name": "Studenci",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s119.jpg",
-    "routes": [
+    "lat": 46.556847,
+    "lon": 15.610385,
+    "lines": [
       "P8"
     ],
     "departures": [
@@ -7466,18 +7292,16 @@
         ],
         "line": "P8"
       }
-    ],
-    "location": {
-      "lat": 46.556847,
-      "lon": 15.610385
-    }
+    ]
   },
   {
     "id": 120,
     "code": "161",
     "name": "Limbuška - Lesarska",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s120.jpg",
-    "routes": [
+    "lat": 46.556424,
+    "lon": 15.604549,
+    "lines": [
       "P8"
     ],
     "departures": [
@@ -7510,18 +7334,16 @@
         ],
         "line": "P8"
       }
-    ],
-    "location": {
-      "lat": 46.556424,
-      "lon": 15.604549
-    }
+    ]
   },
   {
     "id": 121,
     "code": "162",
     "name": "Limbuška - Lesarska",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s121.jpg",
-    "routes": [
+    "lat": 46.556424,
+    "lon": 15.604549,
+    "lines": [
       "P8",
       "P19"
     ],
@@ -7577,18 +7399,16 @@
         ],
         "line": "P19"
       }
-    ],
-    "location": {
-      "lat": 46.556424,
-      "lon": 15.604549
-    }
+    ]
   },
   {
     "id": 122,
     "code": "154",
     "name": "Lesarska šola",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s122.jpg",
-    "routes": [
+    "lat": 46.562266,
+    "lon": 15.601788,
+    "lines": [
       "G4"
     ],
     "departures": [
@@ -7610,18 +7430,16 @@
         ],
         "line": "G4"
       }
-    ],
-    "location": {
-      "lat": 46.562266,
-      "lon": 15.601788
-    }
+    ]
   },
   {
     "id": 123,
     "code": "196",
     "name": "Marles",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s123.jpg",
-    "routes": [
+    "lat": 46.557844,
+    "lon": 15.596415,
+    "lines": [
       "P8"
     ],
     "departures": [
@@ -7684,18 +7502,16 @@
         ],
         "line": "P8"
       }
-    ],
-    "location": {
-      "lat": 46.557844,
-      "lon": 15.596415
-    }
+    ]
   },
   {
     "id": 124,
     "code": "165",
     "name": "Limbuška - rondo",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s124.jpg",
-    "routes": [
+    "lat": 46.554951,
+    "lon": 15.583604,
+    "lines": [
       "P8"
     ],
     "departures": [
@@ -7758,18 +7574,16 @@
         ],
         "line": "P8"
       }
-    ],
-    "location": {
-      "lat": 46.554951,
-      "lon": 15.583604
-    }
+    ]
   },
   {
     "id": 127,
     "code": "157",
     "name": "Limbuš",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s127.jpg",
-    "routes": [
+    "lat": 46.553985,
+    "lon": 15.582052,
+    "lines": [
       "P8"
     ],
     "departures": [
@@ -7803,18 +7617,16 @@
         ],
         "line": "P8"
       }
-    ],
-    "location": {
-      "lat": 46.553985,
-      "lon": 15.582052
-    }
+    ]
   },
   {
     "id": 128,
     "code": "159",
     "name": "Limbuš - pošta",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s128.jpg",
-    "routes": [
+    "lat": 46.550618,
+    "lon": 15.588177,
+    "lines": [
       "P8",
       "P14"
     ],
@@ -7868,18 +7680,16 @@
         ],
         "line": "P14"
       }
-    ],
-    "location": {
-      "lat": 46.550618,
-      "lon": 15.588177
-    }
+    ]
   },
   {
     "id": 129,
     "code": "160",
     "name": "Limbuš - pošta",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s129.jpg",
-    "routes": [
+    "lat": 46.550618,
+    "lon": 15.588177,
+    "lines": [
       "P8",
       "P14"
     ],
@@ -7934,18 +7744,16 @@
         ],
         "line": "P14"
       }
-    ],
-    "location": {
-      "lat": 46.550618,
-      "lon": 15.588177
-    }
+    ]
   },
   {
     "id": 130,
     "code": "248",
     "name": "Pekre",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s130.jpg",
-    "routes": [
+    "lat": 46.547527,
+    "lon": 15.593973,
+    "lines": [
       "P14"
     ],
     "departures": [
@@ -7969,18 +7777,16 @@
         ],
         "line": "P14"
       }
-    ],
-    "location": {
-      "lat": 46.547527,
-      "lon": 15.593973
-    }
+    ]
   },
   {
     "id": 131,
     "code": "249",
     "name": "Pekre",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s131.jpg",
-    "routes": [
+    "lat": 46.547527,
+    "lon": 15.593973,
+    "lines": [
       "P8",
       "P14"
     ],
@@ -8035,18 +7841,16 @@
         ],
         "line": "P14"
       }
-    ],
-    "location": {
-      "lat": 46.547527,
-      "lon": 15.593973
-    }
+    ]
   },
   {
     "id": 132,
     "code": "74",
     "name": "Erjavčeva",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s132.jpg",
-    "routes": [
+    "lat": 46.555365,
+    "lon": 15.614664,
+    "lines": [
       "G4",
       "P19"
     ],
@@ -8112,18 +7916,16 @@
         ],
         "line": "P19"
       }
-    ],
-    "location": {
-      "lat": 46.555365,
-      "lon": 15.614664
-    }
+    ]
   },
   {
     "id": 133,
     "code": "75",
     "name": "Erjavčeva",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s133.jpg",
-    "routes": [
+    "lat": 46.555365,
+    "lon": 15.614664,
+    "lines": [
       "G4",
       "P19"
     ],
@@ -8188,18 +7990,16 @@
         ],
         "line": "P19"
       }
-    ],
-    "location": {
-      "lat": 46.555365,
-      "lon": 15.614664
-    }
+    ]
   },
   {
     "id": 135,
     "code": "77",
     "name": "Erjavčeva - ZD",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s135.jpg",
-    "routes": [
+    "lat": 46.554633,
+    "lon": 15.616999,
+    "lines": [
       "G4",
       "P19"
     ],
@@ -8265,18 +8065,16 @@
         ],
         "line": "P19"
       }
-    ],
-    "location": {
-      "lat": 46.554633,
-      "lon": 15.616999
-    }
+    ]
   },
   {
     "id": 136,
     "code": "335",
     "name": "Šarhova - pošta",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s136.jpg",
-    "routes": [
+    "lat": 46.551581,
+    "lon": 15.621506,
+    "lines": [
       "G4",
       "P19"
     ],
@@ -8341,18 +8139,16 @@
         ],
         "line": "P19"
       }
-    ],
-    "location": {
-      "lat": 46.551581,
-      "lon": 15.621506
-    }
+    ]
   },
   {
     "id": 137,
     "code": "336",
     "name": "Šarhova - pošta",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s137.jpg",
-    "routes": [
+    "lat": 46.551581,
+    "lon": 15.621506,
+    "lines": [
       "G4",
       "P19"
     ],
@@ -8418,18 +8214,16 @@
         ],
         "line": "P19"
       }
-    ],
-    "location": {
-      "lat": 46.551581,
-      "lon": 15.621506
-    }
+    ]
   },
   {
     "id": 138,
     "code": "334",
     "name": "Šarhova",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s138.jpg",
-    "routes": [
+    "lat": 46.55322,
+    "lon": 15.6173,
+    "lines": [
       "G4",
       "P19"
     ],
@@ -8494,18 +8288,16 @@
         ],
         "line": "P19"
       }
-    ],
-    "location": {
-      "lat": 46.55322,
-      "lon": 15.6173
-    }
+    ]
   },
   {
     "id": 139,
     "code": "126",
     "name": "Limbuška obvoznica",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s139.jpg",
-    "routes": [
+    "lat": 46.555541,
+    "lon": 15.604321,
+    "lines": [
       "P19"
     ],
     "departures": [
@@ -8529,18 +8321,16 @@
         ],
         "line": "P19"
       }
-    ],
-    "location": {
-      "lat": 46.555541,
-      "lon": 15.604321
-    }
+    ]
   },
   {
     "id": 142,
     "code": "153",
     "name": "Lackova - Stara lipa",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s142.jpg",
-    "routes": [
+    "lat": 46.538493,
+    "lon": 15.611431,
+    "lines": [
       "G6",
       "P14",
       "P18"
@@ -8642,18 +8432,16 @@
         ],
         "line": "P18"
       }
-    ],
-    "location": {
-      "lat": 46.538493,
-      "lon": 15.611431
-    }
+    ]
   },
   {
     "id": 143,
     "code": "152",
     "name": "Lackova - Stara lipa",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s143.jpg",
-    "routes": [
+    "lat": 46.538493,
+    "lon": 15.611431,
+    "lines": [
       "G6",
       "P14",
       "P18"
@@ -8754,18 +8542,16 @@
         ],
         "line": "P18"
       }
-    ],
-    "location": {
-      "lat": 46.538493,
-      "lon": 15.611431
-    }
+    ]
   },
   {
     "id": 144,
     "code": "253",
     "name": "Pohorska - Mlada lipa",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s144.jpg",
-    "routes": [
+    "lat": 46.539628,
+    "lon": 15.605652,
+    "lines": [
       "G6"
     ],
     "departures": [
@@ -8819,18 +8605,16 @@
         ],
         "line": "G6"
       }
-    ],
-    "location": {
-      "lat": 46.539628,
-      "lon": 15.605652
-    }
+    ]
   },
   {
     "id": 145,
     "code": "254",
     "name": "Pohorska - Mlada lipa",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s145.jpg",
-    "routes": [
+    "lat": 46.539628,
+    "lon": 15.605652,
+    "lines": [
       "G6"
     ],
     "departures": [
@@ -8885,18 +8669,16 @@
         ],
         "line": "G6"
       }
-    ],
-    "location": {
-      "lat": 46.539628,
-      "lon": 15.605652
-    }
+    ]
   },
   {
     "id": 146,
     "code": "255",
     "name": "Pohorska - pošta",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s146.jpg",
-    "routes": [
+    "lat": 46.537233,
+    "lon": 15.603547,
+    "lines": [
       "G6"
     ],
     "departures": [
@@ -8950,18 +8732,16 @@
         ],
         "line": "G6"
       }
-    ],
-    "location": {
-      "lat": 46.537233,
-      "lon": 15.603547
-    }
+    ]
   },
   {
     "id": 147,
     "code": "256",
     "name": "Pohorska - pošta",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s147.jpg",
-    "routes": [
+    "lat": 46.537233,
+    "lon": 15.603547,
+    "lines": [
       "G6"
     ],
     "departures": [
@@ -9016,18 +8796,16 @@
         ],
         "line": "G6"
       }
-    ],
-    "location": {
-      "lat": 46.537233,
-      "lon": 15.603547
-    }
+    ]
   },
   {
     "id": 148,
     "code": "398",
     "name": "Vzpenjača",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s148.jpg",
-    "routes": [
+    "lat": 46.533221,
+    "lon": 15.599686,
+    "lines": [
       "G6"
     ],
     "departures": [
@@ -9081,18 +8859,16 @@
         ],
         "line": "G6"
       }
-    ],
-    "location": {
-      "lat": 46.533221,
-      "lon": 15.599686
-    }
+    ]
   },
   {
     "id": 149,
     "code": "150",
     "name": "Lackova - Mlada lipa",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s149.jpg",
-    "routes": [
+    "lat": 46.540938,
+    "lon": 15.606056,
+    "lines": [
       "P14",
       "P18"
     ],
@@ -9142,18 +8918,16 @@
         ],
         "line": "P18"
       }
-    ],
-    "location": {
-      "lat": 46.540938,
-      "lon": 15.606056
-    }
+    ]
   },
   {
     "id": 150,
     "code": "151",
     "name": "Lackova - Na gorco",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s150.jpg",
-    "routes": [
+    "lat": 46.545256,
+    "lon": 15.60047,
+    "lines": [
       "P14"
     ],
     "departures": [
@@ -9177,18 +8951,16 @@
         ],
         "line": "P14"
       }
-    ],
-    "location": {
-      "lat": 46.545256,
-      "lon": 15.60047
-    }
+    ]
   },
   {
     "id": 151,
     "code": "250",
     "name": "Pekre",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s151.jpg",
-    "routes": [
+    "lat": 46.547527,
+    "lon": 15.593973,
+    "lines": [
       "P18"
     ],
     "departures": [
@@ -9217,18 +8989,16 @@
         ],
         "line": "P18"
       }
-    ],
-    "location": {
-      "lat": 46.547527,
-      "lon": 15.593973
-    }
+    ]
   },
   {
     "id": 152,
     "code": "17",
     "name": "Bezjakova",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s152.jpg",
-    "routes": [
+    "lat": 46.5403683,
+    "lon": 15.5894664,
+    "lines": [
       "P18"
     ],
     "departures": [
@@ -9257,18 +9027,16 @@
         ],
         "line": "P18"
       }
-    ],
-    "location": {
-      "lat": 46.5403683,
-      "lon": 15.5894664
-    }
+    ]
   },
   {
     "id": 153,
     "code": "155",
     "name": "Lesjakova 1",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s153.jpg",
-    "routes": [
+    "lat": 46.53841,
+    "lon": 15.588516,
+    "lines": [
       "P18"
     ],
     "departures": [
@@ -9297,18 +9065,16 @@
         ],
         "line": "P18"
       }
-    ],
-    "location": {
-      "lat": 46.53841,
-      "lon": 15.588516
-    }
+    ]
   },
   {
     "id": 154,
     "code": "156",
     "name": "Lesjakova 2",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s154.jpg",
-    "routes": [
+    "lat": 46.537168,
+    "lon": 15.59225,
+    "lines": [
       "P18"
     ],
     "departures": [
@@ -9337,18 +9103,16 @@
         ],
         "line": "P18"
       }
-    ],
-    "location": {
-      "lat": 46.537168,
-      "lon": 15.59225
-    }
+    ]
   },
   {
     "id": 155,
     "code": "422",
     "name": "Zvezna ulica",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s155.jpg",
-    "routes": [
+    "lat": 46.5360899,
+    "lon": 15.5963853,
+    "lines": [
       "P18"
     ],
     "departures": [
@@ -9377,18 +9141,16 @@
         ],
         "line": "P18"
       }
-    ],
-    "location": {
-      "lat": 46.5360899,
-      "lon": 15.5963853
-    }
+    ]
   },
   {
     "id": 156,
     "code": "229",
     "name": "Ob ribniku",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s156.jpg",
-    "routes": [
+    "lat": 46.539139,
+    "lon": 15.599502,
+    "lines": [
       "P18"
     ],
     "departures": [
@@ -9417,18 +9179,16 @@
         ],
         "line": "P18"
       }
-    ],
-    "location": {
-      "lat": 46.539139,
-      "lon": 15.599502
-    }
+    ]
   },
   {
     "id": 157,
     "code": "326",
     "name": "Streliška - Ul. Poh. odr.",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s157.jpg",
-    "routes": [
+    "lat": 46.536224,
+    "lon": 15.620682,
+    "lines": [
       "G6"
     ],
     "departures": [
@@ -9482,18 +9242,16 @@
         ],
         "line": "G6"
       }
-    ],
-    "location": {
-      "lat": 46.536224,
-      "lon": 15.620682
-    }
+    ]
   },
   {
     "id": 158,
     "code": "327",
     "name": "Streliška - Ul. Poh. odr.",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s158.jpg",
-    "routes": [
+    "lat": 46.536224,
+    "lon": 15.620682,
+    "lines": [
       "G6"
     ],
     "departures": [
@@ -9548,18 +9306,16 @@
         ],
         "line": "G6"
       }
-    ],
-    "location": {
-      "lat": 46.536224,
-      "lon": 15.620682
-    }
+    ]
   },
   {
     "id": 159,
     "code": "242",
     "name": "OŠ Ludvika Pliberška",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s159.jpg",
-    "routes": [
+    "lat": 46.537643,
+    "lon": 15.620659,
+    "lines": [
       "P14",
       "P18"
     ],
@@ -9609,18 +9365,16 @@
         ],
         "line": "P18"
       }
-    ],
-    "location": {
-      "lat": 46.537643,
-      "lon": 15.620659
-    }
+    ]
   },
   {
     "id": 160,
     "code": "243",
     "name": "OŠ Ludvika Pliberška",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s160.jpg",
-    "routes": [
+    "lat": 46.537643,
+    "lon": 15.620659,
+    "lines": [
       "P14",
       "P18"
     ],
@@ -9670,18 +9424,16 @@
         ],
         "line": "P18"
       }
-    ],
-    "location": {
-      "lat": 46.537643,
-      "lon": 15.620659
-    }
+    ]
   },
   {
     "id": 161,
     "code": "240",
     "name": "Center Gustava Šiliha",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s161.jpg",
-    "routes": [
+    "lat": 46.540432,
+    "lon": 15.622139,
+    "lines": [
       "P14",
       "P18"
     ],
@@ -9731,18 +9483,16 @@
         ],
         "line": "P18"
       }
-    ],
-    "location": {
-      "lat": 46.540432,
-      "lon": 15.622139
-    }
+    ]
   },
   {
     "id": 162,
     "code": "241",
     "name": "Center Gustava Šiliha",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s162.jpg",
-    "routes": [
+    "lat": 46.540432,
+    "lon": 15.622139,
+    "lines": [
       "P14",
       "P18"
     ],
@@ -9792,18 +9542,16 @@
         ],
         "line": "P18"
       }
-    ],
-    "location": {
-      "lat": 46.540432,
-      "lon": 15.622139
-    }
+    ]
   },
   {
     "id": 163,
     "code": "223",
     "name": "Nova vas 2",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s163.jpg",
-    "routes": [
+    "lat": 46.543812,
+    "lon": 15.624338,
+    "lines": [
       "P14",
       "P18"
     ],
@@ -9853,18 +9601,16 @@
         ],
         "line": "P18"
       }
-    ],
-    "location": {
-      "lat": 46.543812,
-      "lon": 15.624338
-    }
+    ]
   },
   {
     "id": 164,
     "code": "224",
     "name": "Nova vas 2",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s164.jpg",
-    "routes": [
+    "lat": 46.543812,
+    "lon": 15.624338,
+    "lines": [
       "P14",
       "P18"
     ],
@@ -9914,18 +9660,16 @@
         ],
         "line": "P18"
       }
-    ],
-    "location": {
-      "lat": 46.543812,
-      "lon": 15.624338
-    }
+    ]
   },
   {
     "id": 165,
     "code": "282",
     "name": "Prol. brigad - vojašnica",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s165.jpg",
-    "routes": [
+    "lat": 46.544607,
+    "lon": 15.625679,
+    "lines": [
       "G3",
       "P12",
       "P14",
@@ -10057,18 +9801,16 @@
         ],
         "line": "P18"
       }
-    ],
-    "location": {
-      "lat": 46.544607,
-      "lon": 15.625679
-    }
+    ]
   },
   {
     "id": 166,
     "code": "283",
     "name": "Prol. brigad - vojašnica",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s166.jpg",
-    "routes": [
+    "lat": 46.544607,
+    "lon": 15.625679,
+    "lines": [
       "G3",
       "P12",
       "P14"
@@ -10155,18 +9897,16 @@
         ],
         "line": "P14"
       }
-    ],
-    "location": {
-      "lat": 46.544607,
-      "lon": 15.625679
-    }
+    ]
   },
   {
     "id": 167,
     "code": "297",
     "name": "Radvanjska - Borštnikova",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s167.jpg",
-    "routes": [
+    "lat": 46.536279,
+    "lon": 15.625321,
+    "lines": [
       "G6"
     ],
     "departures": [
@@ -10220,18 +9960,16 @@
         ],
         "line": "G6"
       }
-    ],
-    "location": {
-      "lat": 46.536279,
-      "lon": 15.625321
-    }
+    ]
   },
   {
     "id": 168,
     "code": "298",
     "name": "Radvanjska - Borštnikova",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s168.jpg",
-    "routes": [
+    "lat": 46.536279,
+    "lon": 15.625321,
+    "lines": [
       "G6"
     ],
     "departures": [
@@ -10286,18 +10024,16 @@
         ],
         "line": "G6"
       }
-    ],
-    "location": {
-      "lat": 46.536279,
-      "lon": 15.625321
-    }
+    ]
   },
   {
     "id": 169,
     "code": "295",
     "name": "Radvanjska - Antoličičeva",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s169.jpg",
-    "routes": [
+    "lat": 46.538366,
+    "lon": 15.627125,
+    "lines": [
       "G6"
     ],
     "departures": [
@@ -10351,18 +10087,16 @@
         ],
         "line": "G6"
       }
-    ],
-    "location": {
-      "lat": 46.538366,
-      "lon": 15.627125
-    }
+    ]
   },
   {
     "id": 170,
     "code": "296",
     "name": "Radvanjska - Antoličičeva",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s170.jpg",
-    "routes": [
+    "lat": 46.538366,
+    "lon": 15.627125,
+    "lines": [
       "G6"
     ],
     "departures": [
@@ -10417,18 +10151,16 @@
         ],
         "line": "G6"
       }
-    ],
-    "location": {
-      "lat": 46.538366,
-      "lon": 15.627125
-    }
+    ]
   },
   {
     "id": 171,
     "code": "299",
     "name": "Radvanjska - trgovina",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s171.jpg",
-    "routes": [
+    "lat": 46.541651,
+    "lon": 15.629961,
+    "lines": [
       "G6"
     ],
     "departures": [
@@ -10482,18 +10214,16 @@
         ],
         "line": "G6"
       }
-    ],
-    "location": {
-      "lat": 46.541651,
-      "lon": 15.629961
-    }
+    ]
   },
   {
     "id": 172,
     "code": "300",
     "name": "Radvanjska - trgovina",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s172.jpg",
-    "routes": [
+    "lat": 46.541651,
+    "lon": 15.629961,
+    "lines": [
       "G6"
     ],
     "departures": [
@@ -10548,18 +10278,16 @@
         ],
         "line": "G6"
       }
-    ],
-    "location": {
-      "lat": 46.541651,
-      "lon": 15.629961
-    }
+    ]
   },
   {
     "id": 173,
     "code": "116",
     "name": "Kardeljeva - Borštnikova",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s173.jpg",
-    "routes": [
+    "lat": 46.534392,
+    "lon": 15.630204,
+    "lines": [
       "P11"
     ],
     "departures": [
@@ -10599,18 +10327,16 @@
         ],
         "line": "P11"
       }
-    ],
-    "location": {
-      "lat": 46.534392,
-      "lon": 15.630204
-    }
+    ]
   },
   {
     "id": 174,
     "code": "115",
     "name": "Kardeljeva - Borštnikova",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s174.jpg",
-    "routes": [
+    "lat": 46.534392,
+    "lon": 15.630204,
+    "lines": [
       "P11"
     ],
     "departures": [
@@ -10651,18 +10377,16 @@
         ],
         "line": "P11"
       }
-    ],
-    "location": {
-      "lat": 46.534392,
-      "lon": 15.630204
-    }
+    ]
   },
   {
     "id": 175,
     "code": "246",
     "name": "OŠ Tabor I",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s175.jpg",
-    "routes": [
+    "lat": 46.536681,
+    "lon": 15.631055,
+    "lines": [
       "P11"
     ],
     "departures": [
@@ -10703,18 +10427,16 @@
         ],
         "line": "P11"
       }
-    ],
-    "location": {
-      "lat": 46.536681,
-      "lon": 15.631055
-    }
+    ]
   },
   {
     "id": 176,
     "code": "247",
     "name": "OŠ Tabor I",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s176.jpg",
-    "routes": [
+    "lat": 46.536681,
+    "lon": 15.631055,
+    "lines": [
       "P11"
     ],
     "departures": [
@@ -10754,18 +10476,16 @@
         ],
         "line": "P11"
       }
-    ],
-    "location": {
-      "lat": 46.536681,
-      "lon": 15.631055
-    }
+    ]
   },
   {
     "id": 177,
     "code": "119",
     "name": "Kardeljeva cesta 49",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s177.jpg",
-    "routes": [
+    "lat": 46.543928,
+    "lon": 15.634391,
+    "lines": [
       "G6"
     ],
     "departures": [
@@ -10819,18 +10539,16 @@
         ],
         "line": "G6"
       }
-    ],
-    "location": {
-      "lat": 46.543928,
-      "lon": 15.634391
-    }
+    ]
   },
   {
     "id": 178,
     "code": "275",
     "name": "Prol. brigad - Kardeljeva",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s178.jpg",
-    "routes": [
+    "lat": 46.542598,
+    "lon": 15.634665,
+    "lines": [
       "G3",
       "G6",
       "P12",
@@ -10968,18 +10686,16 @@
         ],
         "line": "P14"
       }
-    ],
-    "location": {
-      "lat": 46.542598,
-      "lon": 15.634665
-    }
+    ]
   },
   {
     "id": 179,
     "code": "274",
     "name": "Prol. brigad - Kardeljeva",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s179.jpg",
-    "routes": [
+    "lat": 46.542598,
+    "lon": 15.634665,
+    "lines": [
       "G3",
       "P12",
       "P14"
@@ -11066,18 +10782,16 @@
         ],
         "line": "P14"
       }
-    ],
-    "location": {
-      "lat": 46.542598,
-      "lon": 15.634665
-    }
+    ]
   },
   {
     "id": 180,
     "code": "276",
     "name": "Prol. brigad - lekarna",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s180.jpg",
-    "routes": [
+    "lat": 46.544323,
+    "lon": 15.628793,
+    "lines": [
       "G3",
       "P12",
       "P14"
@@ -11164,18 +10878,16 @@
         ],
         "line": "P14"
       }
-    ],
-    "location": {
-      "lat": 46.544323,
-      "lon": 15.628793
-    }
+    ]
   },
   {
     "id": 181,
     "code": "277",
     "name": "Prol. brigad - lekarna",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s181.jpg",
-    "routes": [
+    "lat": 46.544323,
+    "lon": 15.628793,
+    "lines": [
       "G3",
       "P12",
       "P14"
@@ -11261,18 +10973,16 @@
         ],
         "line": "P14"
       }
-    ],
-    "location": {
-      "lat": 46.544323,
-      "lon": 15.628793
-    }
+    ]
   },
   {
     "id": 182,
     "code": "7",
     "name": "Betnavska - Goriška",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s182.jpg",
-    "routes": [
+    "lat": 46.540358,
+    "lon": 15.637294,
+    "lines": [
       "P11"
     ],
     "departures": [
@@ -11312,18 +11022,16 @@
         ],
         "line": "P11"
       }
-    ],
-    "location": {
-      "lat": 46.540358,
-      "lon": 15.637294
-    }
+    ]
   },
   {
     "id": 183,
     "code": "8",
     "name": "Betnavska - Goriška",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s183.jpg",
-    "routes": [
+    "lat": 46.540358,
+    "lon": 15.637294,
+    "lines": [
       "P11"
     ],
     "departures": [
@@ -11364,18 +11072,16 @@
         ],
         "line": "P11"
       }
-    ],
-    "location": {
-      "lat": 46.540358,
-      "lon": 15.637294
-    }
+    ]
   },
   {
     "id": 184,
     "code": "9",
     "name": "Betnavska - Knafelčeva",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s184.jpg",
-    "routes": [
+    "lat": 46.537849,
+    "lon": 15.635186,
+    "lines": [
       "P11"
     ],
     "departures": [
@@ -11415,18 +11121,16 @@
         ],
         "line": "P11"
       }
-    ],
-    "location": {
-      "lat": 46.537849,
-      "lon": 15.635186
-    }
+    ]
   },
   {
     "id": 185,
     "code": "10",
     "name": "Betnavska - Knafelčeva",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s185.jpg",
-    "routes": [
+    "lat": 46.537849,
+    "lon": 15.635186,
+    "lines": [
       "P11"
     ],
     "departures": [
@@ -11467,18 +11171,16 @@
         ],
         "line": "P11"
       }
-    ],
-    "location": {
-      "lat": 46.537849,
-      "lon": 15.635186
-    }
+    ]
   },
   {
     "id": 186,
     "code": "463",
     "name": "Lesjakova 1",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.53841,
+    "lon": 15.588516,
+    "lines": [
       "P18"
     ],
     "departures": [
@@ -11507,18 +11209,16 @@
         ],
         "line": "P18"
       }
-    ],
-    "location": {
-      "lat": 46.53841,
-      "lon": 15.588516
-    }
+    ]
   },
   {
     "id": 188,
     "code": "117",
     "name": "Kardeljeva - Knafelčeva",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s188.jpg",
-    "routes": [
+    "lat": 46.538949,
+    "lon": 15.632643,
+    "lines": [
       "P11"
     ],
     "departures": [
@@ -11558,18 +11258,16 @@
         ],
         "line": "P11"
       }
-    ],
-    "location": {
-      "lat": 46.538949,
-      "lon": 15.632643
-    }
+    ]
   },
   {
     "id": 189,
     "code": "118",
     "name": "Kardeljeva - Knafelčeva",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s189.jpg",
-    "routes": [
+    "lat": 46.538949,
+    "lon": 15.632643,
+    "lines": [
       "P11"
     ],
     "departures": [
@@ -11610,18 +11308,16 @@
         ],
         "line": "P11"
       }
-    ],
-    "location": {
-      "lat": 46.538949,
-      "lon": 15.632643
-    }
+    ]
   },
   {
     "id": 190,
     "code": "177",
     "name": "Nova vas",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s190.jpg",
-    "routes": [
+    "lat": 46.533502,
+    "lon": 15.634789,
+    "lines": [
       "G2"
     ],
     "departures": [
@@ -11666,18 +11362,16 @@
         ],
         "line": "G2"
       }
-    ],
-    "location": {
-      "lat": 46.533502,
-      "lon": 15.634789
-    }
+    ]
   },
   {
     "id": 192,
     "code": "172",
     "name": "Ljubljanska - stolpnica",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s192.jpg",
-    "routes": [
+    "lat": 46.537296,
+    "lon": 15.638018,
+    "lines": [
       "G2"
     ],
     "departures": [
@@ -11722,18 +11416,16 @@
         ],
         "line": "G2"
       }
-    ],
-    "location": {
-      "lat": 46.537296,
-      "lon": 15.638018
-    }
+    ]
   },
   {
     "id": 193,
     "code": "173",
     "name": "Ljubljanska - stolpnica",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s193.jpg",
-    "routes": [
+    "lat": 46.537296,
+    "lon": 15.638018,
+    "lines": [
       "G2"
     ],
     "departures": [
@@ -11778,18 +11470,16 @@
         ],
         "line": "G2"
       }
-    ],
-    "location": {
-      "lat": 46.537296,
-      "lon": 15.638018
-    }
+    ]
   },
   {
     "id": 194,
     "code": "174",
     "name": "Ljubljanska - TC Mercator",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s194.jpg",
-    "routes": [
+    "lat": 46.540333,
+    "lon": 15.639733,
+    "lines": [
       "G2",
       "G3",
       "P14"
@@ -11929,18 +11619,16 @@
         ],
         "line": "P14"
       }
-    ],
-    "location": {
-      "lat": 46.540333,
-      "lon": 15.639733
-    }
+    ]
   },
   {
     "id": 195,
     "code": "175",
     "name": "Ljubljanska - TC Mercator",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s195.jpg",
-    "routes": [
+    "lat": 46.540333,
+    "lon": 15.639733,
+    "lines": [
       "G2",
       "P14"
     ],
@@ -12006,18 +11694,16 @@
         ],
         "line": "P14"
       }
-    ],
-    "location": {
-      "lat": 46.540333,
-      "lon": 15.639733
-    }
+    ]
   },
   {
     "id": 196,
     "code": "278",
     "name": "Prol. brigad - Ljubljan.",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s196.jpg",
-    "routes": [
+    "lat": 46.540904,
+    "lon": 15.641137,
+    "lines": [
       "G3",
       "P12",
       "P14"
@@ -12103,18 +11789,16 @@
         ],
         "line": "P14"
       }
-    ],
-    "location": {
-      "lat": 46.540904,
-      "lon": 15.641137
-    }
+    ]
   },
   {
     "id": 197,
     "code": "279",
     "name": "Prol. brigad - Ljubljan.",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s197.jpg",
-    "routes": [
+    "lat": 46.540904,
+    "lon": 15.641137,
+    "lines": [
       "G3",
       "P12"
     ],
@@ -12211,18 +11895,16 @@
         ],
         "line": "P12"
       }
-    ],
-    "location": {
-      "lat": 46.540904,
-      "lon": 15.641137
-    }
+    ]
   },
   {
     "id": 198,
     "code": "212",
     "name": "Na Poljanah - Atletski stadion",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s198.jpg",
-    "routes": [
+    "lat": 46.551892,
+    "lon": 15.628447,
+    "lines": [
       "G4"
     ],
     "departures": [
@@ -12266,18 +11948,16 @@
         ],
         "line": "G4"
       }
-    ],
-    "location": {
-      "lat": 46.551892,
-      "lon": 15.628447
-    }
+    ]
   },
   {
     "id": 199,
     "code": "213",
     "name": "Na Poljanah - Atletski stadion",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s199.jpg",
-    "routes": [
+    "lat": 46.551892,
+    "lon": 15.628447,
+    "lines": [
       "G4"
     ],
     "departures": [
@@ -12321,18 +12001,16 @@
         ],
         "line": "G4"
       }
-    ],
-    "location": {
-      "lat": 46.551892,
-      "lon": 15.628447
-    }
+    ]
   },
   {
     "id": 200,
     "code": "70",
     "name": "Engelsova - Šarhova",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s200.jpg",
-    "routes": [
+    "lat": 46.548919,
+    "lon": 15.628775,
+    "lines": [
       "P18"
     ],
     "departures": [
@@ -12361,18 +12039,16 @@
         ],
         "line": "P18"
       }
-    ],
-    "location": {
-      "lat": 46.548919,
-      "lon": 15.628775
-    }
+    ]
   },
   {
     "id": 201,
     "code": "71",
     "name": "Engelsova - Šarhova",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s201.jpg",
-    "routes": [
+    "lat": 46.548919,
+    "lon": 15.628775,
+    "lines": [
       "P18"
     ],
     "departures": [
@@ -12401,18 +12077,16 @@
         ],
         "line": "P18"
       }
-    ],
-    "location": {
-      "lat": 46.548919,
-      "lon": 15.628775
-    }
+    ]
   },
   {
     "id": 203,
     "code": "72",
     "name": "Engelsova - vojašnica",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s203.jpg",
-    "routes": [
+    "lat": 46.547295,
+    "lon": 15.625758,
+    "lines": [
       "P18"
     ],
     "departures": [
@@ -12441,18 +12115,16 @@
         ],
         "line": "P18"
       }
-    ],
-    "location": {
-      "lat": 46.547295,
-      "lon": 15.625758
-    }
+    ]
   },
   {
     "id": 204,
     "code": "73",
     "name": "Engelsova - vojašnica",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s204.jpg",
-    "routes": [
+    "lat": 46.547295,
+    "lon": 15.625758,
+    "lines": [
       "P18"
     ],
     "departures": [
@@ -12481,18 +12153,16 @@
         ],
         "line": "P18"
       }
-    ],
-    "location": {
-      "lat": 46.547295,
-      "lon": 15.625758
-    }
+    ]
   },
   {
     "id": 205,
     "code": "301",
     "name": "Radvanjska - vojašnica",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s205.jpg",
-    "routes": [
+    "lat": 46.546526,
+    "lon": 15.635159,
+    "lines": [
       "G6"
     ],
     "departures": [
@@ -12547,18 +12217,16 @@
         ],
         "line": "G6"
       }
-    ],
-    "location": {
-      "lat": 46.546526,
-      "lon": 15.635159
-    }
+    ]
   },
   {
     "id": 206,
     "code": "302",
     "name": "Radvanjska - vojašnica",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s206.jpg",
-    "routes": [
+    "lat": 46.546526,
+    "lon": 15.635159,
+    "lines": [
       "G6"
     ],
     "departures": [
@@ -12612,18 +12280,16 @@
         ],
         "line": "G6"
       }
-    ],
-    "location": {
-      "lat": 46.546526,
-      "lon": 15.635159
-    }
+    ]
   },
   {
     "id": 207,
     "code": "67",
     "name": "Dvorana Tabor - Gorkega",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s207.jpg",
-    "routes": [
+    "lat": 46.548779,
+    "lon": 15.636555,
+    "lines": [
       "G6"
     ],
     "departures": [
@@ -12678,18 +12344,16 @@
         ],
         "line": "G6"
       }
-    ],
-    "location": {
-      "lat": 46.548779,
-      "lon": 15.636555
-    }
+    ]
   },
   {
     "id": 208,
     "code": "68",
     "name": "Dvorana Tabor - Koresova",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s208.jpg",
-    "routes": [
+    "lat": 46.549942,
+    "lon": 15.636722,
+    "lines": [
       "G4",
       "P18"
     ],
@@ -12759,18 +12423,16 @@
         ],
         "line": "P18"
       }
-    ],
-    "location": {
-      "lat": 46.549942,
-      "lon": 15.636722
-    }
+    ]
   },
   {
     "id": 209,
     "code": "69",
     "name": "Dvorana Tabor - Koresova",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s209.jpg",
-    "routes": [
+    "lat": 46.549942,
+    "lon": 15.636722,
+    "lines": [
       "G4",
       "P18"
     ],
@@ -12840,18 +12502,16 @@
         ],
         "line": "P18"
       }
-    ],
-    "location": {
-      "lat": 46.549942,
-      "lon": 15.636722
-    }
+    ]
   },
   {
     "id": 210,
     "code": "86",
     "name": "Gorkega - Preradovičeva",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s210.jpg",
-    "routes": [
+    "lat": 46.550584,
+    "lon": 15.639119,
+    "lines": [
       "G6",
       "P18"
     ],
@@ -12932,18 +12592,16 @@
         ],
         "line": "P18"
       }
-    ],
-    "location": {
-      "lat": 46.550584,
-      "lon": 15.639119
-    }
+    ]
   },
   {
     "id": 211,
     "code": "87",
     "name": "Gorkega - Preradovičeva",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s211.jpg",
-    "routes": [
+    "lat": 46.550584,
+    "lon": 15.639119,
+    "lines": [
       "G6",
       "P18"
     ],
@@ -13023,18 +12681,16 @@
         ],
         "line": "P18"
       }
-    ],
-    "location": {
-      "lat": 46.550584,
-      "lon": 15.639119
-    }
+    ]
   },
   {
     "id": 212,
     "code": "11",
     "name": "Betnavska - Metelkova",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s212.jpg",
-    "routes": [
+    "lat": 46.542351,
+    "lon": 15.638437,
+    "lines": [
       "P11"
     ],
     "departures": [
@@ -13074,18 +12730,16 @@
         ],
         "line": "P11"
       }
-    ],
-    "location": {
-      "lat": 46.542351,
-      "lon": 15.638437
-    }
+    ]
   },
   {
     "id": 213,
     "code": "12",
     "name": "Betnavska - Metelkova",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s213.jpg",
-    "routes": [
+    "lat": 46.542351,
+    "lon": 15.638437,
+    "lines": [
       "P11"
     ],
     "departures": [
@@ -13126,18 +12780,16 @@
         ],
         "line": "P11"
       }
-    ],
-    "location": {
-      "lat": 46.542351,
-      "lon": 15.638437
-    }
+    ]
   },
   {
     "id": 214,
     "code": "5",
     "name": "Betnavska - Focheva",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s214.jpg",
-    "routes": [
+    "lat": 46.546786,
+    "lon": 15.639532,
+    "lines": [
       "P11"
     ],
     "departures": [
@@ -13177,18 +12829,16 @@
         ],
         "line": "P11"
       }
-    ],
-    "location": {
-      "lat": 46.546786,
-      "lon": 15.639532
-    }
+    ]
   },
   {
     "id": 215,
     "code": "6",
     "name": "Betnavska - Focheva",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s215.jpg",
-    "routes": [
+    "lat": 46.546786,
+    "lon": 15.639532,
+    "lines": [
       "P11"
     ],
     "departures": [
@@ -13229,18 +12879,16 @@
         ],
         "line": "P11"
       }
-    ],
-    "location": {
-      "lat": 46.546786,
-      "lon": 15.639532
-    }
+    ]
   },
   {
     "id": 216,
     "code": "13",
     "name": "OŠ Franceta Prešerna",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s216.jpg",
-    "routes": [
+    "lat": 46.550335,
+    "lon": 15.641006,
+    "lines": [
       "P11"
     ],
     "departures": [
@@ -13280,18 +12928,16 @@
         ],
         "line": "P11"
       }
-    ],
-    "location": {
-      "lat": 46.550335,
-      "lon": 15.641006
-    }
+    ]
   },
   {
     "id": 217,
     "code": "14",
     "name": "OŠ Franceta Prešerna",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s217.jpg",
-    "routes": [
+    "lat": 46.550335,
+    "lon": 15.641006,
+    "lines": [
       "P11"
     ],
     "departures": [
@@ -13332,18 +12978,16 @@
         ],
         "line": "P11"
       }
-    ],
-    "location": {
-      "lat": 46.550335,
-      "lon": 15.641006
-    }
+    ]
   },
   {
     "id": 218,
     "code": "244",
     "name": "OŠ Maksa Durjave",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s218.jpg",
-    "routes": [
+    "lat": 46.553781,
+    "lon": 15.639109,
+    "lines": [
       "P8"
     ],
     "departures": [
@@ -13377,18 +13021,16 @@
         ],
         "line": "P8"
       }
-    ],
-    "location": {
-      "lat": 46.553781,
-      "lon": 15.639109
-    }
+    ]
   },
   {
     "id": 219,
     "code": "245",
     "name": "OŠ Maksa Durjave",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s219.jpg",
-    "routes": [
+    "lat": 46.553781,
+    "lon": 15.639109,
+    "lines": [
       "P8"
     ],
     "departures": [
@@ -13421,18 +13063,16 @@
         ],
         "line": "P8"
       }
-    ],
-    "location": {
-      "lat": 46.553781,
-      "lon": 15.639109
-    }
+    ]
   },
   {
     "id": 220,
     "code": "425",
     "name": "ŽP Studenci",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s220.jpg",
-    "routes": [
+    "lat": 46.554546,
+    "lon": 15.635401,
+    "lines": [
       "P8"
     ],
     "departures": [
@@ -13465,18 +13105,16 @@
         ],
         "line": "P8"
       }
-    ],
-    "location": {
-      "lat": 46.554546,
-      "lon": 15.635401
-    }
+    ]
   },
   {
     "id": 221,
     "code": "426",
     "name": "ŽP Studenci",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s221.jpg",
-    "routes": [
+    "lat": 46.554546,
+    "lon": 15.635401,
+    "lines": [
       "P8"
     ],
     "departures": [
@@ -13510,18 +13148,16 @@
         ],
         "line": "P8"
       }
-    ],
-    "location": {
-      "lat": 46.554546,
-      "lon": 15.635401
-    }
+    ]
   },
   {
     "id": 222,
     "code": "391",
     "name": "OŠ Janka Padežnika",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s222.jpg",
-    "routes": [
+    "lat": 46.556541,
+    "lon": 15.628123,
+    "lines": [
       "P8"
     ],
     "departures": [
@@ -13554,18 +13190,16 @@
         ],
         "line": "P8"
       }
-    ],
-    "location": {
-      "lat": 46.556541,
-      "lon": 15.628123
-    }
+    ]
   },
   {
     "id": 223,
     "code": "392",
     "name": "OŠ Janka Padežnika",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s223.jpg",
-    "routes": [
+    "lat": 46.556541,
+    "lon": 15.628123,
+    "lines": [
       "P8"
     ],
     "departures": [
@@ -13599,18 +13233,16 @@
         ],
         "line": "P8"
       }
-    ],
-    "location": {
-      "lat": 46.556541,
-      "lon": 15.628123
-    }
+    ]
   },
   {
     "id": 224,
     "code": "389",
     "name": "Waldorfska šola",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s224.jpg",
-    "routes": [
+    "lat": 46.555811,
+    "lon": 15.631387,
+    "lines": [
       "P8"
     ],
     "departures": [
@@ -13643,18 +13275,16 @@
         ],
         "line": "P8"
       }
-    ],
-    "location": {
-      "lat": 46.555811,
-      "lon": 15.631387
-    }
+    ]
   },
   {
     "id": 225,
     "code": "390",
     "name": "Waldorfska šola",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s225.jpg",
-    "routes": [
+    "lat": 46.555811,
+    "lon": 15.631387,
+    "lines": [
       "P8"
     ],
     "departures": [
@@ -13688,18 +13318,16 @@
         ],
         "line": "P8"
       }
-    ],
-    "location": {
-      "lat": 46.555811,
-      "lon": 15.631387
-    }
+    ]
   },
   {
     "id": 226,
     "code": "347",
     "name": "UKC - Tabor",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s226.jpg",
-    "routes": [
+    "lat": 46.553496,
+    "lon": 15.644225,
+    "lines": [
       "G6",
       "P8",
       "P11",
@@ -13847,18 +13475,16 @@
         ],
         "line": "P18"
       }
-    ],
-    "location": {
-      "lat": 46.553496,
-      "lon": 15.644225
-    }
+    ]
   },
   {
     "id": 227,
     "code": "180",
     "name": "UKC - Pobreška",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s227.jpg",
-    "routes": [
+    "lat": 46.554476,
+    "lon": 15.647181,
+    "lines": [
       "G5",
       "P9",
       "P12",
@@ -14020,18 +13646,16 @@
         ],
         "line": "P16"
       }
-    ],
-    "location": {
-      "lat": 46.554476,
-      "lon": 15.647181
-    }
+    ]
   },
   {
     "id": 228,
     "code": "181",
     "name": "UKC - Pobreška",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s228.jpg",
-    "routes": [
+    "lat": 46.554476,
+    "lon": 15.647181,
+    "lines": [
       "G5",
       "P9",
       "P10",
@@ -14224,18 +13848,16 @@
         ],
         "line": "P16"
       }
-    ],
-    "location": {
-      "lat": 46.554476,
-      "lon": 15.647181
-    }
+    ]
   },
   {
     "id": 229,
     "code": "191",
     "name": "Maribor - UKC",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s229.jpg",
-    "routes": [
+    "lat": 46.553028,
+    "lon": 15.646453,
+    "lines": [
       "G2",
       "G4",
       "G6",
@@ -14467,18 +14089,16 @@
         ],
         "line": "P18"
       }
-    ],
-    "location": {
-      "lat": 46.553028,
-      "lon": 15.646453
-    }
+    ]
   },
   {
     "id": 230,
     "code": "182",
     "name": "UKC - Magdalenski park",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s230.jpg",
-    "routes": [
+    "lat": 46.552755,
+    "lon": 15.645782,
+    "lines": [
       "G2",
       "G4"
     ],
@@ -14564,18 +14184,16 @@
         ],
         "line": "G4"
       }
-    ],
-    "location": {
-      "lat": 46.552755,
-      "lon": 15.645782
-    }
+    ]
   },
   {
     "id": 231,
     "code": "170",
     "name": "Ljubljanska - II. gimn.",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s231.jpg",
-    "routes": [
+    "lat": 46.549561,
+    "lon": 15.645558,
+    "lines": [
       "G2",
       "G4"
     ],
@@ -14661,18 +14279,16 @@
         ],
         "line": "G4"
       }
-    ],
-    "location": {
-      "lat": 46.549561,
-      "lon": 15.645558
-    }
+    ]
   },
   {
     "id": 232,
     "code": "171",
     "name": "Ljubljanska - II. gimn.",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s232.jpg",
-    "routes": [
+    "lat": 46.549561,
+    "lon": 15.645558,
+    "lines": [
       "G2",
       "G4"
     ],
@@ -14758,18 +14374,16 @@
         ],
         "line": "G4"
       }
-    ],
-    "location": {
-      "lat": 46.549561,
-      "lon": 15.645558
-    }
+    ]
   },
   {
     "id": 233,
     "code": "168",
     "name": "Ljubljanska - Focheva",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s233.jpg",
-    "routes": [
+    "lat": 46.545074,
+    "lon": 15.643485,
+    "lines": [
       "G2"
     ],
     "departures": [
@@ -14814,18 +14428,16 @@
         ],
         "line": "G2"
       }
-    ],
-    "location": {
-      "lat": 46.545074,
-      "lon": 15.643485
-    }
+    ]
   },
   {
     "id": 234,
     "code": "169",
     "name": "Ljubljanska - Focheva",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s234.jpg",
-    "routes": [
+    "lat": 46.545074,
+    "lon": 15.643485,
+    "lines": [
       "G2"
     ],
     "departures": [
@@ -14870,18 +14482,16 @@
         ],
         "line": "G2"
       }
-    ],
-    "location": {
-      "lat": 46.545074,
-      "lon": 15.643485
-    }
+    ]
   },
   {
     "id": 235,
     "code": "273",
     "name": "Prol. brigad - Ferkova",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s235.jpg",
-    "routes": [
+    "lat": 46.541641,
+    "lon": 15.640899,
+    "lines": [
       "G2"
     ],
     "departures": [
@@ -14926,18 +14536,16 @@
         ],
         "line": "G2"
       }
-    ],
-    "location": {
-      "lat": 46.541641,
-      "lon": 15.640899
-    }
+    ]
   },
   {
     "id": 236,
     "code": "355",
     "name": "Titova - Nasipna",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s236.jpg",
-    "routes": [
+    "lat": 46.544594,
+    "lon": 15.648782,
+    "lines": [
       "G1",
       "P17"
     ],
@@ -15010,18 +14618,16 @@
         ],
         "line": "P17"
       }
-    ],
-    "location": {
-      "lat": 46.544594,
-      "lon": 15.648782
-    }
+    ]
   },
   {
     "id": 237,
     "code": "356",
     "name": "Titova - Nasipna",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s237.jpg",
-    "routes": [
+    "lat": 46.544594,
+    "lon": 15.648782,
+    "lines": [
       "G1",
       "P17"
     ],
@@ -15092,18 +14698,16 @@
         ],
         "line": "P17"
       }
-    ],
-    "location": {
-      "lat": 46.544594,
-      "lon": 15.648782
-    }
+    ]
   },
   {
     "id": 238,
     "code": "367",
     "name": "Tržaška - Ptujska",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s238.jpg",
-    "routes": [
+    "lat": 46.538819,
+    "lon": 15.64702,
+    "lines": [
       "G1",
       "P17"
     ],
@@ -15176,18 +14780,16 @@
         ],
         "line": "P17"
       }
-    ],
-    "location": {
-      "lat": 46.538819,
-      "lon": 15.64702
-    }
+    ]
   },
   {
     "id": 242,
     "code": "382",
     "name": "Ul. Pariške komune",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s242.jpg",
-    "routes": [
+    "lat": 46.548726,
+    "lon": 15.641515,
+    "lines": [
       "G4"
     ],
     "departures": [
@@ -15231,18 +14833,16 @@
         ],
         "line": "G4"
       }
-    ],
-    "location": {
-      "lat": 46.548726,
-      "lon": 15.641515
-    }
+    ]
   },
   {
     "id": 243,
     "code": "383",
     "name": "Ul. Pariške komune",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s243.jpg",
-    "routes": [
+    "lat": 46.548726,
+    "lon": 15.641515,
+    "lines": [
       "G4"
     ],
     "departures": [
@@ -15286,18 +14886,16 @@
         ],
         "line": "G4"
       }
-    ],
-    "location": {
-      "lat": 46.548726,
-      "lon": 15.641515
-    }
+    ]
   },
   {
     "id": 244,
     "code": "281",
     "name": "Prol. brigad - Tržaška",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s244.jpg",
-    "routes": [
+    "lat": 46.539799,
+    "lon": 15.646367,
+    "lines": [
       "G3",
       "P12"
     ],
@@ -15362,18 +14960,16 @@
         ],
         "line": "P12"
       }
-    ],
-    "location": {
-      "lat": 46.539799,
-      "lon": 15.646367
-    }
+    ]
   },
   {
     "id": 245,
     "code": "15",
     "name": "Betnavski grad",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s245.jpg",
-    "routes": [
+    "lat": 46.529503,
+    "lon": 15.637461,
+    "lines": [
       "P11"
     ],
     "departures": [
@@ -15414,18 +15010,16 @@
         ],
         "line": "P11"
       }
-    ],
-    "location": {
-      "lat": 46.529503,
-      "lon": 15.637461
-    }
+    ]
   },
   {
     "id": 246,
     "code": "16",
     "name": "Betnavski grad",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s246.jpg",
-    "routes": [
+    "lat": 46.529503,
+    "lon": 15.637461,
+    "lines": [
       "P11"
     ],
     "departures": [
@@ -15465,18 +15059,16 @@
         ],
         "line": "P11"
       }
-    ],
-    "location": {
-      "lat": 46.529503,
-      "lon": 15.637461
-    }
+    ]
   },
   {
     "id": 247,
     "code": "307",
     "name": "Razvanje - vrtnarstvo",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s247.jpg",
-    "routes": [
+    "lat": 46.521791,
+    "lon": 15.635159,
+    "lines": [
       "P11"
     ],
     "departures": [
@@ -15517,18 +15109,16 @@
         ],
         "line": "P11"
       }
-    ],
-    "location": {
-      "lat": 46.521791,
-      "lon": 15.635159
-    }
+    ]
   },
   {
     "id": 248,
     "code": "306",
     "name": "Razvanje - GD",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s248.jpg",
-    "routes": [
+    "lat": 46.517971,
+    "lon": 15.634457,
+    "lines": [
       "P11"
     ],
     "departures": [
@@ -15568,18 +15158,16 @@
         ],
         "line": "P11"
       }
-    ],
-    "location": {
-      "lat": 46.517971,
-      "lon": 15.634457
-    }
+    ]
   },
   {
     "id": 249,
     "code": "305",
     "name": "Razvanje - GD",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s249.jpg",
-    "routes": [
+    "lat": 46.517971,
+    "lon": 15.634457,
+    "lines": [
       "P11"
     ],
     "departures": [
@@ -15620,18 +15208,16 @@
         ],
         "line": "P11"
       }
-    ],
-    "location": {
-      "lat": 46.517971,
-      "lon": 15.634457
-    }
+    ]
   },
   {
     "id": 250,
     "code": "304",
     "name": "Razvanje",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s250.jpg",
-    "routes": [
+    "lat": 46.515413,
+    "lon": 15.6356531,
+    "lines": [
       "P11"
     ],
     "departures": [
@@ -15683,18 +15269,16 @@
         ],
         "line": "P11"
       }
-    ],
-    "location": {
-      "lat": 46.515413,
-      "lon": 15.6356531
-    }
+    ]
   },
   {
     "id": 254,
     "code": "348",
     "name": "E.Leclerc",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s254.jpg",
-    "routes": [
+    "lat": 46.521225,
+    "lon": 15.651598,
+    "lines": [
       "P14",
       "P17"
     ],
@@ -15758,18 +15342,16 @@
         ],
         "line": "P17"
       }
-    ],
-    "location": {
-      "lat": 46.521225,
-      "lon": 15.651598
-    }
+    ]
   },
   {
     "id": 255,
     "code": "372",
     "name": "Tržaška cesta - Rutar",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s255.jpg",
-    "routes": [
+    "lat": 46.521465,
+    "lon": 15.648956,
+    "lines": [
       "P14",
       "P17"
     ],
@@ -15813,18 +15395,16 @@
         ],
         "line": "P17"
       }
-    ],
-    "location": {
-      "lat": 46.521465,
-      "lon": 15.648956
-    }
+    ]
   },
   {
     "id": 258,
     "code": "365",
     "name": "Tržaška cesta - carinarnica",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s258.jpg",
-    "routes": [
+    "lat": 46.526525,
+    "lon": 15.648251,
+    "lines": [
       "P14",
       "P17"
     ],
@@ -15868,18 +15448,16 @@
         ],
         "line": "P17"
       }
-    ],
-    "location": {
-      "lat": 46.526525,
-      "lon": 15.648251
-    }
+    ]
   },
   {
     "id": 259,
     "code": "366",
     "name": "Tržaška cesta - carinarnica",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s259.jpg",
-    "routes": [
+    "lat": 46.526525,
+    "lon": 15.648251,
+    "lines": [
       "P14",
       "P17"
     ],
@@ -15923,18 +15501,16 @@
         ],
         "line": "P17"
       }
-    ],
-    "location": {
-      "lat": 46.526525,
-      "lon": 15.648251
-    }
+    ]
   },
   {
     "id": 260,
     "code": "370",
     "name": "Tržaška cesta - Lesnina",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s260.jpg",
-    "routes": [
+    "lat": 46.530925,
+    "lon": 15.645941,
+    "lines": [
       "P14",
       "P17"
     ],
@@ -15978,18 +15554,16 @@
         ],
         "line": "P17"
       }
-    ],
-    "location": {
-      "lat": 46.530925,
-      "lon": 15.645941
-    }
+    ]
   },
   {
     "id": 261,
     "code": "371",
     "name": "Tržaška cesta - Lesnina",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s261.jpg",
-    "routes": [
+    "lat": 46.530925,
+    "lon": 15.645941,
+    "lines": [
       "P14",
       "P17"
     ],
@@ -16033,18 +15607,16 @@
         ],
         "line": "P17"
       }
-    ],
-    "location": {
-      "lat": 46.530925,
-      "lon": 15.645941
-    }
+    ]
   },
   {
     "id": 262,
     "code": "251",
     "name": "Pobreška - Europark",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s262.jpg",
-    "routes": [
+    "lat": 46.554732,
+    "lon": 15.653071,
+    "lines": [
       "P9",
       "P12",
       "P13",
@@ -16165,18 +15737,16 @@
         ],
         "line": "P16"
       }
-    ],
-    "location": {
-      "lat": 46.554732,
-      "lon": 15.653071
-    }
+    ]
   },
   {
     "id": 263,
     "code": "252",
     "name": "Pobreška - Europark",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s263.jpg",
-    "routes": [
+    "lat": 46.554732,
+    "lon": 15.653071,
+    "lines": [
       "G5",
       "P9",
       "P10",
@@ -16367,18 +15937,16 @@
         ],
         "line": "P16"
       }
-    ],
-    "location": {
-      "lat": 46.554732,
-      "lon": 15.653071
-    }
+    ]
   },
   {
     "id": 265,
     "code": "203",
     "name": "Meljski hrib - most",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s265.jpg",
-    "routes": [
+    "lat": 46.558068,
+    "lon": 15.682489,
+    "lines": [
       "P10"
     ],
     "departures": [
@@ -16410,18 +15978,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.558068,
-      "lon": 15.682489
-    }
+    ]
   },
   {
     "id": 266,
     "code": "204",
     "name": "Meljski hrib - most",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s266.jpg",
-    "routes": [
+    "lat": 46.558068,
+    "lon": 15.682489,
+    "lines": [
       "P10"
     ],
     "departures": [
@@ -16453,18 +16019,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.558068,
-      "lon": 15.682489
-    }
+    ]
   },
   {
     "id": 267,
     "code": "139",
     "name": "Kovačič",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s267.jpg",
-    "routes": [
+    "lat": 46.556431,
+    "lon": 15.691654,
+    "lines": [
       "P10"
     ],
     "departures": [
@@ -16496,18 +16060,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.556431,
-      "lon": 15.691654
-    }
+    ]
   },
   {
     "id": 268,
     "code": "140",
     "name": "Kovačič",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s268.jpg",
-    "routes": [
+    "lat": 46.556431,
+    "lon": 15.691654,
+    "lines": [
       "P10"
     ],
     "departures": [
@@ -16539,18 +16101,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.556431,
-      "lon": 15.691654
-    }
+    ]
   },
   {
     "id": 270,
     "code": "178",
     "name": "Malečnik",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s270.jpg",
-    "routes": [
+    "lat": 46.555402,
+    "lon": 15.696661,
+    "lines": [
       "P10"
     ],
     "departures": [
@@ -16582,18 +16142,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.555402,
-      "lon": 15.696661
-    }
+    ]
   },
   {
     "id": 271,
     "code": "179",
     "name": "Malečnik",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s271.jpg",
-    "routes": [
+    "lat": 46.555402,
+    "lon": 15.696661,
+    "lines": [
       "P10"
     ],
     "departures": [
@@ -16625,18 +16183,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.555402,
-      "lon": 15.696661
-    }
+    ]
   },
   {
     "id": 272,
     "code": "186",
     "name": "Malečnik - odcep Trčova",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s272.jpg",
-    "routes": [
+    "lat": 46.552997,
+    "lon": 15.705808,
+    "lines": [
       "P10"
     ],
     "departures": [
@@ -16668,18 +16224,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.552997,
-      "lon": 15.705808
-    }
+    ]
   },
   {
     "id": 273,
     "code": "187",
     "name": "Malečnik - odcep Trčova",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s273.jpg",
-    "routes": [
+    "lat": 46.552997,
+    "lon": 15.705808,
+    "lines": [
       "P10"
     ],
     "departures": [
@@ -16725,18 +16279,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.552997,
-      "lon": 15.705808
-    }
+    ]
   },
   {
     "id": 274,
     "code": "27",
     "name": "Celestrina",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s274.jpg",
-    "routes": [
+    "lat": 46.556035,
+    "lon": 15.711244,
+    "lines": [
       "P10"
     ],
     "departures": [
@@ -16768,18 +16320,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.556035,
-      "lon": 15.711244
-    }
+    ]
   },
   {
     "id": 275,
     "code": "28",
     "name": "Celestrina",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s275.jpg",
-    "routes": [
+    "lat": 46.556035,
+    "lon": 15.711244,
+    "lines": [
       "P10"
     ],
     "departures": [
@@ -16811,18 +16361,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.556035,
-      "lon": 15.711244
-    }
+    ]
   },
   {
     "id": 276,
     "code": "219",
     "name": "Nebova I",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s276.jpg",
-    "routes": [
+    "lat": 46.557287,
+    "lon": 15.719664,
+    "lines": [
       "P10"
     ],
     "departures": [
@@ -16854,18 +16402,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.557287,
-      "lon": 15.719664
-    }
+    ]
   },
   {
     "id": 277,
     "code": "220",
     "name": "Nebova I",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s277.jpg",
-    "routes": [
+    "lat": 46.557287,
+    "lon": 15.719664,
+    "lines": [
       "P10"
     ],
     "departures": [
@@ -16897,18 +16443,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.557287,
-      "lon": 15.719664
-    }
+    ]
   },
   {
     "id": 278,
     "code": "221",
     "name": "Nebova II",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s278.jpg",
-    "routes": [
+    "lat": 46.557634,
+    "lon": 15.724085,
+    "lines": [
       "P10"
     ],
     "departures": [
@@ -16940,18 +16484,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.557634,
-      "lon": 15.724085
-    }
+    ]
   },
   {
     "id": 279,
     "code": "222",
     "name": "Nebova II",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s279.jpg",
-    "routes": [
+    "lat": 46.557634,
+    "lon": 15.724085,
+    "lines": [
       "P10"
     ],
     "departures": [
@@ -16983,18 +16525,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.557634,
-      "lon": 15.724085
-    }
+    ]
   },
   {
     "id": 280,
     "code": "188",
     "name": "Malečnik - odcep Trčova",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s280.jpg",
-    "routes": [
+    "lat": 46.552997,
+    "lon": 15.705808,
+    "lines": [
       "P10"
     ],
     "departures": [
@@ -17026,18 +16566,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.552997,
-      "lon": 15.705808
-    }
+    ]
   },
   {
     "id": 282,
     "code": "317",
     "name": "Ruperče",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s282.jpg",
-    "routes": [
+    "lat": 46.560761,
+    "lon": 15.729293,
+    "lines": [
       "P10"
     ],
     "departures": [
@@ -17069,18 +16607,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.560761,
-      "lon": 15.729293
-    }
+    ]
   },
   {
     "id": 283,
     "code": "318",
     "name": "Ruperče",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s283.jpg",
-    "routes": [
+    "lat": 46.560761,
+    "lon": 15.729293,
+    "lines": [
       "P10"
     ],
     "departures": [
@@ -17112,18 +16648,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.560761,
-      "lon": 15.729293
-    }
+    ]
   },
   {
     "id": 284,
     "code": "145",
     "name": "Kronaveter",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s284.jpg",
-    "routes": [
+    "lat": 46.556547,
+    "lon": 15.733096,
+    "lines": [
       "P10"
     ],
     "departures": [
@@ -17155,18 +16689,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.556547,
-      "lon": 15.733096
-    }
+    ]
   },
   {
     "id": 285,
     "code": "124",
     "name": "Knezar",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s285.jpg",
-    "routes": [
+    "lat": 46.554546,
+    "lon": 15.736294,
+    "lines": [
       "P10"
     ],
     "departures": [
@@ -17198,18 +16730,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.554546,
-      "lon": 15.736294
-    }
+    ]
   },
   {
     "id": 286,
     "code": "208",
     "name": "Metava - odcep",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s286.jpg",
-    "routes": [
+    "lat": 46.550119,
+    "lon": 15.740569,
+    "lines": [
       "P10"
     ],
     "departures": [
@@ -17241,18 +16771,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.550119,
-      "lon": 15.740569
-    }
+    ]
   },
   {
     "id": 287,
     "code": "404",
     "name": "Zimica - odcep",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s287.jpg",
-    "routes": [
+    "lat": 46.551379,
+    "lon": 15.743682,
+    "lines": [
       "P10"
     ],
     "departures": [
@@ -17284,18 +16812,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.551379,
-      "lon": 15.743682
-    }
+    ]
   },
   {
     "id": 288,
     "code": "101",
     "name": "Grušova 1",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s288.jpg",
-    "routes": [
+    "lat": 46.557053,
+    "lon": 15.745686,
+    "lines": [
       "P10"
     ],
     "departures": [
@@ -17327,18 +16853,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.557053,
-      "lon": 15.745686
-    }
+    ]
   },
   {
     "id": 289,
     "code": "102",
     "name": "Grušova 1",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s289.jpg",
-    "routes": [
+    "lat": 46.557053,
+    "lon": 15.745686,
+    "lines": [
       "P10"
     ],
     "departures": [
@@ -17370,18 +16894,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.557053,
-      "lon": 15.745686
-    }
+    ]
   },
   {
     "id": 290,
     "code": "100",
     "name": "Grušova",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s290.jpg",
-    "routes": [
+    "lat": 46.559594,
+    "lon": 15.747312,
+    "lines": [
       "P10"
     ],
     "departures": [
@@ -17413,18 +16935,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.559594,
-      "lon": 15.747312
-    }
+    ]
   },
   {
     "id": 291,
     "code": "189",
     "name": "Malečnik - trgovina",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s291.jpg",
-    "routes": [
+    "lat": 46.552497,
+    "lon": 15.708171,
+    "lines": [
       "P10"
     ],
     "departures": [
@@ -17470,18 +16990,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.552497,
-      "lon": 15.708171
-    }
+    ]
   },
   {
     "id": 292,
     "code": "362",
     "name": "Trčova 31",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s292.jpg",
-    "routes": [
+    "lat": 46.547793,
+    "lon": 15.714933,
+    "lines": [
       "P10"
     ],
     "departures": [
@@ -17527,18 +17045,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.547793,
-      "lon": 15.714933
-    }
+    ]
   },
   {
     "id": 293,
     "code": "363",
     "name": "Trčova 31",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s293.jpg",
-    "routes": [
+    "lat": 46.547793,
+    "lon": 15.714933,
+    "lines": [
       "P10"
     ],
     "departures": [
@@ -17584,18 +17100,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.547793,
-      "lon": 15.714933
-    }
+    ]
   },
   {
     "id": 294,
     "code": "360",
     "name": "Trčova - Griček",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s294.jpg",
-    "routes": [
+    "lat": 46.539504,
+    "lon": 15.720569,
+    "lines": [
       "P10"
     ],
     "departures": [
@@ -17616,18 +17130,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.539504,
-      "lon": 15.720569
-    }
+    ]
   },
   {
     "id": 295,
     "code": "225",
     "name": "Novak",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s295.jpg",
-    "routes": [
+    "lat": 46.537569,
+    "lon": 15.724293,
+    "lines": [
       "P10"
     ],
     "departures": [
@@ -17648,18 +17160,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.537569,
-      "lon": 15.724293
-    }
+    ]
   },
   {
     "id": 296,
     "code": "206",
     "name": "Metava - Duplek križišče",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s296.jpg",
-    "routes": [
+    "lat": 46.534931,
+    "lon": 15.731634,
+    "lines": [
       "P10"
     ],
     "departures": [
@@ -17680,18 +17190,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.534931,
-      "lon": 15.731634
-    }
+    ]
   },
   {
     "id": 297,
     "code": "205",
     "name": "Metava",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s297.jpg",
-    "routes": [
+    "lat": 46.539722,
+    "lon": 15.732907,
+    "lines": [
       "P10"
     ],
     "departures": [
@@ -17712,18 +17220,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.539722,
-      "lon": 15.732907
-    }
+    ]
   },
   {
     "id": 298,
     "code": "96",
     "name": "Greenwich",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s298.jpg",
-    "routes": [
+    "lat": 46.554659,
+    "lon": 15.659808,
+    "lines": [
       "P9",
       "P10",
       "P12",
@@ -17845,18 +17351,16 @@
         ],
         "line": "P16"
       }
-    ],
-    "location": {
-      "lat": 46.554659,
-      "lon": 15.659808
-    }
+    ]
   },
   {
     "id": 299,
     "code": "97",
     "name": "Greenwich",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s299.jpg",
-    "routes": [
+    "lat": 46.554659,
+    "lon": 15.659808,
+    "lines": [
       "P9",
       "P12",
       "P16"
@@ -17949,18 +17453,16 @@
         ],
         "line": "P16"
       }
-    ],
-    "location": {
-      "lat": 46.554659,
-      "lon": 15.659808
-    }
+    ]
   },
   {
     "id": 300,
     "code": "218",
     "name": "Nasipna - Snaga",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s300.jpg",
-    "routes": [
+    "lat": 46.550584,
+    "lon": 15.656246,
+    "lines": [
       "P13"
     ],
     "departures": [
@@ -17991,18 +17493,16 @@
         ],
         "line": "P13"
       }
-    ],
-    "location": {
-      "lat": 46.550584,
-      "lon": 15.656246
-    }
+    ]
   },
   {
     "id": 301,
     "code": "217",
     "name": "Nasipna - Snaga",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s301.jpg",
-    "routes": [
+    "lat": 46.550584,
+    "lon": 15.656246,
+    "lines": [
       "P13"
     ],
     "departures": [
@@ -18033,18 +17533,16 @@
         ],
         "line": "P13"
       }
-    ],
-    "location": {
-      "lat": 46.550584,
-      "lon": 15.656246
-    }
+    ]
   },
   {
     "id": 302,
     "code": "3",
     "name": "Stražun",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s302.jpg",
-    "routes": [
+    "lat": 46.542928,
+    "lon": 15.654167,
+    "lines": [
       "P13"
     ],
     "departures": [
@@ -18063,18 +17561,16 @@
         ],
         "line": "P13"
       }
-    ],
-    "location": {
-      "lat": 46.542928,
-      "lon": 15.654167
-    }
+    ]
   },
   {
     "id": 303,
     "code": "227",
     "name": "OŠ borcev za severno mejo",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s303.jpg",
-    "routes": [
+    "lat": 46.547051,
+    "lon": 15.656968,
+    "lines": [
       "P13"
     ],
     "departures": [
@@ -18105,18 +17601,16 @@
         ],
         "line": "P13"
       }
-    ],
-    "location": {
-      "lat": 46.547051,
-      "lon": 15.656968
-    }
+    ]
   },
   {
     "id": 304,
     "code": "228",
     "name": "OŠ borcev za severno mejo",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s304.jpg",
-    "routes": [
+    "lat": 46.547051,
+    "lon": 15.656968,
+    "lines": [
       "P13"
     ],
     "departures": [
@@ -18147,18 +17641,16 @@
         ],
         "line": "P13"
       }
-    ],
-    "location": {
-      "lat": 46.547051,
-      "lon": 15.656968
-    }
+    ]
   },
   {
     "id": 305,
     "code": "388",
     "name": "Ulica heroja Vojka",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.544808,
+    "lon": 15.653853,
+    "lines": [
       "P13"
     ],
     "departures": [
@@ -18174,18 +17666,16 @@
         ],
         "line": "P13"
       }
-    ],
-    "location": {
-      "lat": 46.544808,
-      "lon": 15.653853
-    }
+    ]
   },
   {
     "id": 306,
     "code": "216",
     "name": "Nasipna - Cizerl",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s306.jpg",
-    "routes": [
+    "lat": 46.545437,
+    "lon": 15.652773,
+    "lines": [
       "P13"
     ],
     "departures": [
@@ -18201,18 +17691,16 @@
         ],
         "line": "P13"
       }
-    ],
-    "location": {
-      "lat": 46.545437,
-      "lon": 15.652773
-    }
+    ]
   },
   {
     "id": 307,
     "code": "37",
     "name": "Črnogorska ul. 23",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s307.jpg",
-    "routes": [
+    "lat": 46.545675,
+    "lon": 15.656455,
+    "lines": [
       "P13"
     ],
     "departures": [
@@ -18243,18 +17731,16 @@
         ],
         "line": "P13"
       }
-    ],
-    "location": {
-      "lat": 46.545675,
-      "lon": 15.656455
-    }
+    ]
   },
   {
     "id": 308,
     "code": "184",
     "name": "Makedonska",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s308.jpg",
-    "routes": [
+    "lat": 46.542353,
+    "lon": 15.657277,
+    "lines": [
       "P13"
     ],
     "departures": [
@@ -18285,18 +17771,16 @@
         ],
         "line": "P13"
       }
-    ],
-    "location": {
-      "lat": 46.542353,
-      "lon": 15.657277
-    }
+    ]
   },
   {
     "id": 309,
     "code": "2",
     "name": "Stražun",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s309.jpg",
-    "routes": [
+    "lat": 46.542928,
+    "lon": 15.654167,
+    "lines": [
       "P13"
     ],
     "departures": [
@@ -18339,18 +17823,16 @@
         ],
         "line": "P13"
       }
-    ],
-    "location": {
-      "lat": 46.542928,
-      "lon": 15.654167
-    }
+    ]
   },
   {
     "id": 310,
     "code": "427",
     "name": "ŽP Tezno",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s310.jpg",
-    "routes": [
+    "lat": 46.539447,
+    "lon": 15.651313,
+    "lines": [
       "P13"
     ],
     "departures": [
@@ -18369,18 +17851,16 @@
         ],
         "line": "P13"
       }
-    ],
-    "location": {
-      "lat": 46.539447,
-      "lon": 15.651313
-    }
+    ]
   },
   {
     "id": 311,
     "code": "428",
     "name": "ŽP Tezno",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s311.jpg",
-    "routes": [
+    "lat": 46.539447,
+    "lon": 15.651313,
+    "lines": [
       "P13"
     ],
     "departures": [
@@ -18399,18 +17879,16 @@
         ],
         "line": "P13"
       }
-    ],
-    "location": {
-      "lat": 46.539447,
-      "lon": 15.651313
-    }
+    ]
   },
   {
     "id": 312,
     "code": "401",
     "name": "Zagrebška - Kovinar",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s312.jpg",
-    "routes": [
+    "lat": 46.534721,
+    "lon": 15.658095,
+    "lines": [
       "P13"
     ],
     "departures": [
@@ -18429,18 +17907,16 @@
         ],
         "line": "P13"
       }
-    ],
-    "location": {
-      "lat": 46.534721,
-      "lon": 15.658095
-    }
+    ]
   },
   {
     "id": 313,
     "code": "402",
     "name": "Zagrebška - Kovinar",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s313.jpg",
-    "routes": [
+    "lat": 46.534721,
+    "lon": 15.658095,
+    "lines": [
       "P13"
     ],
     "departures": [
@@ -18459,18 +17935,16 @@
         ],
         "line": "P13"
       }
-    ],
-    "location": {
-      "lat": 46.534721,
-      "lon": 15.658095
-    }
+    ]
   },
   {
     "id": 314,
     "code": "399",
     "name": "Zagrebška - CSD",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s314.jpg",
-    "routes": [
+    "lat": 46.531271,
+    "lon": 15.665202,
+    "lines": [
       "P13"
     ],
     "departures": [
@@ -18489,18 +17963,16 @@
         ],
         "line": "P13"
       }
-    ],
-    "location": {
-      "lat": 46.531271,
-      "lon": 15.665202
-    }
+    ]
   },
   {
     "id": 315,
     "code": "400",
     "name": "Zagrebška - CSD",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s315.jpg",
-    "routes": [
+    "lat": 46.531271,
+    "lon": 15.665202,
+    "lines": [
       "P13"
     ],
     "departures": [
@@ -18519,18 +17991,16 @@
         ],
         "line": "P13"
       }
-    ],
-    "location": {
-      "lat": 46.531271,
-      "lon": 15.665202
-    }
+    ]
   },
   {
     "id": 316,
     "code": "120",
     "name": "Kavčičeva",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s316.jpg",
-    "routes": [
+    "lat": 46.527143,
+    "lon": 15.672036,
+    "lines": [
       "P13"
     ],
     "departures": [
@@ -18549,18 +18019,16 @@
         ],
         "line": "P13"
       }
-    ],
-    "location": {
-      "lat": 46.527143,
-      "lon": 15.672036
-    }
+    ]
   },
   {
     "id": 317,
     "code": "121",
     "name": "Kavčičeva",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s317.jpg",
-    "routes": [
+    "lat": 46.527143,
+    "lon": 15.672036,
+    "lines": [
       "P13"
     ],
     "departures": [
@@ -18579,18 +18047,16 @@
         ],
         "line": "P13"
       }
-    ],
-    "location": {
-      "lat": 46.527143,
-      "lon": 15.672036
-    }
+    ]
   },
   {
     "id": 318,
     "code": "406",
     "name": "Zolajeva - TŠC",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s318.jpg",
-    "routes": [
+    "lat": 46.5259,
+    "lon": 15.670344,
+    "lines": [
       "P13"
     ],
     "departures": [
@@ -18609,18 +18075,16 @@
         ],
         "line": "P13"
       }
-    ],
-    "location": {
-      "lat": 46.5259,
-      "lon": 15.670344
-    }
+    ]
   },
   {
     "id": 320,
     "code": "264",
     "name": "Poštni center",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s320.jpg",
-    "routes": [
+    "lat": 46.521946,
+    "lon": 15.671974,
+    "lines": [
       "P13"
     ],
     "departures": [
@@ -18639,18 +18103,16 @@
         ],
         "line": "P13"
       }
-    ],
-    "location": {
-      "lat": 46.521946,
-      "lon": 15.671974
-    }
+    ]
   },
   {
     "id": 321,
     "code": "294",
     "name": "Ptujska - Tržaška",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s321.jpg",
-    "routes": [
+    "lat": 46.539701,
+    "lon": 15.648591,
+    "lines": [
       "G1",
       "G3",
       "P12"
@@ -18764,18 +18226,16 @@
         ],
         "line": "P12"
       }
-    ],
-    "location": {
-      "lat": 46.539701,
-      "lon": 15.648591
-    }
+    ]
   },
   {
     "id": 322,
     "code": "286",
     "name": "Ptujska - hitra cesta",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s322.jpg",
-    "routes": [
+    "lat": 46.539627,
+    "lon": 15.654032,
+    "lines": [
       "G1",
       "G3",
       "P12"
@@ -18889,18 +18349,16 @@
         ],
         "line": "P12"
       }
-    ],
-    "location": {
-      "lat": 46.539627,
-      "lon": 15.654032
-    }
+    ]
   },
   {
     "id": 323,
     "code": "288",
     "name": "Ptujska - Kovinar",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s323.jpg",
-    "routes": [
+    "lat": 46.536927,
+    "lon": 15.658624,
+    "lines": [
       "G1",
       "G3",
       "P12"
@@ -19014,18 +18472,16 @@
         ],
         "line": "P12"
       }
-    ],
-    "location": {
-      "lat": 46.536927,
-      "lon": 15.658624
-    }
+    ]
   },
   {
     "id": 324,
     "code": "284",
     "name": "Ptujska - Špelina",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s324.jpg",
-    "routes": [
+    "lat": 46.533447,
+    "lon": 15.665435,
+    "lines": [
       "G1",
       "G3",
       "P12"
@@ -19139,18 +18595,16 @@
         ],
         "line": "P12"
       }
-    ],
-    "location": {
-      "lat": 46.533447,
-      "lon": 15.665435
-    }
+    ]
   },
   {
     "id": 325,
     "code": "290",
     "name": "Ptujska - pošta",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s325.jpg",
-    "routes": [
+    "lat": 46.531681,
+    "lon": 15.668748,
+    "lines": [
       "G1",
       "G3",
       "P12"
@@ -19264,18 +18718,16 @@
         ],
         "line": "P12"
       }
-    ],
-    "location": {
-      "lat": 46.531681,
-      "lon": 15.668748
-    }
+    ]
   },
   {
     "id": 326,
     "code": "292",
     "name": "Ptujska - Cona Tezno",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s326.jpg",
-    "routes": [
+    "lat": 46.529611,
+    "lon": 15.671695,
+    "lines": [
       "G1",
       "P12"
     ],
@@ -19351,18 +18803,16 @@
         ],
         "line": "P12"
       }
-    ],
-    "location": {
-      "lat": 46.529611,
-      "lon": 15.671695
-    }
+    ]
   },
   {
     "id": 329,
     "code": "257",
     "name": "Karantanska",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s329.jpg",
-    "routes": [
+    "lat": 46.518383,
+    "lon": 15.686697,
+    "lines": [
       "P12"
     ],
     "departures": [
@@ -19390,18 +18840,16 @@
         ],
         "line": "P12"
       }
-    ],
-    "location": {
-      "lat": 46.518383,
-      "lon": 15.686697
-    }
+    ]
   },
   {
     "id": 331,
     "code": "293",
     "name": "Ptujska - Cona Tezno",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s331.jpg",
-    "routes": [
+    "lat": 46.529611,
+    "lon": 15.671695,
+    "lines": [
       "G1",
       "P12"
     ],
@@ -19479,18 +18927,16 @@
         ],
         "line": "P12"
       }
-    ],
-    "location": {
-      "lat": 46.529611,
-      "lon": 15.671695
-    }
+    ]
   },
   {
     "id": 332,
     "code": "291",
     "name": "Ptujska - pošta",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s332.jpg",
-    "routes": [
+    "lat": 46.531681,
+    "lon": 15.668748,
+    "lines": [
       "G1",
       "G3",
       "P12"
@@ -19605,18 +19051,16 @@
         ],
         "line": "P12"
       }
-    ],
-    "location": {
-      "lat": 46.531681,
-      "lon": 15.668748
-    }
+    ]
   },
   {
     "id": 333,
     "code": "285",
     "name": "Ptujska - Špelina",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s333.jpg",
-    "routes": [
+    "lat": 46.533447,
+    "lon": 15.665435,
+    "lines": [
       "G1",
       "G3",
       "P12"
@@ -19731,18 +19175,16 @@
         ],
         "line": "P12"
       }
-    ],
-    "location": {
-      "lat": 46.533447,
-      "lon": 15.665435
-    }
+    ]
   },
   {
     "id": 334,
     "code": "289",
     "name": "Ptujska - Kovinar",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s334.jpg",
-    "routes": [
+    "lat": 46.536927,
+    "lon": 15.658624,
+    "lines": [
       "G1",
       "G3",
       "P12"
@@ -19857,18 +19299,16 @@
         ],
         "line": "P12"
       }
-    ],
-    "location": {
-      "lat": 46.536927,
-      "lon": 15.658624
-    }
+    ]
   },
   {
     "id": 335,
     "code": "287",
     "name": "Ptujska - hitra cesta",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s335.jpg",
-    "routes": [
+    "lat": 46.539627,
+    "lon": 15.654032,
+    "lines": [
       "G1",
       "G3",
       "P12"
@@ -19983,18 +19423,16 @@
         ],
         "line": "P12"
       }
-    ],
-    "location": {
-      "lat": 46.539627,
-      "lon": 15.654032
-    }
+    ]
   },
   {
     "id": 336,
     "code": "353",
     "name": "Tezno - dom st. občanov",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s336.jpg",
-    "routes": [
+    "lat": 46.525041,
+    "lon": 15.678189,
+    "lines": [
       "P12"
     ],
     "departures": [
@@ -20022,18 +19460,16 @@
         ],
         "line": "P12"
       }
-    ],
-    "location": {
-      "lat": 46.525041,
-      "lon": 15.678189
-    }
+    ]
   },
   {
     "id": 337,
     "code": "354",
     "name": "Tezno - dom st. občanov",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s337.jpg",
-    "routes": [
+    "lat": 46.525041,
+    "lon": 15.678189,
+    "lines": [
       "P12"
     ],
     "departures": [
@@ -20061,18 +19497,16 @@
         ],
         "line": "P12"
       }
-    ],
-    "location": {
-      "lat": 46.525041,
-      "lon": 15.678189
-    }
+    ]
   },
   {
     "id": 338,
     "code": "260",
     "name": "Pokop. Dobrava - vhod",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s338.jpg",
-    "routes": [
+    "lat": 46.519089,
+    "lon": 15.692238,
+    "lines": [
       "P12"
     ],
     "departures": [
@@ -20100,18 +19534,16 @@
         ],
         "line": "P12"
       }
-    ],
-    "location": {
-      "lat": 46.519089,
-      "lon": 15.692238
-    }
+    ]
   },
   {
     "id": 339,
     "code": "259",
     "name": "Pokop. Dobrava - vhod",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s339.jpg",
-    "routes": [
+    "lat": 46.519089,
+    "lon": 15.692238,
+    "lines": [
       "P12"
     ],
     "departures": [
@@ -20139,18 +19571,16 @@
         ],
         "line": "P12"
       }
-    ],
-    "location": {
-      "lat": 46.519089,
-      "lon": 15.692238
-    }
+    ]
   },
   {
     "id": 340,
     "code": "261",
     "name": "Pokopališče Dobrava",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s340.jpg",
-    "routes": [
+    "lat": 46.519569,
+    "lon": 15.696044,
+    "lines": [
       "P12"
     ],
     "departures": [
@@ -20202,18 +19632,16 @@
         ],
         "line": "P12"
       }
-    ],
-    "location": {
-      "lat": 46.519569,
-      "lon": 15.696044
-    }
+    ]
   },
   {
     "id": 341,
     "code": "258",
     "name": "Karantanska",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s341.jpg",
-    "routes": [
+    "lat": 46.518383,
+    "lon": 15.686697,
+    "lines": [
       "P12"
     ],
     "departures": [
@@ -20241,18 +19669,16 @@
         ],
         "line": "P12"
       }
-    ],
-    "location": {
-      "lat": 46.518383,
-      "lon": 15.686697
-    }
+    ]
   },
   {
     "id": 342,
     "code": "59",
     "name": "Dupleška - kanal",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s342.jpg",
-    "routes": [
+    "lat": 46.526891,
+    "lon": 15.700068,
+    "lines": [
       "P12"
     ],
     "departures": [
@@ -20280,18 +19706,16 @@
         ],
         "line": "P12"
       }
-    ],
-    "location": {
-      "lat": 46.526891,
-      "lon": 15.700068
-    }
+    ]
   },
   {
     "id": 343,
     "code": "60",
     "name": "Dupleška - kanal",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s343.jpg",
-    "routes": [
+    "lat": 46.526891,
+    "lon": 15.700068,
+    "lines": [
       "P12",
       "P16"
     ],
@@ -20345,18 +19769,16 @@
         ],
         "line": "P16"
       }
-    ],
-    "location": {
-      "lat": 46.526891,
-      "lon": 15.700068
-    }
+    ]
   },
   {
     "id": 344,
     "code": "61",
     "name": "Dupleška - kanal",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s344.jpg",
-    "routes": [
+    "lat": 46.526891,
+    "lon": 15.700068,
+    "lines": [
       "P16"
     ],
     "departures": [
@@ -20385,18 +19807,16 @@
         ],
         "line": "P16"
       }
-    ],
-    "location": {
-      "lat": 46.526891,
-      "lon": 15.700068
-    }
+    ]
   },
   {
     "id": 345,
     "code": "44",
     "name": "Dogoše - Gasilski dom",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s345.jpg",
-    "routes": [
+    "lat": 46.523742,
+    "lon": 15.703949,
+    "lines": [
       "P16"
     ],
     "departures": [
@@ -20425,18 +19845,16 @@
         ],
         "line": "P16"
       }
-    ],
-    "location": {
-      "lat": 46.523742,
-      "lon": 15.703949
-    }
+    ]
   },
   {
     "id": 346,
     "code": "45",
     "name": "Dogoše - Gasilski dom",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s346.jpg",
-    "routes": [
+    "lat": 46.523742,
+    "lon": 15.703949,
+    "lines": [
       "P9",
       "P16"
     ],
@@ -20479,18 +19897,16 @@
         ],
         "line": "P16"
       }
-    ],
-    "location": {
-      "lat": 46.523742,
-      "lon": 15.703949
-    }
+    ]
   },
   {
     "id": 347,
     "code": "64",
     "name": "Dupleška cesta 239",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s347.jpg",
-    "routes": [
+    "lat": 46.523932,
+    "lon": 15.704634,
+    "lines": [
       "P9"
     ],
     "departures": [
@@ -20507,18 +19923,16 @@
         ],
         "line": "P9"
       }
-    ],
-    "location": {
-      "lat": 46.523932,
-      "lon": 15.704634
-    }
+    ]
   },
   {
     "id": 348,
     "code": "65",
     "name": "Dupleška cesta 245",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s348.jpg",
-    "routes": [
+    "lat": 46.523413,
+    "lon": 15.705232,
+    "lines": [
       "P9"
     ],
     "departures": [
@@ -20535,18 +19949,16 @@
         ],
         "line": "P9"
       }
-    ],
-    "location": {
-      "lat": 46.523413,
-      "lon": 15.705232
-    }
+    ]
   },
   {
     "id": 349,
     "code": "66",
     "name": "Dogoše",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s349.jpg",
-    "routes": [
+    "lat": 46.521559,
+    "lon": 15.705513,
+    "lines": [
       "P9"
     ],
     "departures": [
@@ -20563,18 +19975,16 @@
         ],
         "line": "P9"
       }
-    ],
-    "location": {
-      "lat": 46.521559,
-      "lon": 15.705513
-    }
+    ]
   },
   {
     "id": 350,
     "code": "46",
     "name": "Dogoše - polje",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s350.jpg",
-    "routes": [
+    "lat": 46.516745,
+    "lon": 15.709547,
+    "lines": [
       "P16"
     ],
     "departures": [
@@ -20603,18 +20013,16 @@
         ],
         "line": "P16"
       }
-    ],
-    "location": {
-      "lat": 46.516745,
-      "lon": 15.709547
-    }
+    ]
   },
   {
     "id": 351,
     "code": "47",
     "name": "Dogoše - polje",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s351.jpg",
-    "routes": [
+    "lat": 46.516745,
+    "lon": 15.709547,
+    "lines": [
       "P16"
     ],
     "departures": [
@@ -20643,18 +20051,16 @@
         ],
         "line": "P16"
       }
-    ],
-    "location": {
-      "lat": 46.516745,
-      "lon": 15.709547
-    }
+    ]
   },
   {
     "id": 352,
     "code": "43",
     "name": "Dogoše - obračališče",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s352.jpg",
-    "routes": [
+    "lat": 46.51468,
+    "lon": 15.712493,
+    "lines": [
       "P16"
     ],
     "departures": [
@@ -20708,18 +20114,16 @@
         ],
         "line": "P16"
       }
-    ],
-    "location": {
-      "lat": 46.51468,
-      "lon": 15.712493
-    }
+    ]
   },
   {
     "id": 353,
     "code": "403",
     "name": "Zg. Duplek",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s353.jpg",
-    "routes": [
+    "lat": 46.515357,
+    "lon": 15.717538,
+    "lines": [
       "P16"
     ],
     "departures": [
@@ -20748,18 +20152,16 @@
         ],
         "line": "P16"
       }
-    ],
-    "location": {
-      "lat": 46.515357,
-      "lon": 15.717538
-    }
+    ]
   },
   {
     "id": 354,
     "code": "332",
     "name": "Svenškova ulica 40",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s354.jpg",
-    "routes": [
+    "lat": 46.528356,
+    "lon": 15.706277,
+    "lines": [
       "P9"
     ],
     "departures": [
@@ -20776,18 +20178,16 @@
         ],
         "line": "P9"
       }
-    ],
-    "location": {
-      "lat": 46.528356,
-      "lon": 15.706277
-    }
+    ]
   },
   {
     "id": 355,
     "code": "333",
     "name": "Svenškova ulica 40",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s355.jpg",
-    "routes": [
+    "lat": 46.528356,
+    "lon": 15.706277,
+    "lines": [
       "P9"
     ],
     "departures": [
@@ -20804,18 +20204,16 @@
         ],
         "line": "P9"
       }
-    ],
-    "location": {
-      "lat": 46.528356,
-      "lon": 15.706277
-    }
+    ]
   },
   {
     "id": 356,
     "code": "57",
     "name": "Dupleška - Jarčeva",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s356.jpg",
-    "routes": [
+    "lat": 46.532254,
+    "lon": 15.694671,
+    "lines": [
       "P12",
       "P16"
     ],
@@ -20869,18 +20267,16 @@
         ],
         "line": "P16"
       }
-    ],
-    "location": {
-      "lat": 46.532254,
-      "lon": 15.694671
-    }
+    ]
   },
   {
     "id": 357,
     "code": "58",
     "name": "Dupleška - Jarčeva",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s357.jpg",
-    "routes": [
+    "lat": 46.532254,
+    "lon": 15.694671,
+    "lines": [
       "P12",
       "P16"
     ],
@@ -20934,18 +20330,16 @@
         ],
         "line": "P16"
       }
-    ],
-    "location": {
-      "lat": 46.532254,
-      "lon": 15.694671
-    }
+    ]
   },
   {
     "id": 358,
     "code": "25",
     "name": "Brezje",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s358.jpg",
-    "routes": [
+    "lat": 46.536515,
+    "lon": 15.688387,
+    "lines": [
       "P12",
       "P16"
     ],
@@ -21011,18 +20405,16 @@
         ],
         "line": "P16"
       }
-    ],
-    "location": {
-      "lat": 46.536515,
-      "lon": 15.688387
-    }
+    ]
   },
   {
     "id": 359,
     "code": "26",
     "name": "Brezje",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s359.jpg",
-    "routes": [
+    "lat": 46.536515,
+    "lon": 15.688387,
+    "lines": [
       "P12",
       "P16"
     ],
@@ -21076,18 +20468,16 @@
         ],
         "line": "P16"
       }
-    ],
-    "location": {
-      "lat": 46.536515,
-      "lon": 15.688387
-    }
+    ]
   },
   {
     "id": 360,
     "code": "62",
     "name": "Dupleška - Tezenska",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s360.jpg",
-    "routes": [
+    "lat": 46.541218,
+    "lon": 15.683419,
+    "lines": [
       "G3",
       "P12",
       "P16"
@@ -21190,18 +20580,16 @@
         ],
         "line": "P16"
       }
-    ],
-    "location": {
-      "lat": 46.541218,
-      "lon": 15.683419
-    }
+    ]
   },
   {
     "id": 361,
     "code": "63",
     "name": "Dupleška - Tezenska",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s361.jpg",
-    "routes": [
+    "lat": 46.541218,
+    "lon": 15.683419,
+    "lines": [
       "G3",
       "P12",
       "P16"
@@ -21305,18 +20693,16 @@
         ],
         "line": "P16"
       }
-    ],
-    "location": {
-      "lat": 46.541218,
-      "lon": 15.683419
-    }
+    ]
   },
   {
     "id": 362,
     "code": "33",
     "name": "Cesta XIV. divizije",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s362.jpg",
-    "routes": [
+    "lat": 46.544875,
+    "lon": 15.676494,
+    "lines": [
       "G3",
       "P12",
       "P16"
@@ -21419,18 +20805,16 @@
         ],
         "line": "P16"
       }
-    ],
-    "location": {
-      "lat": 46.544875,
-      "lon": 15.676494
-    }
+    ]
   },
   {
     "id": 363,
     "code": "34",
     "name": "Cesta XIV. divizije",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s363.jpg",
-    "routes": [
+    "lat": 46.544875,
+    "lon": 15.676494,
+    "lines": [
       "G3",
       "P12",
       "P16"
@@ -21534,18 +20918,16 @@
         ],
         "line": "P16"
       }
-    ],
-    "location": {
-      "lat": 46.544875,
-      "lon": 15.676494
-    }
+    ]
   },
   {
     "id": 364,
     "code": "238",
     "name": "OŠ Draga Kobala",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s364.jpg",
-    "routes": [
+    "lat": 46.546369,
+    "lon": 15.672098,
+    "lines": [
       "P12"
     ],
     "departures": [
@@ -21573,18 +20955,16 @@
         ],
         "line": "P12"
       }
-    ],
-    "location": {
-      "lat": 46.546369,
-      "lon": 15.672098
-    }
+    ]
   },
   {
     "id": 365,
     "code": "239",
     "name": "OŠ Draga Kobala",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s365.jpg",
-    "routes": [
+    "lat": 46.546369,
+    "lon": 15.672098,
+    "lines": [
       "P12"
     ],
     "departures": [
@@ -21612,18 +20992,16 @@
         ],
         "line": "P12"
       }
-    ],
-    "location": {
-      "lat": 46.546369,
-      "lon": 15.672098
-    }
+    ]
   },
   {
     "id": 366,
     "code": "262",
     "name": "Pokopališče Pobrežje",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s366.jpg",
-    "routes": [
+    "lat": 46.550902,
+    "lon": 15.664378,
+    "lines": [
       "P12"
     ],
     "departures": [
@@ -21651,18 +21029,16 @@
         ],
         "line": "P12"
       }
-    ],
-    "location": {
-      "lat": 46.550902,
-      "lon": 15.664378
-    }
+    ]
   },
   {
     "id": 367,
     "code": "263",
     "name": "Pokopališče Pobrežje",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s367.jpg",
-    "routes": [
+    "lat": 46.550902,
+    "lon": 15.664378,
+    "lines": [
       "P12"
     ],
     "departures": [
@@ -21690,18 +21066,16 @@
         ],
         "line": "P12"
       }
-    ],
-    "location": {
-      "lat": 46.550902,
-      "lon": 15.664378
-    }
+    ]
   },
   {
     "id": 368,
     "code": "235",
     "name": "Osojnikova",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s368.jpg",
-    "routes": [
+    "lat": 46.551776,
+    "lon": 15.664403,
+    "lines": [
       "P12"
     ],
     "departures": [
@@ -21729,18 +21103,16 @@
         ],
         "line": "P12"
       }
-    ],
-    "location": {
-      "lat": 46.551776,
-      "lon": 15.664403
-    }
+    ]
   },
   {
     "id": 369,
     "code": "236",
     "name": "Osojnikova - TVD Partizan",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s369.jpg",
-    "routes": [
+    "lat": 46.554105,
+    "lon": 15.665806,
+    "lines": [
       "P12"
     ],
     "departures": [
@@ -21768,18 +21140,16 @@
         ],
         "line": "P12"
       }
-    ],
-    "location": {
-      "lat": 46.554105,
-      "lon": 15.665806
-    }
+    ]
   },
   {
     "id": 370,
     "code": "41",
     "name": "Čufarjeva - TVD Partizan",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s370.jpg",
-    "routes": [
+    "lat": 46.554756,
+    "lon": 15.666739,
+    "lines": [
       "G3",
       "P9",
       "P12",
@@ -21910,18 +21280,16 @@
         ],
         "line": "P16"
       }
-    ],
-    "location": {
-      "lat": 46.554756,
-      "lon": 15.666739
-    }
+    ]
   },
   {
     "id": 371,
     "code": "42",
     "name": "Čufarjeva - TVD Partizan",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s371.jpg",
-    "routes": [
+    "lat": 46.554756,
+    "lon": 15.666739,
+    "lines": [
       "G3",
       "P9",
       "P10",
@@ -22055,18 +21423,16 @@
         ],
         "line": "P16"
       }
-    ],
-    "location": {
-      "lat": 46.554756,
-      "lon": 15.666739
-    }
+    ]
   },
   {
     "id": 372,
     "code": "39",
     "name": "Čufarjeva - dom st. obč.",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s372.jpg",
-    "routes": [
+    "lat": 46.554516,
+    "lon": 15.673517,
+    "lines": [
       "G3",
       "P9",
       "P16"
@@ -22172,18 +21538,16 @@
         ],
         "line": "P16"
       }
-    ],
-    "location": {
-      "lat": 46.554516,
-      "lon": 15.673517
-    }
+    ]
   },
   {
     "id": 373,
     "code": "40",
     "name": "Čufarjeva - dom st. obč.",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s373.jpg",
-    "routes": [
+    "lat": 46.554516,
+    "lon": 15.673517,
+    "lines": [
       "G3",
       "P9",
       "P10",
@@ -22317,18 +21681,16 @@
         ],
         "line": "P16"
       }
-    ],
-    "location": {
-      "lat": 46.554516,
-      "lon": 15.673517
-    }
+    ]
   },
   {
     "id": 374,
     "code": "384",
     "name": "Ul. V. Vlahovića - S31",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s374.jpg",
-    "routes": [
+    "lat": 46.550802,
+    "lon": 15.676429,
+    "lines": [
       "G3",
       "P16"
     ],
@@ -22407,18 +21769,16 @@
         ],
         "line": "P16"
       }
-    ],
-    "location": {
-      "lat": 46.550802,
-      "lon": 15.676429
-    }
+    ]
   },
   {
     "id": 375,
     "code": "385",
     "name": "Ul. V. Vlahovića - S31",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s375.jpg",
-    "routes": [
+    "lat": 46.550802,
+    "lon": 15.676429,
+    "lines": [
       "G3",
       "P16"
     ],
@@ -22496,18 +21856,16 @@
         ],
         "line": "P16"
       }
-    ],
-    "location": {
-      "lat": 46.550802,
-      "lon": 15.676429
-    }
+    ]
   },
   {
     "id": 376,
     "code": "386",
     "name": "Novo Pobrežje",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s376.jpg",
-    "routes": [
+    "lat": 46.547605,
+    "lon": 15.674821,
+    "lines": [
       "G3",
       "P16"
     ],
@@ -22586,18 +21944,16 @@
         ],
         "line": "P16"
       }
-    ],
-    "location": {
-      "lat": 46.547605,
-      "lon": 15.674821
-    }
+    ]
   },
   {
     "id": 377,
     "code": "387",
     "name": "Novo Pobrežje",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s377.jpg",
-    "routes": [
+    "lat": 46.547605,
+    "lon": 15.674821,
+    "lines": [
       "G3",
       "P16"
     ],
@@ -22675,18 +22031,16 @@
         ],
         "line": "P16"
       }
-    ],
-    "location": {
-      "lat": 46.547605,
-      "lon": 15.674821
-    }
+    ]
   },
   {
     "id": 378,
     "code": "409",
     "name": "Zrkovska - Gasilski dom",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s378.jpg",
-    "routes": [
+    "lat": 46.554349,
+    "lon": 15.676661,
+    "lines": [
       "P9"
     ],
     "departures": [
@@ -22716,18 +22070,16 @@
         ],
         "line": "P9"
       }
-    ],
-    "location": {
-      "lat": 46.554349,
-      "lon": 15.676661
-    }
+    ]
   },
   {
     "id": 379,
     "code": "420",
     "name": "Zrkovska cesta",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s379.jpg",
-    "routes": [
+    "lat": 46.552228,
+    "lon": 15.682309,
+    "lines": [
       "P9"
     ],
     "departures": [
@@ -22757,18 +22109,16 @@
         ],
         "line": "P9"
       }
-    ],
-    "location": {
-      "lat": 46.552228,
-      "lon": 15.682309
-    }
+    ]
   },
   {
     "id": 380,
     "code": "416",
     "name": "Zrkovska - Na terasi",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s380.jpg",
-    "routes": [
+    "lat": 46.549674,
+    "lon": 15.694727,
+    "lines": [
       "P9"
     ],
     "departures": [
@@ -22798,18 +22148,16 @@
         ],
         "line": "P9"
       }
-    ],
-    "location": {
-      "lat": 46.549674,
-      "lon": 15.694727
-    }
+    ]
   },
   {
     "id": 381,
     "code": "417",
     "name": "Zrkovska - Na terasi",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s381.jpg",
-    "routes": [
+    "lat": 46.549674,
+    "lon": 15.694727,
+    "lines": [
       "P9"
     ],
     "departures": [
@@ -22839,18 +22187,16 @@
         ],
         "line": "P9"
       }
-    ],
-    "location": {
-      "lat": 46.549674,
-      "lon": 15.694727
-    }
+    ]
   },
   {
     "id": 382,
     "code": "408",
     "name": "Zrkovci",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s382.jpg",
-    "routes": [
+    "lat": 46.549582,
+    "lon": 15.700092,
+    "lines": [
       "P9"
     ],
     "departures": [
@@ -22906,18 +22252,16 @@
         ],
         "line": "P9"
       }
-    ],
-    "location": {
-      "lat": 46.549582,
-      "lon": 15.700092
-    }
+    ]
   },
   {
     "id": 383,
     "code": "412",
     "name": "Zrkovci - Na Gorci 54",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s383.jpg",
-    "routes": [
+    "lat": 46.546532,
+    "lon": 15.705432,
+    "lines": [
       "P9"
     ],
     "departures": [
@@ -22947,18 +22291,16 @@
         ],
         "line": "P9"
       }
-    ],
-    "location": {
-      "lat": 46.546532,
-      "lon": 15.705432
-    }
+    ]
   },
   {
     "id": 384,
     "code": "415",
     "name": "Zrkovci - Na Gorci 65",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s384.jpg",
-    "routes": [
+    "lat": 46.544222,
+    "lon": 15.706825,
+    "lines": [
       "P9"
     ],
     "departures": [
@@ -22975,18 +22317,16 @@
         ],
         "line": "P9"
       }
-    ],
-    "location": {
-      "lat": 46.544222,
-      "lon": 15.706825
-    }
+    ]
   },
   {
     "id": 388,
     "code": "49",
     "name": "Dogoška - vrtec",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s388.jpg",
-    "routes": [
+    "lat": 46.528314,
+    "lon": 15.675737,
+    "lines": [
       "G1",
       "P12"
     ],
@@ -23064,18 +22404,16 @@
         ],
         "line": "P12"
       }
-    ],
-    "location": {
-      "lat": 46.528314,
-      "lon": 15.675737
-    }
+    ]
   },
   {
     "id": 389,
     "code": "48",
     "name": "Dogoška - vrtec",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s389.jpg",
-    "routes": [
+    "lat": 46.528314,
+    "lon": 15.675737,
+    "lines": [
       "G1",
       "P12"
     ],
@@ -23151,18 +22489,16 @@
         ],
         "line": "P12"
       }
-    ],
-    "location": {
-      "lat": 46.528314,
-      "lon": 15.675737
-    }
+    ]
   },
   {
     "id": 390,
     "code": "147",
     "name": "MČ Tezno",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s390.jpg",
-    "routes": [
+    "lat": 46.527886,
+    "lon": 15.681957,
+    "lines": [
       "G1",
       "P12"
     ],
@@ -23240,30 +22576,26 @@
         ],
         "line": "P12"
       }
-    ],
-    "location": {
-      "lat": 46.527886,
-      "lon": 15.681957
-    }
+    ]
   },
   {
     "id": 391,
     "code": "148",
     "name": "MČ Tezno",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s391.jpg",
-    "routes": null,
-    "departures": null,
-    "location": {
-      "lat": 46.527886,
-      "lon": 15.681957
-    }
+    "lat": 46.527886,
+    "lon": 15.681957,
+    "lines": null,
+    "departures": null
   },
   {
     "id": 392,
     "code": "149",
     "name": "MČ Tezno",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s392.jpg",
-    "routes": [
+    "lat": 46.527886,
+    "lon": 15.681957,
+    "lines": [
       "G1",
       "P12"
     ],
@@ -23339,18 +22671,16 @@
         ],
         "line": "P12"
       }
-    ],
-    "location": {
-      "lat": 46.527886,
-      "lon": 15.681957
-    }
+    ]
   },
   {
     "id": 393,
     "code": "352",
     "name": "Tezenska Dobrava",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s393.jpg",
-    "routes": [
+    "lat": 46.526839,
+    "lon": 15.687001,
+    "lines": [
       "G1"
     ],
     "departures": [
@@ -23403,18 +22733,16 @@
         ],
         "line": "G1"
       }
-    ],
-    "location": {
-      "lat": 46.526839,
-      "lon": 15.687001
-    }
+    ]
   },
   {
     "id": 402,
     "code": "265",
     "name": "Cona Tezno - črpalka",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s402.jpg",
-    "routes": [
+    "lat": 46.524641,
+    "lon": 15.667625,
+    "lines": [
       "P13"
     ],
     "departures": [
@@ -23433,18 +22761,16 @@
         ],
         "line": "P13"
       }
-    ],
-    "location": {
-      "lat": 46.524641,
-      "lon": 15.667625
-    }
+    ]
   },
   {
     "id": 403,
     "code": "269",
     "name": "Cona Tezno - OTP",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s403.jpg",
-    "routes": [
+    "lat": 46.521951,
+    "lon": 15.66984,
+    "lines": [
       "P13"
     ],
     "departures": [
@@ -23463,18 +22789,16 @@
         ],
         "line": "P13"
       }
-    ],
-    "location": {
-      "lat": 46.521951,
-      "lon": 15.66984
-    }
+    ]
   },
   {
     "id": 404,
     "code": "270",
     "name": "Cona Tezno - OTP",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s404.jpg",
-    "routes": [
+    "lat": 46.521951,
+    "lon": 15.66984,
+    "lines": [
       "P13"
     ],
     "departures": [
@@ -23493,18 +22817,16 @@
         ],
         "line": "P13"
       }
-    ],
-    "location": {
-      "lat": 46.521951,
-      "lon": 15.66984
-    }
+    ]
   },
   {
     "id": 405,
     "code": "266",
     "name": "Cona Tezno - črpalka",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s405.jpg",
-    "routes": [
+    "lat": 46.524641,
+    "lon": 15.667625,
+    "lines": [
       "P13"
     ],
     "departures": [
@@ -23523,18 +22845,16 @@
         ],
         "line": "P13"
       }
-    ],
-    "location": {
-      "lat": 46.524641,
-      "lon": 15.667625
-    }
+    ]
   },
   {
     "id": 408,
     "code": "322",
     "name": "Smetanova - Teh. fakul.",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s408.jpg",
-    "routes": [
+    "lat": 46.559391,
+    "lon": 15.640427,
+    "lines": [
       "G5"
     ],
     "departures": [
@@ -23578,18 +22898,16 @@
         ],
         "line": "G5"
       }
-    ],
-    "location": {
-      "lat": 46.559391,
-      "lon": 15.640427
-    }
+    ]
   },
   {
     "id": 409,
     "code": "127",
     "name": "Koroška - Pristan",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s409.jpg",
-    "routes": [
+    "lat": 46.558804,
+    "lon": 15.637914,
+    "lines": [
       "G5"
     ],
     "departures": [
@@ -23635,18 +22953,16 @@
         ],
         "line": "G5"
       }
-    ],
-    "location": {
-      "lat": 46.558804,
-      "lon": 15.637914
-    }
+    ]
   },
   {
     "id": 410,
     "code": "132",
     "name": "Tržnica - GH Lent",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s410.jpg",
-    "routes": [
+    "lat": 46.558601,
+    "lon": 15.641611,
+    "lines": [
       "G5"
     ],
     "departures": [
@@ -23692,18 +23008,16 @@
         ],
         "line": "G5"
       }
-    ],
-    "location": {
-      "lat": 46.558601,
-      "lon": 15.641611
-    }
+    ]
   },
   {
     "id": 411,
     "code": "376",
     "name": "Ul. Eve Lovše - Betnava",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s411.jpg",
-    "routes": [
+    "lat": 46.537525,
+    "lon": 15.639608,
+    "lines": [
       "P14"
     ],
     "departures": [
@@ -23727,18 +23041,16 @@
         ],
         "line": "P14"
       }
-    ],
-    "location": {
-      "lat": 46.537525,
-      "lon": 15.639608
-    }
+    ]
   },
   {
     "id": 412,
     "code": "378",
     "name": "Betnavski gozd - Energetika",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s412.jpg",
-    "routes": [
+    "lat": 46.536107,
+    "lon": 15.641725,
+    "lines": [
       "P14"
     ],
     "departures": [
@@ -23762,18 +23074,16 @@
         ],
         "line": "P14"
       }
-    ],
-    "location": {
-      "lat": 46.536107,
-      "lon": 15.641725
-    }
+    ]
   },
   {
     "id": 413,
     "code": "380",
     "name": "Ul. Eve Lovše - Betnavski gozd",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s413.jpg",
-    "routes": [
+    "lat": 46.534833,
+    "lon": 15.643674,
+    "lines": [
       "P14"
     ],
     "departures": [
@@ -23797,18 +23107,16 @@
         ],
         "line": "P14"
       }
-    ],
-    "location": {
-      "lat": 46.534833,
-      "lon": 15.643674
-    }
+    ]
   },
   {
     "id": 414,
     "code": "374",
     "name": "Tržaška - Vodovodna",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s414.jpg",
-    "routes": [
+    "lat": 46.533114,
+    "lon": 15.646451,
+    "lines": [
       "P14",
       "P17"
     ],
@@ -23852,18 +23160,16 @@
         ],
         "line": "P17"
       }
-    ],
-    "location": {
-      "lat": 46.533114,
-      "lon": 15.646451
-    }
+    ]
   },
   {
     "id": 415,
     "code": "373",
     "name": "Tržaška cesta - Rutar",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s415.jpg",
-    "routes": [
+    "lat": 46.521465,
+    "lon": 15.648956,
+    "lines": [
       "P14",
       "P17"
     ],
@@ -23907,18 +23213,16 @@
         ],
         "line": "P17"
       }
-    ],
-    "location": {
-      "lat": 46.521465,
-      "lon": 15.648956
-    }
+    ]
   },
   {
     "id": 416,
     "code": "368",
     "name": "Tržaška cesta - Bauhaus",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s416.jpg",
-    "routes": [
+    "lat": 46.519863,
+    "lon": 15.650517,
+    "lines": [
       "P14"
     ],
     "departures": [
@@ -23942,18 +23246,16 @@
         ],
         "line": "P14"
       }
-    ],
-    "location": {
-      "lat": 46.519863,
-      "lon": 15.650517
-    }
+    ]
   },
   {
     "id": 417,
     "code": "364",
     "name": "Trgovski center Merkur",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s417.jpg",
-    "routes": [
+    "lat": 46.51779,
+    "lon": 15.652969,
+    "lines": [
       "P14"
     ],
     "departures": [
@@ -23977,18 +23279,16 @@
         ],
         "line": "P14"
       }
-    ],
-    "location": {
-      "lat": 46.51779,
-      "lon": 15.652969
-    }
+    ]
   },
   {
     "id": 418,
     "code": "369",
     "name": "Tržaška cesta - Bauhaus",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s418.jpg",
-    "routes": [
+    "lat": 46.519863,
+    "lon": 15.650517,
+    "lines": [
       "P14"
     ],
     "departures": [
@@ -24012,18 +23312,16 @@
         ],
         "line": "P14"
       }
-    ],
-    "location": {
-      "lat": 46.519863,
-      "lon": 15.650517
-    }
+    ]
   },
   {
     "id": 419,
     "code": "375",
     "name": "Tržaška - Vodovodna",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s419.jpg",
-    "routes": [
+    "lat": 46.533114,
+    "lon": 15.646451,
+    "lines": [
       "P14",
       "P17"
     ],
@@ -24067,18 +23365,16 @@
         ],
         "line": "P17"
       }
-    ],
-    "location": {
-      "lat": 46.533114,
-      "lon": 15.646451
-    }
+    ]
   },
   {
     "id": 420,
     "code": "381",
     "name": "Ul. Eve Lovše - Betnavski gozd",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s420.jpg",
-    "routes": [
+    "lat": 46.534833,
+    "lon": 15.643674,
+    "lines": [
       "P14"
     ],
     "departures": [
@@ -24102,18 +23398,16 @@
         ],
         "line": "P14"
       }
-    ],
-    "location": {
-      "lat": 46.534833,
-      "lon": 15.643674
-    }
+    ]
   },
   {
     "id": 421,
     "code": "379",
     "name": "Betnavski gozd - Energetika",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s421.jpg",
-    "routes": [
+    "lat": 46.536107,
+    "lon": 15.641725,
+    "lines": [
       "G3",
       "P14"
     ],
@@ -24211,18 +23505,16 @@
         ],
         "line": "P14"
       }
-    ],
-    "location": {
-      "lat": 46.536107,
-      "lon": 15.641725
-    }
+    ]
   },
   {
     "id": 422,
     "code": "377",
     "name": "Ul. Eve Lovše - Betnava",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s422.jpg",
-    "routes": [
+    "lat": 46.537525,
+    "lon": 15.639608,
+    "lines": [
       "G3",
       "P14"
     ],
@@ -24320,18 +23612,16 @@
         ],
         "line": "P14"
       }
-    ],
-    "location": {
-      "lat": 46.537525,
-      "lon": 15.639608
-    }
+    ]
   },
   {
     "id": 501,
     "code": "231",
     "name": "Oreško nabrežje 1",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.556392,
+    "lon": 15.66144,
+    "lines": [
       "G3"
     ],
     "departures": [
@@ -24372,18 +23662,16 @@
         ],
         "line": "G3"
       }
-    ],
-    "location": {
-      "lat": 46.556392,
-      "lon": 15.66144
-    }
+    ]
   },
   {
     "id": 507,
     "code": "38",
     "name": "Črnogorska ul. 23",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s507.jpg",
-    "routes": [
+    "lat": 46.545675,
+    "lon": 15.656455,
+    "lines": [
       "P13"
     ],
     "departures": [
@@ -24414,18 +23702,16 @@
         ],
         "line": "P13"
       }
-    ],
-    "location": {
-      "lat": 46.545675,
-      "lon": 15.656455
-    }
+    ]
   },
   {
     "id": 508,
     "code": "185",
     "name": "Makedonska",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s508.jpg",
-    "routes": [
+    "lat": 46.542353,
+    "lon": 15.657277,
+    "lines": [
       "P13"
     ],
     "departures": [
@@ -24456,18 +23742,16 @@
         ],
         "line": "P13"
       }
-    ],
-    "location": {
-      "lat": 46.542353,
-      "lon": 15.657277
-    }
+    ]
   },
   {
     "id": 509,
     "code": "4",
     "name": "Belokranjska ulica 10",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s509.jpg",
-    "routes": [
+    "lat": 46.54384,
+    "lon": 15.65273,
+    "lines": [
       "P13"
     ],
     "departures": [
@@ -24498,18 +23782,16 @@
         ],
         "line": "P13"
       }
-    ],
-    "location": {
-      "lat": 46.54384,
-      "lon": 15.65273
-    }
+    ]
   },
   {
     "id": 513,
     "code": "329",
     "name": "Šentiljska -  Hofer",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.586361,
+    "lon": 15.666012,
+    "lines": [
       "P17"
     ],
     "departures": [
@@ -24532,18 +23814,16 @@
         ],
         "line": "P17"
       }
-    ],
-    "location": {
-      "lat": 46.586361,
-      "lon": 15.666012
-    }
+    ]
   },
   {
     "id": 518,
     "code": "407",
     "name": "Zolajeva - TŠC",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.5259,
+    "lon": 15.670344,
+    "lines": [
       "P13"
     ],
     "departures": [
@@ -24562,18 +23842,16 @@
         ],
         "line": "P13"
       }
-    ],
-    "location": {
-      "lat": 46.5259,
-      "lon": 15.670344
-    }
+    ]
   },
   {
     "id": 527,
     "code": "158",
     "name": "Limbuš",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s527.jpg",
-    "routes": [
+    "lat": 46.553985,
+    "lon": 15.582052,
+    "lines": [
       "P8",
       "P14"
     ],
@@ -24627,18 +23905,16 @@
         ],
         "line": "P14"
       }
-    ],
-    "location": {
-      "lat": 46.553985,
-      "lon": 15.582052
-    }
+    ]
   },
   {
     "id": 539,
     "code": "183",
     "name": "OŠ Franca Rozmana Staneta",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s539.jpg",
-    "routes": [
+    "lat": 46.563141,
+    "lon": 15.655271,
+    "lines": [
       "G3"
     ],
     "departures": [
@@ -24678,18 +23954,16 @@
         ],
         "line": "G3"
       }
-    ],
-    "location": {
-      "lat": 46.563141,
-      "lon": 15.655271
-    }
+    ]
   },
   {
     "id": 547,
     "code": "308",
     "name": "Razvanje - vrtnarstvo",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s547.jpg",
-    "routes": [
+    "lat": 46.521791,
+    "lon": 15.635159,
+    "lines": [
       "P11"
     ],
     "departures": [
@@ -24729,18 +24003,16 @@
         ],
         "line": "P11"
       }
-    ],
-    "location": {
-      "lat": 46.521791,
-      "lon": 15.635159
-    }
+    ]
   },
   {
     "id": 555,
     "code": "314",
     "name": "Rošpoh - Hojnik",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s555.jpg",
-    "routes": [
+    "lat": 46.597776,
+    "lon": 15.619418,
+    "lines": [
       "P7"
     ],
     "departures": [
@@ -24766,18 +24038,16 @@
         ],
         "line": "P7"
       }
-    ],
-    "location": {
-      "lat": 46.597776,
-      "lon": 15.619418
-    }
+    ]
   },
   {
     "id": 573,
     "code": "460",
     "name": "Šentiljska - TMI Košaki",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s573.jpg",
-    "routes": [
+    "lat": 46.571096,
+    "lon": 15.658169,
+    "lines": [
       "P17"
     ],
     "departures": [
@@ -24800,18 +24070,16 @@
         ],
         "line": "P17"
       }
-    ],
-    "location": {
-      "lat": 46.571096,
-      "lon": 15.658169
-    }
+    ]
   },
   {
     "id": 574,
     "code": "351",
     "name": "Šentiljska - Počehovska",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.57709,
+    "lon": 15.657794,
+    "lines": [
       "P17"
     ],
     "departures": [
@@ -24834,18 +24102,16 @@
         ],
         "line": "P17"
       }
-    ],
-    "location": {
-      "lat": 46.57709,
-      "lon": 15.657794
-    }
+    ]
   },
   {
     "id": 575,
     "code": "461",
     "name": "Šentiljska - veterinar",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.581055,
+    "lon": 15.663103,
+    "lines": [
       "P17"
     ],
     "departures": [
@@ -24868,18 +24134,16 @@
         ],
         "line": "P17"
       }
-    ],
-    "location": {
-      "lat": 46.581055,
-      "lon": 15.663103
-    }
+    ]
   },
   {
     "id": 577,
     "code": "421",
     "name": "Zrkovska cesta",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s577.jpg",
-    "routes": [
+    "lat": 46.552228,
+    "lon": 15.682309,
+    "lines": [
       "P9"
     ],
     "departures": [
@@ -24909,18 +24173,16 @@
         ],
         "line": "P9"
       }
-    ],
-    "location": {
-      "lat": 46.552228,
-      "lon": 15.682309
-    }
+    ]
   },
   {
     "id": 578,
     "code": "411",
     "name": "Zrkovska - Gasilski dom",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s578.jpg",
-    "routes": [
+    "lat": 46.554349,
+    "lon": 15.676661,
+    "lines": [
       "P9"
     ],
     "departures": [
@@ -24950,18 +24212,16 @@
         ],
         "line": "P9"
       }
-    ],
-    "location": {
-      "lat": 46.554349,
-      "lon": 15.676661
-    }
+    ]
   },
   {
     "id": 579,
     "code": "418",
     "name": "Zrkovska - trgovina",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s579.jpg",
-    "routes": [
+    "lat": 46.550678,
+    "lon": 15.68725,
+    "lines": [
       "P9"
     ],
     "departures": [
@@ -24991,18 +24251,16 @@
         ],
         "line": "P9"
       }
-    ],
-    "location": {
-      "lat": 46.550678,
-      "lon": 15.68725
-    }
+    ]
   },
   {
     "id": 580,
     "code": "419",
     "name": "Zrkovska - trgovina",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s580.jpg",
-    "routes": [
+    "lat": 46.550678,
+    "lon": 15.68725,
+    "lines": [
       "P9"
     ],
     "departures": [
@@ -25032,18 +24290,16 @@
         ],
         "line": "P9"
       }
-    ],
-    "location": {
-      "lat": 46.550678,
-      "lon": 15.68725
-    }
+    ]
   },
   {
     "id": 581,
     "code": "146",
     "name": "Kronaveter",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s581.jpg",
-    "routes": [
+    "lat": 46.556547,
+    "lon": 15.733096,
+    "lines": [
       "P10"
     ],
     "departures": [
@@ -25075,18 +24331,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.556547,
-      "lon": 15.733096
-    }
+    ]
   },
   {
     "id": 582,
     "code": "125",
     "name": "Knezar",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s582.jpg",
-    "routes": [
+    "lat": 46.554546,
+    "lon": 15.736294,
+    "lines": [
       "P10"
     ],
     "departures": [
@@ -25118,18 +24372,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.554546,
-      "lon": 15.736294
-    }
+    ]
   },
   {
     "id": 583,
     "code": "413",
     "name": "Zrkovci - Na Gorci 54",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s583.jpg",
-    "routes": [
+    "lat": 46.546532,
+    "lon": 15.705432,
+    "lines": [
       "P9"
     ],
     "departures": [
@@ -25159,18 +24411,16 @@
         ],
         "line": "P9"
       }
-    ],
-    "location": {
-      "lat": 46.546532,
-      "lon": 15.705432
-    }
+    ]
   },
   {
     "id": 584,
     "code": "414",
     "name": "Zrkovci - Na Gorci 65",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s584.jpg",
-    "routes": [
+    "lat": 46.544222,
+    "lon": 15.706825,
+    "lines": [
       "P9"
     ],
     "departures": [
@@ -25200,18 +24450,16 @@
         ],
         "line": "P9"
       }
-    ],
-    "location": {
-      "lat": 46.544222,
-      "lon": 15.706825
-    }
+    ]
   },
   {
     "id": 585,
     "code": "209",
     "name": "Metava - odcep",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s585.jpg",
-    "routes": [
+    "lat": 46.550119,
+    "lon": 15.740569,
+    "lines": [
       "P10"
     ],
     "departures": [
@@ -25243,18 +24491,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.550119,
-      "lon": 15.740569
-    }
+    ]
   },
   {
     "id": 586,
     "code": "405",
     "name": "Zimica - odcep",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s586.jpg",
-    "routes": [
+    "lat": 46.551379,
+    "lon": 15.743682,
+    "lines": [
       "P10"
     ],
     "departures": [
@@ -25286,18 +24532,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.551379,
-      "lon": 15.743682
-    }
+    ]
   },
   {
     "id": 591,
     "code": "190",
     "name": "Malečnik - trgovina",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s591.jpg",
-    "routes": [
+    "lat": 46.552497,
+    "lon": 15.708171,
+    "lines": [
       "P10"
     ],
     "departures": [
@@ -25343,18 +24587,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.552497,
-      "lon": 15.708171
-    }
+    ]
   },
   {
     "id": 594,
     "code": "361",
     "name": "Trčova - Griček",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s594.jpg",
-    "routes": [
+    "lat": 46.539504,
+    "lon": 15.720569,
+    "lines": [
       "P10"
     ],
     "departures": [
@@ -25400,18 +24642,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.539504,
-      "lon": 15.720569
-    }
+    ]
   },
   {
     "id": 595,
     "code": "226",
     "name": "Novak",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s595.jpg",
-    "routes": [
+    "lat": 46.537569,
+    "lon": 15.724293,
+    "lines": [
       "P10"
     ],
     "departures": [
@@ -25432,18 +24672,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.537569,
-      "lon": 15.724293
-    }
+    ]
   },
   {
     "id": 596,
     "code": "207",
     "name": "Metava - Duplek križišče",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s596.jpg",
-    "routes": [
+    "lat": 46.534931,
+    "lon": 15.731634,
+    "lines": [
       "P10"
     ],
     "departures": [
@@ -25464,18 +24702,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.534931,
-      "lon": 15.731634
-    }
+    ]
   },
   {
     "id": 598,
     "code": "141",
     "name": "Kraljeviča Marka ulica",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.558764,
+    "lon": 15.663918,
+    "lines": [
       "G3"
     ],
     "departures": [
@@ -25516,18 +24752,16 @@
         ],
         "line": "G3"
       }
-    ],
-    "location": {
-      "lat": 46.558764,
-      "lon": 15.663918
-    }
+    ]
   },
   {
     "id": 599,
     "code": "142",
     "name": "Kraljeviča Marka ulica",
     "imageUrl": "https://vozniredi.marprom.si/PostajaliscaImg/s599.jpg",
-    "routes": [
+    "lat": 46.558764,
+    "lon": 15.663918,
+    "lines": [
       "G3"
     ],
     "departures": [
@@ -25567,18 +24801,16 @@
         ],
         "line": "G3"
       }
-    ],
-    "location": {
-      "lat": 46.558764,
-      "lon": 15.663918
-    }
+    ]
   },
   {
     "id": 600,
     "code": "211",
     "name": "Avtobusna postaja",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.559717,
+    "lon": 15.65543,
+    "lines": [
       "P10",
       "P15"
     ],
@@ -25636,18 +24868,16 @@
         ],
         "line": "P15"
       }
-    ],
-    "location": {
-      "lat": 46.559717,
-      "lon": 15.65543
-    }
+    ]
   },
   {
     "id": 602,
     "code": "434",
     "name": "Kamenškova",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.549534,
+    "lon": 15.611103,
+    "lines": [
       "P19"
     ],
     "departures": [
@@ -25671,18 +24901,16 @@
         ],
         "line": "P19"
       }
-    ],
-    "location": {
-      "lat": 46.549534,
-      "lon": 15.611103
-    }
+    ]
   },
   {
     "id": 603,
     "code": "429",
     "name": "Kamenškova",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.549534,
+    "lon": 15.611103,
+    "lines": [
       "P19"
     ],
     "departures": [
@@ -25707,18 +24935,16 @@
         ],
         "line": "P19"
       }
-    ],
-    "location": {
-      "lat": 46.549534,
-      "lon": 15.611103
-    }
+    ]
   },
   {
     "id": 604,
     "code": "435",
     "name": "MČ Pobrežje",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.549011,
+    "lon": 15.667261,
+    "lines": [
       "P12"
     ],
     "departures": [
@@ -25746,18 +24972,16 @@
         ],
         "line": "P12"
       }
-    ],
-    "location": {
-      "lat": 46.549011,
-      "lon": 15.667261
-    }
+    ]
   },
   {
     "id": 609,
     "code": "432",
     "name": "Mladinska - Vrbanska",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.564861,
+    "lon": 15.634671,
+    "lines": [
       "P18"
     ],
     "departures": [
@@ -25786,18 +25010,16 @@
         ],
         "line": "P18"
       }
-    ],
-    "location": {
-      "lat": 46.564861,
-      "lon": 15.634671
-    }
+    ]
   },
   {
     "id": 611,
     "code": "433",
     "name": "Turnerjeva",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.562925,
+    "lon": 15.630317,
+    "lines": [
       "P7"
     ],
     "departures": [
@@ -25835,18 +25057,16 @@
         ],
         "line": "P7"
       }
-    ],
-    "location": {
-      "lat": 46.562925,
-      "lon": 15.630317
-    }
+    ]
   },
   {
     "id": 614,
     "code": "441",
     "name": "Lesjakova 2",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.537168,
+    "lon": 15.59225,
+    "lines": [
       "P18"
     ],
     "departures": [
@@ -25875,18 +25095,16 @@
         ],
         "line": "P18"
       }
-    ],
-    "location": {
-      "lat": 46.537168,
-      "lon": 15.59225
-    }
+    ]
   },
   {
     "id": 615,
     "code": "442",
     "name": "Zvezna ulica",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.5360899,
+    "lon": 15.5963853,
+    "lines": [
       "P18"
     ],
     "departures": [
@@ -25915,18 +25133,16 @@
         ],
         "line": "P18"
       }
-    ],
-    "location": {
-      "lat": 46.5360899,
-      "lon": 15.5963853
-    }
+    ]
   },
   {
     "id": 616,
     "code": "444",
     "name": "Bezjakova",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.5403683,
+    "lon": 15.5894664,
+    "lines": [
       "P18"
     ],
     "departures": [
@@ -25955,18 +25171,16 @@
         ],
         "line": "P18"
       }
-    ],
-    "location": {
-      "lat": 46.5403683,
-      "lon": 15.5894664
-    }
+    ]
   },
   {
     "id": 617,
     "code": "445",
     "name": "Lackova - Na gorco",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.545256,
+    "lon": 15.60047,
+    "lines": [
       "P14"
     ],
     "departures": [
@@ -25990,18 +25204,16 @@
         ],
         "line": "P14"
       }
-    ],
-    "location": {
-      "lat": 46.545256,
-      "lon": 15.60047
-    }
+    ]
   },
   {
     "id": 619,
     "code": "447",
     "name": "Lackova - Mlada lipa",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.540938,
+    "lon": 15.606056,
+    "lines": [
       "P14",
       "P18"
     ],
@@ -26051,18 +25263,16 @@
         ],
         "line": "P18"
       }
-    ],
-    "location": {
-      "lat": 46.540938,
-      "lon": 15.606056
-    }
+    ]
   },
   {
     "id": 620,
     "code": "448",
     "name": "Lackova - Ul. Jelenčevih",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.547277,
+    "lon": 15.59738,
+    "lines": [
       "P14"
     ],
     "departures": [
@@ -26086,18 +25296,16 @@
         ],
         "line": "P14"
       }
-    ],
-    "location": {
-      "lat": 46.547277,
-      "lon": 15.59738
-    }
+    ]
   },
   {
     "id": 621,
     "code": "449",
     "name": "Lackova - Ul. Jelenčevih",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.547277,
+    "lon": 15.59738,
+    "lines": [
       "P14"
     ],
     "departures": [
@@ -26121,18 +25329,16 @@
         ],
         "line": "P14"
       }
-    ],
-    "location": {
-      "lat": 46.547277,
-      "lon": 15.59738
-    }
+    ]
   },
   {
     "id": 622,
     "code": "443",
     "name": "Ob ribniku",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.539139,
+    "lon": 15.599502,
+    "lines": [
       "P18"
     ],
     "departures": [
@@ -26161,18 +25367,16 @@
         ],
         "line": "P18"
       }
-    ],
-    "location": {
-      "lat": 46.539139,
-      "lon": 15.599502
-    }
+    ]
   },
   {
     "id": 623,
     "code": "450",
     "name": "Trčova 168",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.542435,
+    "lon": 15.719209,
+    "lines": [
       "P10"
     ],
     "departures": [
@@ -26218,18 +25422,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.542435,
-      "lon": 15.719209
-    }
+    ]
   },
   {
     "id": 624,
     "code": "451",
     "name": "Trčova 168",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.542435,
+    "lon": 15.719209,
+    "lines": [
       "P10"
     ],
     "departures": [
@@ -26275,18 +25477,16 @@
         ],
         "line": "P10"
       }
-    ],
-    "location": {
-      "lat": 46.542435,
-      "lon": 15.719209
-    }
+    ]
   },
   {
     "id": 625,
     "code": "452",
     "name": "OŠ Bojana Ilicha",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.562953,
+    "lon": 15.643877,
+    "lines": [
       "G3",
       "P7",
       "P15",
@@ -26435,18 +25635,16 @@
         ],
         "line": "P19"
       }
-    ],
-    "location": {
-      "lat": 46.562953,
-      "lon": 15.643877
-    }
+    ]
   },
   {
     "id": 626,
     "code": "453",
     "name": "Mladinska - muzej Maribor",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.563011,
+    "lon": 15.647843,
+    "lines": [
       "G3",
       "P7",
       "P15",
@@ -26595,18 +25793,16 @@
         ],
         "line": "P19"
       }
-    ],
-    "location": {
-      "lat": 46.563011,
-      "lon": 15.647843
-    }
+    ]
   },
   {
     "id": 627,
     "code": "527",
     "name": "Zrkovci - polje",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.53641,
+    "lon": 15.71018,
+    "lines": [
       "P9"
     ],
     "departures": [
@@ -26623,18 +25819,16 @@
         ],
         "line": "P9"
       }
-    ],
-    "location": {
-      "lat": 46.53641,
-      "lon": 15.71018
-    }
+    ]
   },
   {
     "id": 628,
     "code": "528",
     "name": "Zrkovci - polje",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.53641,
+    "lon": 15.71018,
+    "lines": [
       "P9"
     ],
     "departures": [
@@ -26651,18 +25845,16 @@
         ],
         "line": "P9"
       }
-    ],
-    "location": {
-      "lat": 46.53641,
-      "lon": 15.71018
-    }
+    ]
   },
   {
     "id": 633,
     "code": "533",
     "name": "P\u0026R Koroški most",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.561176,
+    "lon": 15.627064,
+    "lines": [
       "G5"
     ],
     "departures": [
@@ -26706,18 +25898,16 @@
         ],
         "line": "G5"
       }
-    ],
-    "location": {
-      "lat": 46.561176,
-      "lon": 15.627064
-    }
+    ]
   },
   {
     "id": 634,
     "code": "534",
     "name": "Univerzitetni kampus",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.564271,
+    "lon": 15.623099,
+    "lines": [
       "G5"
     ],
     "departures": [
@@ -26793,18 +25983,16 @@
         ],
         "line": "G5"
       }
-    ],
-    "location": {
-      "lat": 46.564271,
-      "lon": 15.623099
-    }
+    ]
   },
   {
     "id": 636,
     "code": "536",
     "name": "P\u0026R Koroški most",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.561176,
+    "lon": 15.627064,
+    "lines": [
       "G5"
     ],
     "departures": [
@@ -26850,18 +26038,16 @@
         ],
         "line": "G5"
       }
-    ],
-    "location": {
-      "lat": 46.561176,
-      "lon": 15.627064
-    }
+    ]
   },
   {
     "id": 637,
     "code": "537",
     "name": "Dvorana Tabor - Gorkega",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.548779,
+    "lon": 15.636555,
+    "lines": [
       "G6"
     ],
     "departures": [
@@ -26915,18 +26101,16 @@
         ],
         "line": "G6"
       }
-    ],
-    "location": {
-      "lat": 46.548779,
-      "lon": 15.636555
-    }
+    ]
   },
   {
     "id": 638,
     "code": "538",
     "name": "Rošpoh - vrtovi",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.608627,
+    "lon": 15.625915,
+    "lines": [
       "P7"
     ],
     "departures": [
@@ -26941,18 +26125,16 @@
         ],
         "line": "P7"
       }
-    ],
-    "location": {
-      "lat": 46.608627,
-      "lon": 15.625915
-    }
+    ]
   },
   {
     "id": 639,
     "code": "540",
     "name": "Rošpoh - vrtovi",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.608627,
+    "lon": 15.625915,
+    "lines": [
       "P7"
     ],
     "departures": [
@@ -26966,18 +26148,16 @@
         ],
         "line": "P7"
       }
-    ],
-    "location": {
-      "lat": 46.608627,
-      "lon": 15.625915
-    }
+    ]
   },
   {
     "id": 640,
     "code": "539",
     "name": "Morski jarek - Kozjak",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.609503,
+    "lon": 15.631009,
+    "lines": [
       "P7"
     ],
     "departures": [
@@ -26992,18 +26172,16 @@
         ],
         "line": "P7"
       }
-    ],
-    "location": {
-      "lat": 46.609503,
-      "lon": 15.631009
-    }
+    ]
   },
   {
     "id": 641,
     "code": "541",
     "name": "Belokranjska ulica 10",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.54384,
+    "lon": 15.65273,
+    "lines": [
       "P13"
     ],
     "departures": [
@@ -27034,18 +26212,16 @@
         ],
         "line": "P13"
       }
-    ],
-    "location": {
-      "lat": 46.54384,
-      "lon": 15.65273
-    }
+    ]
   },
   {
     "id": 642,
     "code": "542",
     "name": "Europark - Titov most",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.554466,
+    "lon": 15.650609,
+    "lines": [
       "G1",
       "P17"
     ],
@@ -27116,18 +26292,16 @@
         ],
         "line": "P17"
       }
-    ],
-    "location": {
-      "lat": 46.554466,
-      "lon": 15.650609
-    }
+    ]
   },
   {
     "id": 643,
     "code": "543",
     "name": "Tržaška - Ptujska",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.538819,
+    "lon": 15.64702,
+    "lines": [
       "P17"
     ],
     "departures": [
@@ -27150,18 +26324,16 @@
         ],
         "line": "P17"
       }
-    ],
-    "location": {
-      "lat": 46.538819,
-      "lon": 15.64702
-    }
+    ]
   },
   {
     "id": 644,
     "code": "544",
     "name": "Europark - Titov most",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.554466,
+    "lon": 15.650609,
+    "lines": [
       "G1",
       "P17"
     ],
@@ -27234,18 +26406,16 @@
         ],
         "line": "P17"
       }
-    ],
-    "location": {
-      "lat": 46.554466,
-      "lon": 15.650609
-    }
+    ]
   },
   {
     "id": 646,
     "code": "546",
     "name": "Morski jarek - Rošpoh",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.60933,
+    "lon": 15.63847,
+    "lines": [
       "P7"
     ],
     "departures": [
@@ -27259,18 +26429,16 @@
         ],
         "line": "P7"
       }
-    ],
-    "location": {
-      "lat": 46.60933,
-      "lon": 15.63847
-    }
+    ]
   },
   {
     "id": 647,
     "code": "547",
     "name": "Morski jarek - Kozjak",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.609503,
+    "lon": 15.631009,
+    "lines": [
       "P7"
     ],
     "departures": [
@@ -27284,18 +26452,16 @@
         ],
         "line": "P7"
       }
-    ],
-    "location": {
-      "lat": 46.609503,
-      "lon": 15.631009
-    }
+    ]
   },
   {
     "id": 648,
     "code": "564",
     "name": "Šarhova",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.55322,
+    "lon": 15.6173,
+    "lines": [
       "G4",
       "P19"
     ],
@@ -27361,18 +26527,16 @@
         ],
         "line": "P19"
       }
-    ],
-    "location": {
-      "lat": 46.55322,
-      "lon": 15.6173
-    }
+    ]
   },
   {
     "id": 704,
     "code": "462",
     "name": "Botanični vrt",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.507501,
+    "lon": 15.639463,
+    "lines": [
       "P11"
     ],
     "departures": [
@@ -27387,18 +26551,16 @@
         ],
         "line": "P11"
       }
-    ],
-    "location": {
-      "lat": 46.507501,
-      "lon": 15.639463
-    }
+    ]
   },
   {
     "id": 705,
     "code": "464",
     "name": "Podružnica OŠ Franceta Prešerna",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.512917,
+    "lon": 15.635321,
+    "lines": [
       "P11"
     ],
     "departures": [
@@ -27413,18 +26575,16 @@
         ],
         "line": "P11"
       }
-    ],
-    "location": {
-      "lat": 46.512917,
-      "lon": 15.635321
-    }
+    ]
   },
   {
     "id": 905,
     "code": "633",
     "name": "Glavni trg - Rotovž",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.557431,
+    "lon": 15.645841,
+    "lines": [
       "G5"
     ],
     "departures": [
@@ -27470,18 +26630,16 @@
         ],
         "line": "G5"
       }
-    ],
-    "location": {
-      "lat": 46.557431,
-      "lon": 15.645841
-    }
+    ]
   },
   {
     "id": 906,
     "code": "634",
     "name": "Glavni trg - Rotovž",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.557431,
+    "lon": 15.645841,
+    "lines": [
       "G5"
     ],
     "departures": [
@@ -27525,18 +26683,16 @@
         ],
         "line": "G5"
       }
-    ],
-    "location": {
-      "lat": 46.557431,
-      "lon": 15.645841
-    }
+    ]
   },
   {
     "id": 907,
     "code": "635",
     "name": "Tržnica - GH Lent",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.558601,
+    "lon": 15.641611,
+    "lines": [
       "G5"
     ],
     "departures": [
@@ -27580,18 +26736,16 @@
         ],
         "line": "G5"
       }
-    ],
-    "location": {
-      "lat": 46.558601,
-      "lon": 15.641611
-    }
+    ]
   },
   {
     "id": 908,
     "code": "636",
     "name": "UKC - Europark",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.551291,
+    "lon": 15.652211,
+    "lines": [
       "G5"
     ],
     "departures": [
@@ -27635,18 +26789,16 @@
         ],
         "line": "G5"
       }
-    ],
-    "location": {
-      "lat": 46.551291,
-      "lon": 15.652211
-    }
+    ]
   },
   {
     "id": 909,
     "code": "637",
     "name": "Europark",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.554431,
+    "lon": 15.651911,
+    "lines": [
       "G5"
     ],
     "departures": [
@@ -27690,18 +26842,16 @@
         ],
         "line": "G5"
       }
-    ],
-    "location": {
-      "lat": 46.554431,
-      "lon": 15.651911
-    }
+    ]
   },
   {
     "id": 910,
     "code": "643",
     "name": "Tabor - Jadranska",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.536917,
+    "lon": 15.643153,
+    "lines": [
       "G3"
     ],
     "departures": [
@@ -27778,18 +26928,16 @@
         ],
         "line": "G3"
       }
-    ],
-    "location": {
-      "lat": 46.536917,
-      "lon": 15.643153
-    }
+    ]
   },
   {
     "id": 911,
     "code": "650",
     "name": "Cankarjeva",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.560961,
+    "lon": 15.653141,
+    "lines": [
       "P7",
       "P15",
       "P18",
@@ -27901,18 +27049,16 @@
         ],
         "line": "P19"
       }
-    ],
-    "location": {
-      "lat": 46.560961,
-      "lon": 15.653141
-    }
+    ]
   },
   {
     "id": 912,
     "code": "646",
     "name": "Dom pod Gorco",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.555861,
+    "lon": 15.612571,
+    "lines": [
       "G4",
       "P19"
     ],
@@ -27977,18 +27123,16 @@
         ],
         "line": "P19"
       }
-    ],
-    "location": {
-      "lat": 46.555861,
-      "lon": 15.612571
-    }
+    ]
   },
   {
     "id": 913,
     "code": "647",
     "name": "Dom pod Gorco",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.555861,
+    "lon": 15.612571,
+    "lines": [
       "G4",
       "P19"
     ],
@@ -28054,18 +27198,16 @@
         ],
         "line": "P19"
       }
-    ],
-    "location": {
-      "lat": 46.555861,
-      "lon": 15.612571
-    }
+    ]
   },
   {
     "id": 914,
     "code": "644",
     "name": "OŠ Franca Rozmana Staneta",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.563141,
+    "lon": 15.655271,
+    "lines": [
       "G3"
     ],
     "departures": [
@@ -28106,18 +27248,16 @@
         ],
         "line": "G3"
       }
-    ],
-    "location": {
-      "lat": 46.563141,
-      "lon": 15.655271
-    }
+    ]
   },
   {
     "id": 915,
     "code": "648",
     "name": "Maribox",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.557144,
+    "lon": 15.652877,
+    "lines": [
       "P7",
       "P15",
       "P19"
@@ -28202,18 +27342,16 @@
         ],
         "line": "P19"
       }
-    ],
-    "location": {
-      "lat": 46.557144,
-      "lon": 15.652877
-    }
+    ]
   },
   {
     "id": 916,
     "code": "651",
     "name": "Maribox",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.557144,
+    "lon": 15.652877,
+    "lines": [
       "P7",
       "P15",
       "P19"
@@ -28299,18 +27437,16 @@
         ],
         "line": "P19"
       }
-    ],
-    "location": {
-      "lat": 46.557144,
-      "lon": 15.652877
-    }
+    ]
   },
   {
     "id": 917,
     "code": "655",
     "name": "Mladinska - Vrbanska",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.564861,
+    "lon": 15.634671,
+    "lines": [
       "P18"
     ],
     "departures": [
@@ -28339,18 +27475,16 @@
         ],
         "line": "P18"
       }
-    ],
-    "location": {
-      "lat": 46.564861,
-      "lon": 15.634671
-    }
+    ]
   },
   {
     "id": 920,
     "code": "645",
     "name": "Zdravstveni dom Tezno",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.533936,
+    "lon": 15.675329,
+    "lines": [
       "G3"
     ],
     "departures": [
@@ -28391,18 +27525,16 @@
         ],
         "line": "G3"
       }
-    ],
-    "location": {
-      "lat": 46.533936,
-      "lon": 15.675329
-    }
+    ]
   },
   {
     "id": 921,
     "code": "642",
     "name": "Zdravstveni dom Tezno",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.533936,
+    "lon": 15.675329,
+    "lines": [
       "G3"
     ],
     "departures": [
@@ -28442,18 +27574,16 @@
         ],
         "line": "G3"
       }
-    ],
-    "location": {
-      "lat": 46.533936,
-      "lon": 15.675329
-    }
+    ]
   },
   {
     "id": 922,
     "code": "657",
     "name": "Teplyjevo naselje",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.541041,
+    "lon": 15.602081,
+    "lines": [
       "P18"
     ],
     "departures": [
@@ -28482,18 +27612,16 @@
         ],
         "line": "P18"
       }
-    ],
-    "location": {
-      "lat": 46.541041,
-      "lon": 15.602081
-    }
+    ]
   },
   {
     "id": 923,
     "code": "658",
     "name": "Teplyjevo naselje",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.541041,
+    "lon": 15.602081,
+    "lines": [
       "P18"
     ],
     "departures": [
@@ -28522,18 +27650,16 @@
         ],
         "line": "P18"
       }
-    ],
-    "location": {
-      "lat": 46.541041,
-      "lon": 15.602081
-    }
+    ]
   },
   {
     "id": 924,
     "code": "656",
     "name": "Vrbanska",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.562125,
+    "lon": 15.636867,
+    "lines": [
       "P18"
     ],
     "departures": [
@@ -28562,18 +27688,16 @@
         ],
         "line": "P18"
       }
-    ],
-    "location": {
-      "lat": 46.562125,
-      "lon": 15.636867
-    }
+    ]
   },
   {
     "id": 925,
     "code": "659",
     "name": "Vrbanska",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.562125,
+    "lon": 15.636867,
+    "lines": [
       "P18"
     ],
     "departures": [
@@ -28602,18 +27726,16 @@
         ],
         "line": "P18"
       }
-    ],
-    "location": {
-      "lat": 46.562125,
-      "lon": 15.636867
-    }
+    ]
   },
   {
     "id": 926,
     "code": "660",
     "name": "Supernova",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.545991,
+    "lon": 15.618611,
+    "lines": [
       "P19"
     ],
     "departures": [
@@ -28638,18 +27760,16 @@
         ],
         "line": "P19"
       }
-    ],
-    "location": {
-      "lat": 46.545991,
-      "lon": 15.618611
-    }
+    ]
   },
   {
     "id": 927,
     "code": "654",
     "name": "MČ Pobrežje",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.549011,
+    "lon": 15.667261,
+    "lines": [
       "P12"
     ],
     "departures": [
@@ -28677,18 +27797,16 @@
         ],
         "line": "P12"
       }
-    ],
-    "location": {
-      "lat": 46.549011,
-      "lon": 15.667261
-    }
+    ]
   },
   {
     "id": 935,
     "code": "649",
     "name": "Turnerjeva",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.562925,
+    "lon": 15.630317,
+    "lines": [
       "P7",
       "P18"
     ],
@@ -28752,18 +27870,16 @@
         ],
         "line": "P18"
       }
-    ],
-    "location": {
-      "lat": 46.562925,
-      "lon": 15.630317
-    }
+    ]
   },
   {
     "id": 938,
     "code": "666",
     "name": "Prometna šola - Na Poljanah",
     "imageUrl": "",
-    "routes": [
+    "lat": 46.552724,
+    "lon": 15.624305,
+    "lines": [
       "G4"
     ],
     "departures": [
@@ -28807,10 +27923,6 @@
         ],
         "line": "G4"
       }
-    ],
-    "location": {
-      "lat": 46.552724,
-      "lon": 15.624305
-    }
+    ]
   }
 ]

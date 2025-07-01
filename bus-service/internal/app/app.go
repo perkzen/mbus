@@ -4,8 +4,9 @@ import (
 	"database/sql"
 	"github.com/perkzen/mbus/bus-service/internal/api"
 	"github.com/perkzen/mbus/bus-service/internal/config"
-	databasepackage "github.com/perkzen/mbus/bus-service/internal/database"
+	"github.com/perkzen/mbus/bus-service/internal/db"
 	"github.com/perkzen/mbus/bus-service/internal/store"
+	"github.com/perkzen/mbus/bus-service/migrations"
 	"log"
 	"net/http"
 )
@@ -20,21 +21,25 @@ type Application struct {
 
 func NewApplication(env *config.Environment) (*Application, error) {
 
-	pgDb := databasepackage.NewPostgresDB(env.PostgresURL)
-	dbConn, err := pgDb.Open()
+	pgDb, err := db.NewPostgresDB(env.PostgresURL).Open()
 	if err != nil {
 		return nil, err
 	}
 
-	busStationStore := store.NewPostgresBusStationStore(dbConn)
+	err = db.MigrateFS(pgDb, migrations.FS, ".")
+	if err != nil {
+		panic(err)
+	}
+
+	busStationStore := store.NewPostgresBusStationStore(pgDb)
 	busStationHandler := api.NewBusStationHandler(busStationStore)
 
-	busLineStore := store.NewPostgresBusLineStore(dbConn)
+	busLineStore := store.NewPostgresBusLineStore(pgDb)
 	busLineHandler := api.NewBusLineHandler(busLineStore)
 
 	return &Application{
 		Env:               env,
-		DB:                dbConn,
+		DB:                pgDb,
 		BusStationHandler: busStationHandler,
 		BusLineHandler:    busLineHandler,
 	}, nil

@@ -1,8 +1,8 @@
 package marprom
 
 import (
-	"fmt"
 	"io"
+	"log"
 	"net/http"
 )
 
@@ -23,20 +23,19 @@ type FetchOptions struct {
 func (f *HTMLFetcher) FetchHTML(opts *FetchOptions) ([]byte, error) {
 	resp, err := f.client.Get(opts.URL)
 	if err != nil {
-		fmt.Printf("Error fetching HTML: %v\n", err)
+		log.Fatalf("Error fetching URL %s: %s", opts.URL, err)
 		return nil, err
 	}
 
 	if resp.StatusCode != http.StatusOK {
-		err := fmt.Errorf("failed to fetch bus stations: status code %d", resp.StatusCode)
-		fmt.Printf("Error fetching HTML: %v\n", err)
+		log.Fatalf("Error fetching URL %s: %s", opts.URL, resp.Status)
 		return nil, err
 	}
 
 	defer resp.Body.Close()
 	html, err := io.ReadAll(resp.Body)
 	if err != nil {
-		fmt.Printf("Error reading response body: %v\n", err)
+		log.Fatalf("Error reading response body: %s", err)
 		return nil, err
 	}
 

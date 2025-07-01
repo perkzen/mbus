@@ -15,6 +15,8 @@ func main() {
 	restApp, _ := app.NewApplication(env)
 	httpServer := server.NewHttpServer(restApp)
 
+	defer restApp.DB.Close()
+
 	done := make(chan bool, 1)
 
 	go server.GracefulShutdown(httpServer, done)

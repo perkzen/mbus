@@ -27,21 +27,19 @@ type BusStationStore interface {
 }
 
 type PostgresBusStationStore struct {
-	db      *sql.DB
-	builder sq.StatementBuilderType
+	db *sql.DB
 }
 
 func NewPostgresBusStationStore(db *sql.DB) *PostgresBusStationStore {
 	return &PostgresBusStationStore{
-		db:      db,
-		builder: sq.StatementBuilder.PlaceholderFormat(sq.Dollar),
+		db: db,
 	}
 }
 
 func (store *PostgresBusStationStore) FindBusStationByCode(code int) (*BusStation, error) {
 	fmt.Println("Fetching station with code:", code)
 
-	queryBuilder := store.builder.
+	queryBuilder := Qb.
 		Select("code", "name", "image_url", "lat", "lng").
 		From("bus_stations").
 		Where(sq.Eq{"code": code})
@@ -69,7 +67,7 @@ func (store *PostgresBusStationStore) FindBusStationByCode(code int) (*BusStatio
 
 func (store *PostgresBusStationStore) ListBusStations(limit, offset int, opts *BusStationFilterOptions) ([]BusStation, error) {
 	// Use the Squirrel statement builder (assuming it's defined in your store)
-	builder := store.builder.Select("bs.code", "bs.name", "bs.image_url", "bs.lat", "bs.lng").
+	builder := Qb.Select("bs.code", "bs.name", "bs.image_url", "bs.lat", "bs.lng").
 		From("bus_stations bs").
 		Limit(uint64(limit)).
 		Offset(uint64(offset)).

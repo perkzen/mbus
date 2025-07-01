@@ -3,76 +3,94 @@ package main
 import (
 	"database/sql"
 	"encoding/json"
-	"fmt"
+	"errors"
+	"github.com/perkzen/mbus/bus-service/internal/config"
+	"github.com/perkzen/mbus/bus-service/internal/db"
+	"github.com/perkzen/mbus/bus-service/internal/integrations/marprom"
+	"github.com/perkzen/mbus/bus-service/internal/store"
+	"github.com/perkzen/mbus/bus-service/migrations"
 	"log"
 	"os"
 
-	_ "github.com/jackc/pgx/v5/stdlib" // Register the pgx driver for database/sql
+	sq "github.com/Masterminds/squirrel"
+	_ "github.com/jackc/pgx/v5/stdlib"
 )
 
-type BusStation struct {
-	ID         int         `json:"id"`
-	Code       int         `json:"code"`
-	Name       string      `json:"name"`
-	ImageURL   string      `json:"imageUrl"`
-	Routes     []string    `json:"routes"`
-	Departures []Departure `json:"departures"`
-	Location   GeoLocation `json:"location"`
-}
-
-type Departure struct {
-	Direction string   `json:"direction"`
-	Times     []string `json:"times"`
-	Line      string   `json:"line"`
-}
-
-type GeoLocation struct {
-	Lat float64 `json:"lat"`
-	Lon float64 `json:"lon"`
-}
+var (
+	pgDb *sql.DB
+)
 
 func main() {
-	// Step 1: Connect to the database
-	dsn := "host=localhost port=5432 user=postgres password=postgres dbname=mbus_db sslmode=disable"
-	db, err := sql.Open("pgx", dsn)
+	initDB()
+	defer pgDb.Close()
+
+	stations := loadSeedData("data/seed.json")
+	lineIDs := insertBusLines(stations)
+	insertBusStationsAndLinks(stations, lineIDs)
+
+	log.Println("✅ Seeding completed successfully.")
+}
+
+func initDB() {
+	var err error
+
+	env, err := config.LoadEnvironment()
+	if err != nil {
+		log.Fatalf("❌ Failed to load environment variables: %v", err)
+	}
+	pgDb, err = db.NewPostgresDB(env.PostgresURL).Open()
 	if err != nil {
 		log.Fatalf("❌ Failed to connect to DB: %v", err)
 	}
-	defer db.Close()
 
-	// Step 2: Load and parse the JSON file
-	data, err := os.ReadFile("data/seed.json")
+	err = db.MigrateFS(pgDb, migrations.FS, ".")
+	if err != nil {
+		log.Fatalf("❌ Failed to run migrations: %v", err)
+	}
+}
+
+func loadSeedData(path string) []marprom.BusStationWithDetails {
+	data, err := os.ReadFile(path)
 	if err != nil {
 		log.Fatalf("❌ Failed to read seed.json: %v", err)
 	}
 
-	var stations []BusStation
+	var stations []marprom.BusStationWithDetails
 	if err := json.Unmarshal(data, &stations); err != nil {
 		log.Fatalf("❌ Failed to parse JSON: %v", err)
 	}
 
-	// Step 3: Insert unique bus lines
-	routeSet := make(map[string]bool)
+	return stations
+}
+
+func insertBusLines(stations []marprom.BusStationWithDetails) map[string]int {
+	lineIDs := make(map[string]int)
+	uniqueRoutes := make(map[string]bool)
+
 	for _, station := range stations {
-		for _, route := range station.Routes {
-			routeSet[route] = true
+		for _, route := range station.Lines {
+			uniqueRoutes[route] = true
 		}
 	}
 
-	lineIDs := make(map[string]int)
-
-	for route := range routeSet {
+	for route := range uniqueRoutes {
 		var id int
-		err := db.QueryRow(`SELECT id FROM bus_lines WHERE name = $1`, route).Scan(&id)
 
-		if err == sql.ErrNoRows {
-			// Not found — insert it
-			err = db.QueryRow(`
-				INSERT INTO bus_lines (name)
-				VALUES ($1)
-				RETURNING id
-			`, route).Scan(&id)
+		query, args, _ := store.Qb.Select("id").
+			From("bus_lines").
+			Where(sq.Eq{"name": route}).
+			ToSql()
 
+		err := pgDb.QueryRow(query, args...).Scan(&id)
+		if errors.Is(err, sql.ErrNoRows) {
+			// Insert if not exists
+			query, args, _ = store.Qb.Insert("bus_lines").
+				Columns("name").
+				Values(route).
+				Suffix("RETURNING id").
+				ToSql()
+
+			err = pgDb.QueryRow(query, args...).Scan(&id)
 			if err != nil {
 				log.Fatalf("❌ Failed to insert bus_line '%s': %v", route, err)
 			}
@@ -83,32 +101,45 @@ func main() {
 		lineIDs[route] = id
 	}
 
-	// Step 4: Insert bus stations and link them to lines
+	return lineIDs
+}
+
+func insertBusStationsAndLinks(stations []marprom.BusStationWithDetails, lineIDs map[string]int) {
 	for _, s := range stations {
-		var stationID int
-		err := db.QueryRow(`
-			INSERT INTO bus_stations (code, name, image_url, lat, lng)
-			VALUES ($1, $2, $3, $4, $5)
-			RETURNING id
-		`, s.Code, s.Name, s.ImageURL, s.Location.Lat, s.Location.Lon).Scan(&stationID)
+		stationID := insertBusStation(s)
 
-		if err != nil {
-			log.Fatalf("❌ Failed to insert station %s: %v", s.Code, err)
-		}
-
-		for _, route := range s.Routes {
+		for _, route := range s.Lines {
 			lineID := lineIDs[route]
-			_, err := db.Exec(`
-				INSERT INTO bus_stations_bus_lines (bus_station_id, bus_line_id)
-				VALUES ($1, $2)
-				ON CONFLICT DO NOTHING
-			`, stationID, lineID)
-
-			if err != nil {
-				log.Fatalf("❌ Failed to link station %d to line %d: %v", stationID, lineID, err)
-			}
+			linkStationToLine(stationID, lineID)
 		}
 	}
+}
 
-	fmt.Println("✅ Seeding completed successfully.")
+func insertBusStation(s marprom.BusStationWithDetails) int {
+	query, args, _ := store.Qb.Insert("bus_stations").
+		Columns("code", "name", "image_url", "lat", "lng").
+		Values(s.Code, s.Name, s.ImageURL, s.Lat, s.Lon).
+		Suffix("RETURNING id").
+		ToSql()
+
+	var stationID int
+	err := pgDb.QueryRow(query, args...).Scan(&stationID)
+	if err != nil {
+		log.Fatalf("❌ Failed to insert station %d: %v", s.Code, err)
+	}
+
+	return stationID
+}
+
+func linkStationToLine(stationID, lineID int) {
+	query, args, _ := store.Qb.Insert("bus_stations_bus_lines").
+		Columns("bus_station_id", "bus_line_id").
+		Values(stationID, lineID).
+		Suffix("ON CONFLICT DO NOTHING").
+		ToSql()
+
+	_, err := pgDb.Exec(query, args...)
+	if err != nil {
+		log.Fatalf("❌ Failed to link station %d to line %d: %v", stationID, lineID, err)
+	}
 }

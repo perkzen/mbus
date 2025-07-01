@@ -1,4 +1,4 @@
-package databasepackage
+package db
 
 import (
 	"database/sql"
@@ -38,10 +38,10 @@ func MigrateFS(db *sql.DB, migrationsFS fs.FS, dir string) error {
 	defer func() {
 		goose.SetBaseFS(nil)
 	}()
-	return Migrate(db, dir)
+	return migrate(db, dir)
 }
 
-func Migrate(db *sql.DB, dir string) error {
+func migrate(db *sql.DB, dir string) error {
 	err := goose.SetDialect("postgres")
 	if err != nil {
 		return fmt.Errorf("migrate: %w", err)

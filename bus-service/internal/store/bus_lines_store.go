@@ -2,8 +2,6 @@ package store
 
 import (
 	"database/sql"
-
-	sq "github.com/Masterminds/squirrel"
 )
 
 type BusLine struct {
@@ -26,7 +24,7 @@ func NewPostgresBusLineStore(db *sql.DB) *PostgresBusLinesStore {
 }
 
 func (store *PostgresBusLinesStore) ListBusLines() ([]BusLine, error) {
-	queryBuilder := sq.Select("id", "name").
+	queryBuilder := Qb.Select("id", "name").
 		From("bus_lines").
 		OrderBy("regexp_replace(name, '[^0-9]', '', 'g')::int")
 
