@@ -14,12 +14,8 @@ import (
 
 func NewHttpServer(app *app.Application) *http.Server {
 	return &http.Server{
-		Addr:           fmt.Sprintf(":%d", app.Env.Port),
-		Handler:        routes.RegisterRoutes(app),
-		ReadTimeout:    10 * 60, // 10 minutes
-		WriteTimeout:   10 * 60, // 10 minutes
-		MaxHeaderBytes: 1 << 20, // 1 MB
-		IdleTimeout:    5 * 60,  // 5 minutes
+		Addr:    fmt.Sprintf(":%d", app.Env.Port),
+		Handler: routes.RegisterRoutes(app),
 	}
 }
 

@@ -2,28 +2,25 @@ package routes
 
 import (
 	"github.com/go-chi/chi/v5"
-	"github.com/go-chi/chi/v5/middleware"
-	"github.com/go-chi/cors"
+	"github.com/perkzen/mbus/bus-service/internal/api"
 	"github.com/perkzen/mbus/bus-service/internal/app"
-	"net/http"
+	"github.com/perkzen/mbus/bus-service/internal/middlewares"
 )
 
 func RegisterRoutes(app *app.Application) *chi.Mux {
 	r := chi.NewRouter()
-	r.Use(middleware.Logger)
 
-	r.Use(cors.Handler(cors.Options{
-		AllowedOrigins:   []string{"https://*", "http://*"},
-		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"},
-		AllowedHeaders:   []string{"Accept", "Authorization", "Content-Type"},
-		AllowCredentials: true,
-		MaxAge:           300,
-	}))
+	middlewares.Init(r)
 
-	r.Get("/health", func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Set("Content-Type", "application/json")
-		w.WriteHeader(http.StatusOK)
-		w.Write([]byte(`{"status": "ok"}`))
+	r.Get("/health", api.MakeHandlerFunc(app.HealthCheck))
+
+	r.Route("/bus-stations", func(r chi.Router) {
+		r.Get("/", api.MakeHandlerFunc(app.BusStationHandler.ListBusStations))
+		r.Get("/{code}", api.MakeHandlerFunc(app.BusStationHandler.FindBusStationByCode))
+	})
+
+	r.Route("/bus-lines", func(r chi.Router) {
+		r.Get("/", api.MakeHandlerFunc(app.BusLineHandler.ListBusLines))
 	})
 
 	return r

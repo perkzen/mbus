@@ -12,7 +12,7 @@ import (
 
 type BusStation struct {
 	ID         int         `json:"id"`
-	Code       string      `json:"code"`
+	Code       int         `json:"code"`
 	Name       string      `json:"name"`
 	ImageURL   string      `json:"imageUrl"`
 	Routes     []string    `json:"routes"`
