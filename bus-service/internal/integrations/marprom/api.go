@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/perkzen/mbus/bus-service/internal/utils"
 	"log"
+	"strings"
 )
 
 type API interface {
@@ -72,4 +73,33 @@ func (client *APIClient) GetBusStationDetails(code string) (*BusStationDetails, 
 	log.Println("Parsed bus station details successfully for code:", code)
 
 	return details, nil
+}
+
+type DepartureFilterOptions struct {
+	Code string
+	Line string
+}
+
+func (client *APIClient) GetDeparturesByBusStation(filter *DepartureFilterOptions) ([]Departure, error) {
+	station, err := client.GetBusStationDetails(filter.Code)
+	if err != nil {
+		log.Fatalf("failed to get bus station details: %s", err)
+		return nil, err
+	}
+
+	if station == nil {
+		log.Println("No bus station found with code:", filter.Code)
+		return nil, nil
+	}
+
+	departures := make([]Departure, 0)
+
+	for _, dep := range station.Departures {
+		if filter.Line != "" && !strings.EqualFold(dep.Line, filter.Line) {
+			continue
+		}
+		departures = append(departures, dep)
+	}
+
+	return departures, nil
 }

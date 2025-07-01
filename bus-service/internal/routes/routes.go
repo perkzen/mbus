@@ -15,12 +15,16 @@ func RegisterRoutes(app *app.Application) *chi.Mux {
 	r.Get("/health", api.MakeHandlerFunc(app.HealthCheck))
 
 	r.Route("/bus-stations", func(r chi.Router) {
-		r.Get("/", api.MakeHandlerFunc(app.BusStationHandler.ListBusStations))
-		r.Get("/{code}", api.MakeHandlerFunc(app.BusStationHandler.FindBusStationByCode))
+		r.Get("/", api.MakeHandlerFunc(app.BusStationHandler.GetBusStations))
+		r.Get("/{code}", api.MakeHandlerFunc(app.BusStationHandler.GetBusStationByCode))
 	})
 
 	r.Route("/bus-lines", func(r chi.Router) {
-		r.Get("/", api.MakeHandlerFunc(app.BusLineHandler.ListBusLines))
+		r.Get("/", api.MakeHandlerFunc(app.BusLineHandler.GetBusLines))
+	})
+
+	r.Route("/departures", func(r chi.Router) {
+		r.Get("/stations/{code}", api.MakeHandlerFunc(app.DepartureHandler.GetDeparturesByStation))
 	})
 
 	return r

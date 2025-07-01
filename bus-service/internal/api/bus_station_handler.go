@@ -18,7 +18,7 @@ func NewBusStationHandler(busStationStore store.BusStationStore) *BusStationHand
 	}
 }
 
-func (h *BusStationHandler) ListBusStations(w http.ResponseWriter, r *http.Request) error {
+func (h *BusStationHandler) GetBusStations(w http.ResponseWriter, r *http.Request) error {
 	limit := QueryInt(r, "limit", 10)
 	offset := QueryInt(r, "offset", 0)
 
@@ -37,7 +37,7 @@ func (h *BusStationHandler) ListBusStations(w http.ResponseWriter, r *http.Reque
 	return WriteJSON(w, http.StatusOK, busStations)
 }
 
-func (h *BusStationHandler) FindBusStationByCode(w http.ResponseWriter, r *http.Request) error {
+func (h *BusStationHandler) GetBusStationByCode(w http.ResponseWriter, r *http.Request) error {
 
 	code := chi.URLParam(r, "code")
 	if code == "" {

@@ -35,6 +35,10 @@ func NotFoundError(message string) APIError {
 	return NewAPIError(http.StatusNotFound, message)
 }
 
+func ServiceUnavailableError(message string) APIError {
+	return NewAPIError(http.StatusServiceUnavailable, message)
+}
+
 type APIFunc func(w http.ResponseWriter, r *http.Request) error
 
 func MakeHandlerFunc(fn APIFunc) http.HandlerFunc {

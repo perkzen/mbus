@@ -6,8 +6,10 @@ import (
 )
 
 type Environment struct {
-	Port        int    `env:"PORT" envDefault:"8080"`
-	PostgresURL string `env:"POSTGRES_URL"`
+	Port          int    `env:"PORT" envDefault:"8080"`
+	PostgresURL   string `env:"POSTGRES_URL"`
+	RedisAddr     string `env:"REDIS_ADDR" envDefault:"localhost:6379"`
+	RedisPassword string `env:"REDIS_PASSWORD"`
 }
 
 func LoadEnvironment() (*Environment, error) {

@@ -15,7 +15,7 @@ func NewBusLineHandler(busLineStore store.BusLineStore) *BusLineHandler {
 	}
 }
 
-func (h *BusLineHandler) ListBusLines(w http.ResponseWriter, r *http.Request) error {
+func (h *BusLineHandler) GetBusLines(w http.ResponseWriter, r *http.Request) error {
 	lines, err := h.busLineStore.ListBusLines()
 
 	if err != nil {

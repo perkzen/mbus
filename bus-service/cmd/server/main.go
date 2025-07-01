@@ -16,6 +16,7 @@ func main() {
 	httpServer := server.NewHttpServer(restApp)
 
 	defer restApp.DB.Close()
+	defer restApp.Cache.Close()
 
 	done := make(chan bool, 1)
 
