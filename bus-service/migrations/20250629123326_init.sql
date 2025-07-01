@@ -39,4 +39,8 @@ CREATE TABLE IF NOT EXISTS bus_stations_bus_lines
 -- +goose Down
 -- +goose StatementBegin
 SELECT 'down SQL query';
+
+DROP TABLE IF EXISTS bus_stations_bus_lines;
+DROP TABLE IF EXISTS bus_lines;
+DROP TABLE IF EXISTS bus_stations;
 -- +goose StatementEnd
