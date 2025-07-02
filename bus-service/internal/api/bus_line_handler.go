@@ -11,6 +11,7 @@ type BusLineHandler struct {
 	logger       *slog.Logger
 }
 
+// NewBusLineHandler creates a new BusLineHandler with the provided bus line store and logger, attaching a handler-specific context to the logger.
 func NewBusLineHandler(busLineStore store.BusLineStore, logger *slog.Logger) *BusLineHandler {
 	return &BusLineHandler{
 		busLineStore: busLineStore,

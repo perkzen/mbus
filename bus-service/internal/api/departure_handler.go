@@ -20,6 +20,7 @@ type DepartureHandler struct {
 	logger        *slog.Logger
 }
 
+// NewDepartureHandler creates and returns a new DepartureHandler with the provided Redis cache client and logger, initializing the Marprom API client and adding a handler-specific context to the logger.
 func NewDepartureHandler(cache *redis.Client, logger *slog.Logger) *DepartureHandler {
 	return &DepartureHandler{
 		marpromClient: marprom.NewAPIClient(),
@@ -62,6 +63,7 @@ func (h *DepartureHandler) GetDeparturesByStation(w http.ResponseWriter, r *http
 	return WriteJSON(w, http.StatusOK, details)
 }
 
+// buildCacheKey returns a Redis cache key for departures based on the station code, optional line, and the current date.
 func buildCacheKey(code, line string) string {
 	if line != "" {
 		return fmt.Sprintf("departures_%s_%s_%s", code, line, utils.Today())

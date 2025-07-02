@@ -9,6 +9,7 @@ import (
 	"net/http"
 )
 
+// main initializes the application, starts the HTTP server, and manages graceful shutdown on termination signals.
 func main() {
 	env, err := config.LoadEnvironment()
 	if err != nil {

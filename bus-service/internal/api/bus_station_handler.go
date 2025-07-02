@@ -13,6 +13,8 @@ type BusStationHandler struct {
 	logger          *slog.Logger
 }
 
+// NewBusStationHandler creates and returns a new BusStationHandler with the provided bus station store and logger.
+// The logger is augmented with a contextual field identifying the handler.
 func NewBusStationHandler(busStationStore store.BusStationStore, logger *slog.Logger) *BusStationHandler {
 	return &BusStationHandler{
 		busStationStore: busStationStore,

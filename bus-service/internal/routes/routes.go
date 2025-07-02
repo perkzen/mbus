@@ -7,6 +7,7 @@ import (
 	"github.com/perkzen/mbus/bus-service/internal/middleware"
 )
 
+// RegisterRoutes configures and returns the HTTP router with all API endpoints for the bus service application.
 func RegisterRoutes(app *app.Application) *chi.Mux {
 	r := chi.NewRouter()
 

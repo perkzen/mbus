@@ -6,6 +6,7 @@ import (
 	"github.com/go-chi/cors"
 )
 
+// Init configures the provided chi.Mux router with CORS, JSON response compression, request logging, and panic recovery middleware.
 func Init(r *chi.Mux) {
 
 	r.Use(cors.Handler(cors.Options{

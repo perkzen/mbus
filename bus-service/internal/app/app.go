@@ -25,6 +25,9 @@ type Application struct {
 	Cache             *redis.Client
 }
 
+// NewApplication initializes and returns a fully configured Application instance with database, cache, and HTTP handlers.
+// It establishes connections to PostgreSQL and Redis, runs database migrations, and sets up structured logging.
+// Returns an error if any initialization step fails.
 func NewApplication(env *config.Environment) (*Application, error) {
 	logger := slog.New(slog.NewJSONHandler(os.Stdout, &slog.HandlerOptions{
 		Level: slog.LevelInfo,
