@@ -22,7 +22,7 @@ func (h *BusLineHandler) GetBusLines(w http.ResponseWriter, r *http.Request) err
 	lines, err := h.busLineStore.ListBusLines()
 
 	if err != nil {
-		h.logger.Error("failed to fetch station", slog.Any("error", err))
+		h.logger.Error("failed to fetch bus-lines", slog.Any("error", err))
 		return err
 	}
 

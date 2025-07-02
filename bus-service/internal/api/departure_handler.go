@@ -8,7 +8,6 @@ import (
 	"github.com/perkzen/mbus/bus-service/internal/integrations/marprom"
 	"github.com/perkzen/mbus/bus-service/internal/utils"
 	"github.com/redis/go-redis/v9"
-	"log"
 	"log/slog"
 	"net/http"
 	"time"
@@ -43,7 +42,7 @@ func (h *DepartureHandler) GetDeparturesByStation(w http.ResponseWriter, r *http
 	if err == nil {
 		var departures []marprom.Departure
 		if err := json.Unmarshal([]byte(cached), &departures); err == nil {
-			log.Println("Cache hit for departures:", cacheKey)
+			h.logger.Info("Cache hit for departures", slog.String("key", cacheKey))
 			return WriteJSON(w, http.StatusOK, departures)
 		}
 	}
