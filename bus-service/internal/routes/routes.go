@@ -4,13 +4,13 @@ import (
 	"github.com/go-chi/chi/v5"
 	"github.com/perkzen/mbus/bus-service/internal/api"
 	"github.com/perkzen/mbus/bus-service/internal/app"
-	"github.com/perkzen/mbus/bus-service/internal/middlewares"
+	"github.com/perkzen/mbus/bus-service/internal/middleware"
 )
 
 func RegisterRoutes(app *app.Application) *chi.Mux {
 	r := chi.NewRouter()
 
-	middlewares.Init(r)
+	middleware.Init(r)
 
 	r.Get("/health", api.MakeHandlerFunc(app.HealthCheck))
 

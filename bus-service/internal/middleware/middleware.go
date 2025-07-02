@@ -1,4 +1,4 @@
-package middlewares
+package middleware
 
 import (
 	"github.com/go-chi/chi/v5"
@@ -14,6 +14,8 @@ func Init(r *chi.Mux) {
 		AllowedHeaders:   []string{"Accept", "Authorization", "Content-Type"},
 		AllowCredentials: true,
 	}))
+
+	r.Use(middleware.Compress(5, "application/json"))
 
 	r.Use(middleware.Logger)
 	r.Use(middleware.Recoverer)

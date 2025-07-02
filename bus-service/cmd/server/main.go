@@ -2,7 +2,6 @@ package main
 
 import (
 	"errors"
-	"fmt"
 	"github.com/perkzen/mbus/bus-service/internal/app"
 	"github.com/perkzen/mbus/bus-service/internal/config"
 	"github.com/perkzen/mbus/bus-service/internal/server"
@@ -11,8 +10,16 @@ import (
 )
 
 func main() {
-	env, _ := config.LoadEnvironment()
-	restApp, _ := app.NewApplication(env)
+	env, err := config.LoadEnvironment()
+	if err != nil {
+		log.Fatalf("❌ Failed to load environment variables: %v", err)
+	}
+
+	restApp, err := app.NewApplication(env)
+	if err != nil {
+		log.Fatalf("❌ Failed to initialize application: %v", err)
+	}
+
 	httpServer := server.NewHttpServer(restApp)
 
 	defer restApp.DB.Close()
@@ -22,9 +29,9 @@ func main() {
 
 	go server.GracefulShutdown(httpServer, done)
 
-	err := httpServer.ListenAndServe()
+	err = httpServer.ListenAndServe()
 	if err != nil && !errors.Is(err, http.ErrServerClosed) {
-		panic(fmt.Sprintf("http server error: %s", err))
+		log.Fatalf("❌ HTTP server error: %v", err)
 	}
 
 	<-done
