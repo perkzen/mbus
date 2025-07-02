@@ -1,20 +1,22 @@
 package api
 
 import (
-	"fmt"
 	"github.com/go-chi/chi/v5"
 	"github.com/perkzen/mbus/bus-service/internal/store"
+	"log/slog"
 	"net/http"
 	"strconv"
 )
 
 type BusStationHandler struct {
 	busStationStore store.BusStationStore
+	logger          *slog.Logger
 }
 
-func NewBusStationHandler(busStationStore store.BusStationStore) *BusStationHandler {
+func NewBusStationHandler(busStationStore store.BusStationStore, logger *slog.Logger) *BusStationHandler {
 	return &BusStationHandler{
 		busStationStore: busStationStore,
+		logger:          logger.With(slog.String("handler", "BusStationHandler")),
 	}
 }
 
@@ -30,7 +32,7 @@ func (h *BusStationHandler) GetBusStations(w http.ResponseWriter, r *http.Reques
 		Line: line,
 	})
 	if err != nil {
-		fmt.Println("Error fetching bus stations:", err.Error())
+		h.logger.Error(err.Error())
 		return err
 	}
 
@@ -50,8 +52,13 @@ func (h *BusStationHandler) GetBusStationByCode(w http.ResponseWriter, r *http.R
 	}
 
 	busStation, err := h.busStationStore.FindBusStationByCode(stationCode)
-	if err != nil || busStation == nil {
-		fmt.Println("Error fetching bus station:", err.Error())
+	if err != nil {
+		h.logger.Error("failed to fetch station", slog.Any("error", err))
+		return err
+	}
+
+	if busStation == nil {
+		h.logger.Warn("bus station not found", slog.String("code", code))
 		return NotFoundError("Bus station not found")
 	}
 

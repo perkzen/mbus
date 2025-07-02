@@ -3,18 +3,20 @@ package app
 import (
 	"context"
 	"database/sql"
+	"fmt"
 	"github.com/perkzen/mbus/bus-service/internal/api"
 	"github.com/perkzen/mbus/bus-service/internal/config"
 	"github.com/perkzen/mbus/bus-service/internal/db"
 	"github.com/perkzen/mbus/bus-service/internal/store"
 	"github.com/perkzen/mbus/bus-service/migrations"
 	"github.com/redis/go-redis/v9"
-	"log"
+	"log/slog"
 	"net/http"
+	"os"
 )
 
 type Application struct {
-	Logger            *log.Logger
+	Logger            *slog.Logger
 	Env               *config.Environment
 	DB                *sql.DB
 	BusStationHandler *api.BusStationHandler
@@ -24,20 +26,22 @@ type Application struct {
 }
 
 func NewApplication(env *config.Environment) (*Application, error) {
+	logger := slog.New(slog.NewJSONHandler(os.Stdout, &slog.HandlerOptions{
+		Level: slog.LevelInfo,
+	}))
+	slog.SetDefault(logger)
 
 	pgDb, err := db.NewPostgresDB(env.PostgresURL).Open()
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("failed to open Postgres DB: %w", err)
 	}
 
-	err = pgDb.Ping()
-	if err != nil {
-		panic(err)
+	if err := pgDb.Ping(); err != nil {
+		return nil, fmt.Errorf("failed to ping Postgres DB: %w", err)
 	}
 
-	err = db.MigrateFS(pgDb, migrations.FS, ".")
-	if err != nil {
-		panic(err)
+	if err := db.MigrateFS(pgDb, migrations.FS, "."); err != nil {
+		return nil, fmt.Errorf("failed to run DB migrations: %w", err)
 	}
 
 	rdb := redis.NewClient(&redis.Options{
@@ -47,18 +51,19 @@ func NewApplication(env *config.Environment) (*Application, error) {
 	})
 
 	if _, err := rdb.Ping(context.Background()).Result(); err != nil {
-		panic(err)
+		return nil, fmt.Errorf("failed to connect to Redis: %w", err)
 	}
 
 	busStationStore := store.NewPostgresBusStationStore(pgDb)
-	busStationHandler := api.NewBusStationHandler(busStationStore)
-
-	departureHandler := api.NewDepartureHandler(rdb)
+	busStationHandler := api.NewBusStationHandler(busStationStore, logger)
 
 	busLineStore := store.NewPostgresBusLineStore(pgDb)
-	busLineHandler := api.NewBusLineHandler(busLineStore)
+	busLineHandler := api.NewBusLineHandler(busLineStore, logger)
+
+	departureHandler := api.NewDepartureHandler(rdb, logger)
 
 	return &Application{
+		Logger:            logger,
 		Env:               env,
 		DB:                pgDb,
 		Cache:             rdb,
