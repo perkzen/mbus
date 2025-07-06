@@ -1,15 +1,25 @@
-import { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Autocomplete } from '@/components/ui/autocomplete';
 import { Button } from '@/components/ui/button';
 import { ArrowLeftRight } from 'lucide-react';
 import { DateInput } from '@/components/ui/date-input';
+import type { ComboBoxItem } from '@/components/ui/api-combobox.tsx';
+import { BusStationSelect } from '@/components/blocks/bus-station-select.tsx';
 
-const DepartureSearchForm = () => {
-  const [fromStation, setFromStation] = useState('');
-  const [toStation, setToStation] = useState('');
-  const [_selectedDate, _setSelectedDate] = useState('05.07.2025');
+type DepartureSearchFormProps = {
+  fromStation?: ComboBoxItem;
+  setFromStation: (item?: ComboBoxItem) => void;
+  toStation?: ComboBoxItem;
+  setToStation: (item?: ComboBoxItem) => void;
+  searchDepartures: () => void;
+};
 
+const DepartureSearchForm = ({
+  fromStation,
+  setFromStation,
+  toStation,
+  setToStation,
+  searchDepartures,
+}: DepartureSearchFormProps) => {
   const swapStations = () => {
     const temp = fromStation;
     setFromStation(toStation);
@@ -25,11 +35,10 @@ const DepartureSearchForm = () => {
               <label className="mb-2 block text-sm font-medium text-gray-700">
                 IZBERITE VSTOPNO POSTAJO
               </label>
-              <Autocomplete
-                options={[]}
-                value={fromStation}
-                onChange={setFromStation}
-                className={'w-full'}
+              <BusStationSelect
+                selectedItem={fromStation}
+                onSelect={setFromStation}
+                className="w-full"
               />
             </div>
 
@@ -48,11 +57,10 @@ const DepartureSearchForm = () => {
               <label className="mb-2 block text-sm font-medium text-gray-700">
                 IZBERITE IZSTOPNO POSTAJO
               </label>
-              <Autocomplete
-                options={[]}
-                value={toStation}
-                onChange={setToStation}
-                className={'w-full'}
+              <BusStationSelect
+                selectedItem={toStation}
+                onSelect={setToStation}
+                className="w-full"
               />
             </div>
           </div>
@@ -64,7 +72,10 @@ const DepartureSearchForm = () => {
             <DateInput />
           </div>
 
-          <Button className="bg-primary w-full text-white md:w-fit">
+          <Button
+            className="bg-primary w-full text-white md:w-fit"
+            onClick={() => searchDepartures()}
+          >
             IŠČI VOZNI RED
           </Button>
         </div>

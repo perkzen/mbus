@@ -10,6 +10,7 @@ type Environment struct {
 	PostgresURL   string `env:"POSTGRES_URL"`
 	RedisAddr     string `env:"REDIS_ADDR" envDefault:"localhost:6379"`
 	RedisPassword string `env:"REDIS_PASSWORD"`
+	ORSApiKey     string `env:"ORS_API_KEY"`
 }
 
 func LoadEnvironment() (*Environment, error) {

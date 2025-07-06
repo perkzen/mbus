@@ -3,6 +3,7 @@ package api
 import (
 	"encoding/json"
 	"errors"
+	"github.com/perkzen/mbus/bus-service/internal/utils"
 	"net/http"
 	"strconv"
 )
@@ -76,4 +77,18 @@ func QueryStr(r *http.Request, key string) (string, error) {
 
 	return val, nil
 
+}
+
+func QueryDateStr(r *http.Request, key string, defaultValue string) string {
+	date, _ := QueryStr(r, "date")
+
+	if date != "" && !utils.ValidateDate(date) {
+		return defaultValue
+	}
+
+	if date == "" {
+		return defaultValue
+	}
+
+	return date
 }

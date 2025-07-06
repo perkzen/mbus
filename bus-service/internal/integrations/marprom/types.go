@@ -26,6 +26,8 @@ func NewBusStation(id int, code, name string, lat, lon float64) *BusStation {
 
 type BusStationDetails struct {
 	ID         int         `json:"id"`
+	Code       string      `json:"code"`
+	Name       string      `json:"name"`
 	Lines      []string    `json:"lines"`
 	Departures []Departure `json:"departures"`
 	ImageURL   string      `json:"imageUrl"`

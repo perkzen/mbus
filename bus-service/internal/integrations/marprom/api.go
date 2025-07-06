@@ -2,14 +2,16 @@ package marprom
 
 import (
 	"fmt"
-	"github.com/perkzen/mbus/bus-service/internal/utils"
 	"log"
+	"strconv"
 	"strings"
 )
 
 type API interface {
 	GetAvailableBusStations() ([]BusStation, error)
-	GetBusStationDetails(code string) (*BusStationDetails, error)
+	GetBusStationDetails(code int) (*BusStationDetails, error)
+	GetDeparturesByBusStation(filter *DepartureFilterOptions) ([]Departure, error)
+	GetDeparturesFromStationToStation(fromCode, toCode int, date string) ([]Departure, error)
 }
 
 type APIClient struct {
@@ -50,9 +52,9 @@ func (client *APIClient) GetAvailableBusStations() ([]BusStation, error) {
 
 }
 
-func (client *APIClient) GetBusStationDetails(code string) (*BusStationDetails, error) {
+func (client *APIClient) GetBusStationDetails(code int, date string) (*BusStationDetails, error) {
 	opts := &FetchOptions{
-		URL: fmt.Sprintf("%s?stop=%s&datum=%s", client.baseURL, code, utils.Today()),
+		URL: fmt.Sprintf("%s?stop=%d&datum=%s", client.baseURL, code, date),
 	}
 
 	log.Println("Fetching bus station details from", opts.URL)
@@ -64,6 +66,7 @@ func (client *APIClient) GetBusStationDetails(code string) (*BusStationDetails, 
 	}
 
 	details, err := client.parser.ParseBusStationDetails(html)
+	details.Code = strconv.Itoa(code)
 
 	if err != nil {
 		log.Fatalf("failed to parse bus station details: %s", err)
@@ -76,12 +79,13 @@ func (client *APIClient) GetBusStationDetails(code string) (*BusStationDetails, 
 }
 
 type DepartureFilterOptions struct {
-	Code string
+	Code int
 	Line string
+	Date string
 }
 
 func (client *APIClient) GetDeparturesByBusStation(filter *DepartureFilterOptions) ([]Departure, error) {
-	station, err := client.GetBusStationDetails(filter.Code)
+	station, err := client.GetBusStationDetails(filter.Code, filter.Date)
 	if err != nil {
 		log.Fatalf("failed to get bus station details: %s", err)
 		return nil, err
@@ -102,4 +106,39 @@ func (client *APIClient) GetDeparturesByBusStation(filter *DepartureFilterOption
 	}
 
 	return departures, nil
+}
+
+func (client *APIClient) GetDeparturesFromStationToStation(fromCode, toCode int, date string) ([]Departure, error) {
+	fromStation, err := client.GetBusStationDetails(fromCode, date)
+	if err != nil {
+		log.Fatalf("failed to get from bus station details: %s", err)
+		return nil, err
+	}
+
+	toStation, err := client.GetBusStationDetails(toCode, date)
+	if err != nil {
+		log.Fatalf("failed to get to bus station details: %s", err)
+		return nil, err
+	}
+
+	if fromStation == nil || toStation == nil {
+		log.Println("One of the bus stations not found")
+		return nil, nil
+	}
+
+	// Build a set of lines available at the destination station
+	toStationLines := make(map[string]struct{})
+	for _, dep := range toStation.Departures {
+		toStationLines[strings.ToLower(dep.Line)] = struct{}{}
+	}
+
+	// Filter only departures from source station that match a line at destination
+	var sharedDepartures []Departure
+	for _, dep := range fromStation.Departures {
+		if _, ok := toStationLines[strings.ToLower(dep.Line)]; ok {
+			sharedDepartures = append(sharedDepartures, dep)
+		}
+	}
+
+	return sharedDepartures, nil
 }

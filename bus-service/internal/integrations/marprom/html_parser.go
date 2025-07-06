@@ -113,19 +113,22 @@ func (p *HTMLParser) ParseBusStationDetails(html []byte) (*BusStationDetails, er
 
 	details := &BusStationDetails{}
 
-	// Extract station ID
 	doc.Find("#ModalBodyStopInfo table").First().Find("tr").Each(func(i int, s *goquery.Selection) {
 		cells := s.Find("td")
 		if cells.Length() != 2 {
 			return
 		}
+
 		label := strings.TrimSpace(cells.Eq(0).Text())
 		value := strings.TrimSpace(cells.Eq(1).Text())
 
-		if strings.Contains(label, "Številka") {
+		switch {
+		case strings.Contains(label, "Številka"):
 			if id, err := strconv.Atoi(value); err == nil {
 				details.ID = id
 			}
+		case strings.Contains(label, "Ime"):
+			details.Name = value
 		}
 	})
 

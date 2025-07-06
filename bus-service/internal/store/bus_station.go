@@ -82,7 +82,7 @@ func (store *PostgresBusStationStore) ListBusStations(limit, offset int, opts *B
 				Where(sq.ILike{"bl.name": "%" + opts.Line + "%"})
 		}
 		if opts.Name != "" {
-			builder = builder.Where(sq.ILike{"bs.name": "%" + opts.Name + "%"})
+			builder = builder.Where(sq.ILike{"bs.name": opts.Name + "%"})
 		}
 	}
 

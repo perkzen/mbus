@@ -7,6 +7,9 @@ import (
 	"github.com/perkzen/mbus/bus-service/internal/api"
 	"github.com/perkzen/mbus/bus-service/internal/config"
 	"github.com/perkzen/mbus/bus-service/internal/db"
+	"github.com/perkzen/mbus/bus-service/internal/integrations/marprom"
+	"github.com/perkzen/mbus/bus-service/internal/integrations/ors"
+	"github.com/perkzen/mbus/bus-service/internal/service/departure"
 	"github.com/perkzen/mbus/bus-service/internal/store"
 	"github.com/perkzen/mbus/bus-service/migrations"
 	"github.com/redis/go-redis/v9"
@@ -60,7 +63,11 @@ func NewApplication(env *config.Environment) (*Application, error) {
 	busLineStore := store.NewPostgresBusLineStore(pgDb)
 	busLineHandler := api.NewBusLineHandler(busLineStore, logger)
 
-	departureHandler := api.NewDepartureHandler(rdb, logger)
+	orsApiClient := ors.NewAPIClient(env.ORSApiKey)
+	marpromApiClient := marprom.NewAPIClient()
+
+	departureService := departure.NewService(marpromApiClient, orsApiClient, rdb, busStationStore)
+	departureHandler := api.NewDepartureHandler(departureService, logger)
 
 	return &Application{
 		Logger:            logger,

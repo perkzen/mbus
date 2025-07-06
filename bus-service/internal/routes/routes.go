@@ -24,7 +24,7 @@ func RegisterRoutes(app *app.Application) *chi.Mux {
 	})
 
 	r.Route("/departures", func(r chi.Router) {
-		r.Get("/stations/{code}", api.MakeHandlerFunc(app.DepartureHandler.GetDeparturesByStation))
+		r.Get("/", api.MakeHandlerFunc(app.DepartureHandler.GetDepartures))
 	})
 
 	return r
