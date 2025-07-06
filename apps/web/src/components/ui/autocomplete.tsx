@@ -35,8 +35,8 @@ export function Autocomplete({
   options,
   value,
   onChange,
-  placeholder = 'Select option...',
-  className = 'w-[200px]',
+  placeholder = 'Izberi postajo...',
+  className,
 }: AutocompleteProps) {
   const [open, setOpen] = React.useState(false);
   const [input, setInput] = React.useState('');
@@ -60,16 +60,22 @@ export function Autocomplete({
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className={cn(className, 'p-0')}>
+      <PopoverContent
+        className={cn(
+          className,
+          'w-full min-w-[var(--radix-popover-trigger-width)] p-0'
+        )}
+        style={{ width: 'var(--radix-popover-trigger-width)' }}
+      >
         <Command>
           <CommandInput
-            placeholder="Search..."
+            placeholder="Išči..."
             className="h-9"
             value={input}
             onValueChange={setInput}
           />
           <CommandList>
-            <CommandEmpty>No results found.</CommandEmpty>
+            <CommandEmpty>Ni rezultatov.</CommandEmpty>
             <CommandGroup>
               {filteredOptions.map((option) => (
                 <CommandItem

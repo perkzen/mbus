@@ -4,7 +4,7 @@ import { Card, CardContent } from '@/components/ui/card';
 
 const DepartureTableDateNavigation = () => {
   return (
-    <div className="flex items-center justify-center gap-4 mb-6">
+    <div className="mb-6 flex items-center justify-center gap-4">
       <Button variant="ghost" size="icon">
         <ChevronLeft className="h-4 w-4" />
       </Button>
@@ -12,9 +12,7 @@ const DepartureTableDateNavigation = () => {
         <Button variant="ghost" className="text-gray-400">
           04.07.2025
         </Button>
-        <Button className="bg-orange-500 text-white border-b-4 border-orange-600">
-          05.07.2025
-        </Button>
+        <Button className="bg-primary text-white">05.07.2025</Button>
         <Button variant="ghost" className="text-gray-400">
           06.07.2025
         </Button>
@@ -28,7 +26,7 @@ const DepartureTableDateNavigation = () => {
 
 const Direction = () => {
   return (
-    <div className="flex items-center mb-6">
+    <div className="mb-6 flex items-center">
       <div className="flex items-center gap-2 text-2xl font-semibold">
         <span>Ihova</span>
         <ArrowRight className="h-6 w-6 text-gray-400" />
@@ -48,21 +46,21 @@ const DeparturesTable = () => {
         <CardContent className="p-0">
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-gray-50">
+              <thead className="">
                 <tr>
-                  <th className="text-left p-4 font-medium text-gray-700">
+                  <th className="p-4 text-left font-medium text-gray-700">
                     Odhod/prihod
                   </th>
-                  <th className="text-left p-4 font-medium text-gray-700">
+                  <th className="p-4 text-left font-medium text-gray-700">
                     Trajanje
                   </th>
-                  <th className="text-left p-4 font-medium text-gray-700">
+                  <th className="p-4 text-left font-medium text-gray-700">
                     Kilometri
                   </th>
-                  <th className="text-left p-4 font-medium text-gray-700">
+                  <th className="p-4 text-left font-medium text-gray-700">
                     Cena
                   </th>
-                  <th className="text-right p-4 font-medium"></th>
+                  <th className="p-4 text-right font-medium"></th>
                 </tr>
               </thead>
               <tbody>
@@ -71,15 +69,15 @@ const DeparturesTable = () => {
                     <div className="space-y-2">
                       <div className="flex items-center gap-3">
                         <span className="font-semibold">04:43</span>
-                        <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+                        <div className="bg-primary h-2 w-2 rounded-full"></div>
                         <span>Ihova</span>
                       </div>
-                      <div className="flex items-center gap-3 ml-6">
-                        <div className="w-2 h-8 border-l-2 border-gray-300"></div>
+                      <div className="ml-6 flex items-center gap-3">
+                        <div className="h-8 w-2 border-l-2 border-gray-300"></div>
                       </div>
                       <div className="flex items-center gap-3">
                         <span className="font-semibold">05:27</span>
-                        <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
+                        <div className="bg-primary h-2 w-2 rounded-full"></div>
                         <span>Maribor AP</span>
                       </div>
                     </div>
@@ -101,7 +99,7 @@ const DeparturesTable = () => {
                   <td className="p-4 text-right">
                     <Button
                       variant="outline"
-                      className="text-orange-500 border-orange-500 bg-transparent"
+                      className="text-primary border-primary bg-transparent"
                     >
                       PRIKAŽI POT
                     </Button>
