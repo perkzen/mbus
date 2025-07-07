@@ -17,20 +17,21 @@ const columns = [
       const row = getValue() as Departure;
 
       return (
-        <div className="space-y-2">
-          <div className="flex items-center gap-3">
-            <span className="font-semibold">{row.departureAt}</span>
-            <div className="bg-primary h-2 w-2 rounded-full"></div>
-            <span>{row.fromStation.name}</span>
-          </div>
-          <div className="ml-6 flex items-center gap-3">
-            <div className="h-8 w-2 border-l-2 border-gray-300"></div>
-          </div>
-          <div className="flex items-center gap-3">
-            <span className="font-semibold">{row.arriveAt}</span>
-            <div className="bg-primary h-2 w-2 rounded-full"></div>
-            <span>{row.toStation.name}</span>
-          </div>
+        <div className="grid grid-cols-[auto_min-content_1fr] items-center gap-x-2">
+          {/* Row 1: Departure */}
+          <span className="font-semibold">{row.departureAt}</span>
+          <div className="bg-primary h-2 w-2 rounded-full" />
+          <span>{row.fromStation.name}</span>
+
+          {/* Row 2: Vertical line */}
+          <span></span>
+          <div className="h-8 w-0.5 justify-self-center bg-gray-300" />
+          <span></span>
+
+          {/* Row 3: Arrival */}
+          <span className="font-semibold">{row.arriveAt}</span>
+          <div className="bg-primary h-2 w-2 rounded-full" />
+          <span>{row.toStation.name}</span>
         </div>
       );
     },
