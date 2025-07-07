@@ -1,8 +1,8 @@
 package api
 
 import (
-	"github.com/perkzen/mbus/bus-service/internal/service/departure"
-	"github.com/perkzen/mbus/bus-service/internal/utils"
+	"github.com/perkzen/mbus/apps/bus-service/internal/service/departure"
+	"github.com/perkzen/mbus/apps/bus-service/internal/utils"
 	"log/slog"
 	"net/http"
 	"strconv"

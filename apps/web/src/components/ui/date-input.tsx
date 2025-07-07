@@ -1,17 +1,14 @@
-'use client';
-
-import * as React from 'react';
 import { CalendarIcon } from 'lucide-react';
-
 import { Button } from '@/components/ui/button';
 import { Calendar } from '@/components/ui/calendar';
 import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover';
+import { useState } from 'react';
+import { cn } from '@/lib/utils.ts';
 
 function formatDate(date: Date | undefined) {
   if (!date) {
@@ -32,33 +29,37 @@ function isValidDate(date: Date | undefined) {
   return !isNaN(date.getTime());
 }
 
-export function DateInput() {
-  const [open, setOpen] = React.useState(false);
-  const [date, setDate] = React.useState<Date | undefined>(
-    new Date('2025-06-01')
-  );
-  const [month, setMonth] = React.useState<Date | undefined>(date);
-  const [value, setValue] = React.useState(formatDate(date));
+type DateInputProps = {
+  value?: Date;
+  onChange?: (date: Date | undefined) => void;
+  className?: string;
+};
+
+export function DateInput({ value, onChange, className }: DateInputProps) {
+  const [open, setOpen] = useState(false);
+  const [month, setMonth] = useState<Date | undefined>(value);
+
+  const inputValue = formatDate(value);
+
+  const handleInputChange = (raw: string) => {
+    const parsed = new Date(raw);
+    if (isValidDate(parsed)) {
+      onChange?.(parsed);
+      setMonth(parsed);
+    } else {
+      onChange?.(undefined);
+    }
+  };
 
   return (
-    <div className="flex flex-col gap-3">
-      {/*<Label htmlFor="date" className="px-1">*/}
-      {/*  Subscription Date*/}
-      {/*</Label>*/}
+    <div className={cn('flex flex-col gap-3', className)}>
       <div className="relative flex gap-2">
         <Input
           id="date"
-          value={value}
+          value={inputValue}
           placeholder="June 01, 2025"
           className="bg-background pr-10"
-          onChange={(e) => {
-            const date = new Date(e.target.value);
-            setValue(e.target.value);
-            if (isValidDate(date)) {
-              setDate(date);
-              setMonth(date);
-            }
-          }}
+          onChange={(e) => handleInputChange(e.target.value)}
           onKeyDown={(e) => {
             if (e.key === 'ArrowDown') {
               e.preventDefault();
@@ -85,13 +86,12 @@ export function DateInput() {
           >
             <Calendar
               mode="single"
-              selected={date}
+              selected={value}
               captionLayout="dropdown"
               month={month}
               onMonthChange={setMonth}
-              onSelect={(date) => {
-                setDate(date);
-                setValue(formatDate(date));
+              onSelect={(selected) => {
+                onChange?.(selected);
                 setOpen(false);
               }}
             />

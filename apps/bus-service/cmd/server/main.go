@@ -2,9 +2,9 @@ package main
 
 import (
 	"errors"
-	"github.com/perkzen/mbus/bus-service/internal/app"
-	"github.com/perkzen/mbus/bus-service/internal/config"
-	"github.com/perkzen/mbus/bus-service/internal/server"
+	"github.com/perkzen/mbus/apps/bus-service/internal/app"
+	"github.com/perkzen/mbus/apps/bus-service/internal/config"
+	"github.com/perkzen/mbus/apps/bus-service/internal/server"
 	"log"
 	"net/http"
 )

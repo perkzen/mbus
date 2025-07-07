@@ -18,8 +18,8 @@ export type Departure = {
 };
 
 export type DeparturesSearchParams = {
-  from: string;
-  to: string;
+  from: number;
+  to: number;
   date?: string;
 };
 

@@ -3,7 +3,7 @@ package api
 import (
 	"encoding/json"
 	"errors"
-	"github.com/perkzen/mbus/bus-service/internal/utils"
+	"github.com/perkzen/mbus/apps/bus-service/internal/utils"
 	"net/http"
 	"strconv"
 )

@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/perkzen/mbus/bus-service/internal/integrations/marprom"
-	"github.com/perkzen/mbus/bus-service/internal/utils"
+	"github.com/perkzen/mbus/apps/bus-service/internal/integrations/marprom"
+	"github.com/perkzen/mbus/apps/bus-service/internal/utils"
 )
 
 func main() {

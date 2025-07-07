@@ -2,9 +2,9 @@ package routes
 
 import (
 	"github.com/go-chi/chi/v5"
-	"github.com/perkzen/mbus/bus-service/internal/api"
-	"github.com/perkzen/mbus/bus-service/internal/app"
-	"github.com/perkzen/mbus/bus-service/internal/middleware"
+	"github.com/perkzen/mbus/apps/bus-service/internal/api"
+	"github.com/perkzen/mbus/apps/bus-service/internal/app"
+	"github.com/perkzen/mbus/apps/bus-service/internal/middleware"
 )
 
 func RegisterRoutes(app *app.Application) *chi.Mux {

@@ -34,7 +34,8 @@
     "tailwind-merge": "^3.0.2",
     "tailwindcss": "^4.0.6",
     "tailwindcss-animate": "^1.0.7",
-    "use-debounce": "^10.0.5"
+    "use-debounce": "^10.0.5",
+    "zod": "^3.25.75"
   },
   "devDependencies": {
     "@testing-library/dom": "^10.4.0",

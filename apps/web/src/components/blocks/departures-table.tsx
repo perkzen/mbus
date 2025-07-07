@@ -1,3 +1,4 @@
+import { Loader2 } from 'lucide-react';
 import type { Departure } from '@/api/departures.ts';
 import {
   createColumnHelper,
@@ -18,17 +19,14 @@ const columns = [
 
       return (
         <div className="grid grid-cols-[auto_min-content_1fr] items-center gap-x-2">
-          {/* Row 1: Departure */}
           <span className="font-semibold">{row.departureAt}</span>
           <div className="bg-primary h-2 w-2 rounded-full" />
           <span>{row.fromStation.name}</span>
 
-          {/* Row 2: Vertical line */}
           <span></span>
           <div className="h-8 w-0.5 justify-self-center bg-gray-300" />
           <span></span>
 
-          {/* Row 3: Arrival */}
           <span className="font-semibold">{row.arriveAt}</span>
           <div className="bg-primary h-2 w-2 rounded-full" />
           <span>{row.toStation.name}</span>
@@ -72,15 +70,43 @@ const columns = [
 ];
 
 type TimetableTableProps = {
-  data: Departure[];
+  data?: Departure[];
+  isLoading?: boolean;
 };
 
-const DeparturesTable: FC<TimetableTableProps> = ({ data }) => {
+const DeparturesTable: FC<TimetableTableProps> = ({ data = [], isLoading }) => {
   const table = useReactTable({
     data,
     columns,
     getCoreRowModel: getCoreRowModel(),
   });
+
+  const isEmpty = !isLoading && data.length === 0;
+
+  if (isLoading) {
+    return (
+      <div className="flex flex-col items-center justify-center gap-2 p-8 text-gray-500">
+        <Loader2 className="h-6 w-6 animate-spin" />
+        Nalagam vozni red...
+      </div>
+    );
+  }
+
+  if (isEmpty) {
+    return (
+      <div className="flex flex-col items-center justify-center gap-4 p-10 text-center text-gray-500">
+        <img
+          src="/assets/lost.svg"
+          alt="No departures"
+          className="h-80 w-auto"
+        />
+        <p className="text-lg font-medium">Ni odhodov za prikaz.</p>
+        <p className="text-sm text-gray-400">
+          Poskusite z drugim datumom ali smerjo.
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className="overflow-auto rounded border">

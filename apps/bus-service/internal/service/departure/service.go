@@ -3,10 +3,10 @@ package departure
 import (
 	"context"
 	"fmt"
-	"github.com/perkzen/mbus/bus-service/internal/integrations/marprom"
-	"github.com/perkzen/mbus/bus-service/internal/integrations/ors"
-	"github.com/perkzen/mbus/bus-service/internal/store"
-	"github.com/perkzen/mbus/bus-service/internal/utils"
+	"github.com/perkzen/mbus/apps/bus-service/internal/integrations/marprom"
+	"github.com/perkzen/mbus/apps/bus-service/internal/integrations/ors"
+	"github.com/perkzen/mbus/apps/bus-service/internal/store"
+	"github.com/perkzen/mbus/apps/bus-service/internal/utils"
 	"github.com/redis/go-redis/v9"
 	"time"
 )
@@ -70,8 +70,12 @@ func (s *Service) GenerateTimetable(fromCode, toCode int, date string) ([]Depart
 	rows := make([]Departure, 0, len(departures))
 	for _, dep := range departures {
 		for _, depTime := range dep.Times {
-			arriveAt, _ := s.getArriveAt(depTime, dep.Line, dep.Direction, toDetails.Departures)
-			// TODO: error if arriveAt is empty
+			arriveAt, err := s.getArriveAt(depTime, dep.Line, dep.Direction, toDetails.Departures)
+
+			if err != nil {
+				return []Departure{}, nil
+			}
+
 			start, _ := utils.ParseClock(depTime)
 			end, _ := utils.ParseClock(arriveAt)
 			formattedDuration := utils.FormatDuration(start, end)
@@ -89,9 +93,8 @@ func (s *Service) GenerateTimetable(fromCode, toCode int, date string) ([]Depart
 		}
 	}
 
-	utils.SaveToCache(ctx, s.cache, cacheKey, rows, 24*time.Hour)
-
 	utils.SortByDepartureAtAsc(rows)
+	utils.SaveToCache(ctx, s.cache, cacheKey, rows, 24*time.Hour)
 
 	return rows, nil
 }

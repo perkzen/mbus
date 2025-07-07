@@ -3,8 +3,8 @@ package server
 import (
 	"context"
 	"fmt"
-	"github.com/perkzen/mbus/bus-service/internal/app"
-	"github.com/perkzen/mbus/bus-service/internal/routes"
+	"github.com/perkzen/mbus/apps/bus-service/internal/app"
+	"github.com/perkzen/mbus/apps/bus-service/internal/routes"
 	"log"
 	"net/http"
 	"os/signal"

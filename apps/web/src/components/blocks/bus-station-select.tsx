@@ -1,10 +1,12 @@
 import {
   ApiComboBox,
+  type ApiComboboxProps,
   type ComboBoxItem,
 } from '@/components/ui/api-combobox.tsx';
-import { busStationQueryOptions } from '@/api/hooks.ts';
+import { busStationQueryOptions } from '@/api/query-options.ts';
 import type {
-  GetBusStationSearchParams,
+  BusStation,
+  BusStationSearchParams,
   GetBusStationsResponse,
 } from '@/api/bus-stations.ts';
 
@@ -13,32 +15,49 @@ const mapBusStationToOption = ({
   code,
 }: {
   name: string;
-  code: string;
+  code: number;
 }): ComboBoxItem => ({
   label: `${name} (${code})`,
-  value: code,
+  value: code.toString(),
 });
 
+export function toComboBoxItem(station?: BusStation): ComboBoxItem {
+  if (!station) {
+    return { value: '', label: '' };
+  }
+
+  return {
+    value: station.code.toString(),
+    label: station.name
+      ? `${station.name} (${station.code})`
+      : `${station.code}`,
+  };
+}
+
 type BusStationSelectProps = {
-  selectedItem?: ComboBoxItem;
-  onSelect: (item: ComboBoxItem) => void;
   className?: string;
-};
+} & Pick<
+  ApiComboboxProps<
+    GetBusStationsResponse,
+    Error,
+    GetBusStationsResponse,
+    (string | BusStationSearchParams | undefined)[]
+  >,
+  'selectedItem' | 'onSelect' | 'searchPlaceholder' | 'selectPlaceholder'
+>;
 
 export const BusStationSelect = ({
-  selectedItem,
-  onSelect,
   className,
+  ...props
 }: BusStationSelectProps) => {
   return (
     <ApiComboBox<
       GetBusStationsResponse,
       Error,
       GetBusStationsResponse,
-      (string | GetBusStationSearchParams | undefined)[]
+      (string | BusStationSearchParams | undefined)[]
     >
-      selectedItem={selectedItem}
-      onSelect={onSelect}
+      {...props}
       queryOptionsFactory={(search) => busStationQueryOptions({ name: search })}
       mapDataToItems={(data) => data.map(mapBusStationToOption)}
       className={className}

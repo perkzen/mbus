@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useMemo, useState } from 'react';
 import { Check, ChevronsUpDown } from 'lucide-react';
 import { useDebouncedCallback } from 'use-debounce';
 import { useQuery, type UseQueryOptions } from '@tanstack/react-query';
@@ -25,7 +25,7 @@ export type ComboBoxItem = {
   label: string;
 };
 
-type ComboboxProps<
+export type ApiComboboxProps<
   TQueryFnData,
   TError,
   TData,
@@ -38,6 +38,7 @@ type ComboboxProps<
   ) => UseQueryOptions<TQueryFnData, TError, TData, TQueryKey>;
   mapDataToItems: (data: TData) => ComboBoxItem[];
   searchPlaceholder?: string;
+  selectPlaceholder?: string;
   className?: string;
   disabled?: boolean;
   align?: (typeof ALIGN_OPTIONS)[number];
@@ -54,10 +55,11 @@ export function ApiComboBox<
   queryOptionsFactory,
   mapDataToItems,
   searchPlaceholder = 'Search...',
+  selectPlaceholder = 'Select an item',
   className,
   disabled = false,
   align,
-}: ComboboxProps<TQueryFnData, TError, TData, TQueryKey>) {
+}: ApiComboboxProps<TQueryFnData, TError, TData, TQueryKey>) {
   const [open, setOpen] = useState(false);
   const [search, setSearch] = useState('');
 
@@ -66,21 +68,12 @@ export function ApiComboBox<
   }, 300);
 
   const queryOptions = queryOptionsFactory(search);
-  const { data, isLoading } = useQuery<TQueryFnData, TError, TData, TQueryKey>(
-    queryOptions
-  );
+  const { data, isLoading } = useQuery(queryOptions);
 
   const items = useMemo(() => {
     if (!data) return [];
-    const mapped = mapDataToItems(data as TData);
-    if (
-      selectedItem?.value &&
-      !mapped.find((i) => i.value === selectedItem?.value)
-    ) {
-      return [selectedItem, ...mapped];
-    }
-    return mapped;
-  }, [data, selectedItem, mapDataToItems]);
+    return mapDataToItems(data as TData);
+  }, [data, mapDataToItems]);
 
   return (
     <Popover open={open} onOpenChange={setOpen} modal>
@@ -93,7 +86,7 @@ export function ApiComboBox<
           disabled={disabled}
         >
           <span className="truncate">
-            {selectedItem?.label || 'Select an item'}
+            {selectedItem?.label || selectPlaceholder}
           </span>
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>

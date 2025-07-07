@@ -2,7 +2,7 @@ package api
 
 import (
 	"github.com/go-chi/chi/v5"
-	"github.com/perkzen/mbus/bus-service/internal/store"
+	"github.com/perkzen/mbus/apps/bus-service/internal/store"
 	"log/slog"
 	"net/http"
 	"strconv"
