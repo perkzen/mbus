@@ -36,10 +36,6 @@ func NotFoundError(message string) APIError {
 	return NewAPIError(http.StatusNotFound, message)
 }
 
-func ServiceUnavailableError(message string) APIError {
-	return NewAPIError(http.StatusServiceUnavailable, message)
-}
-
 type APIFunc func(w http.ResponseWriter, r *http.Request) error
 
 func MakeHandlerFunc(fn APIFunc) http.HandlerFunc {
@@ -50,7 +46,8 @@ func MakeHandlerFunc(fn APIFunc) http.HandlerFunc {
 			if !ok {
 				apiErr = InternalServerError()
 			}
-			http.Error(w, apiErr.Message, apiErr.StatusCode)
+			_ = WriteJSON(w, apiErr.StatusCode, apiErr)
+
 		}
 	}
 }
@@ -80,7 +77,7 @@ func QueryStr(r *http.Request, key string) (string, error) {
 }
 
 func QueryDateStr(r *http.Request, key string, defaultValue string) string {
-	date, _ := QueryStr(r, "date")
+	date, _ := QueryStr(r, key)
 
 	if date != "" && !utils.ValidateDate(date) {
 		return defaultValue

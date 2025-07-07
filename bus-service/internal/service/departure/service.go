@@ -71,7 +71,7 @@ func (s *Service) GenerateTimetable(fromCode, toCode int, date string) ([]Depart
 	for _, dep := range departures {
 		for _, depTime := range dep.Times {
 			arriveAt, _ := s.getArriveAt(depTime, dep.Line, dep.Direction, toDetails.Departures)
-
+			// TODO: error if arriveAt is empty
 			start, _ := utils.ParseClock(depTime)
 			end, _ := utils.ParseClock(arriveAt)
 			formattedDuration := utils.FormatDuration(start, end)
@@ -90,6 +90,9 @@ func (s *Service) GenerateTimetable(fromCode, toCode int, date string) ([]Depart
 	}
 
 	utils.SaveToCache(ctx, s.cache, cacheKey, rows, 24*time.Hour)
+
+	utils.SortByDepartureAtAsc(rows)
+
 	return rows, nil
 }
 

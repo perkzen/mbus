@@ -15,3 +15,7 @@ type Departure struct {
 	DepartureAt string  `json:"departureAt"`
 	ArriveAt    string  `json:"arriveAt"`
 }
+
+func (d Departure) GetDepartureAt() string {
+	return d.DepartureAt
+}

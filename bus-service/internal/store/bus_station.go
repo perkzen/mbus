@@ -66,14 +66,12 @@ func (store *PostgresBusStationStore) FindBusStationByCode(code int) (*BusStatio
 }
 
 func (store *PostgresBusStationStore) ListBusStations(limit, offset int, opts *BusStationFilterOptions) ([]BusStation, error) {
-	// Use the Squirrel statement builder (assuming it's defined in your store)
 	builder := Qb.Select("bs.code", "bs.name", "bs.image_url", "bs.lat", "bs.lng").
 		From("bus_stations bs").
 		Limit(uint64(limit)).
 		Offset(uint64(offset)).
 		OrderBy("bs.name")
 
-	// Apply joins and filters
 	if opts != nil {
 		if opts.Line != "" {
 			builder = builder.
