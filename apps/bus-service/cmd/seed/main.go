@@ -4,16 +4,15 @@ import (
 	"database/sql"
 	"encoding/json"
 	"errors"
+	sq "github.com/Masterminds/squirrel"
+	_ "github.com/jackc/pgx/v5/stdlib"
+	"github.com/perkzen/mbus/apps/bus-service/data"
 	"github.com/perkzen/mbus/apps/bus-service/internal/config"
 	"github.com/perkzen/mbus/apps/bus-service/internal/db"
 	"github.com/perkzen/mbus/apps/bus-service/internal/integrations/marprom"
 	"github.com/perkzen/mbus/apps/bus-service/internal/store"
 	"github.com/perkzen/mbus/bus-service/migrations"
 	"log"
-	"os"
-
-	sq "github.com/Masterminds/squirrel"
-	_ "github.com/jackc/pgx/v5/stdlib"
 )
 
 var (
@@ -24,7 +23,20 @@ func main() {
 	initDB()
 	defer pgDb.Close()
 
-	stations := loadSeedData("data/seed.json")
+	numOfStations := 444
+	var count int
+	query := "SELECT COUNT(*) FROM bus_stations"
+	err := pgDb.QueryRow(query).Scan(&count)
+	if err != nil {
+		log.Fatalf("❌ Failed to count bus_stations: %v", err)
+	}
+
+	if count == numOfStations {
+		log.Printf("✅ Database already seeded with %d bus stations, skipping seeding.", numOfStations)
+		return
+	}
+
+	stations := loadSeedData("./data/seed.json")
 	lineIDs := insertBusLines(stations)
 	insertBusStationsAndLinks(stations, lineIDs)
 
@@ -50,14 +62,15 @@ func initDB() {
 }
 
 func loadSeedData(path string) []marprom.BusStationWithDetails {
-	data, err := os.ReadFile(path)
+	file, err := data.FS.Open("seed.json")
 	if err != nil {
-		log.Fatalf("❌ Failed to read seed.json: %v", err)
+		log.Fatalf("❌ Failed to open embedded seed.json: %v", err)
 	}
+	defer file.Close()
 
 	var stations []marprom.BusStationWithDetails
-	if err := json.Unmarshal(data, &stations); err != nil {
-		log.Fatalf("❌ Failed to parse JSON: %v", err)
+	if err := json.NewDecoder(file).Decode(&stations); err != nil {
+		log.Fatalf("❌ Failed to parse seed.json: %v", err)
 	}
 
 	return stations

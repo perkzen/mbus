@@ -1,4 +1,3 @@
-# Stage 1: Base with PNPM and Node
 FROM node:20-slim AS base
 
 ENV PNPM_HOME="/pnpm"
@@ -8,19 +7,24 @@ RUN corepack enable && corepack prepare pnpm@latest --activate
 
 WORKDIR /app
 
-# Stage 2: Install dependencies and build
 FROM base AS builder
+
+ARG VITE_API_URL
+ENV VITE_API_URL=${VITE_API_URL}
 
 COPY package.json pnpm-lock.yaml ./
 RUN pnpm install --frozen-lockfile
 
 COPY . .
+
 RUN pnpm build
 
-# Stage 3: Serve with nginx
-FROM nginx:alpine AS serve
+FROM base AS serve
 
-COPY --from=builder /app/dist /usr/share/nginx/html
+WORKDIR /app
 
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+COPY --from=builder /app ./
+
+EXPOSE 4173
+
+CMD ["pnpm", "serve", "--host"]
