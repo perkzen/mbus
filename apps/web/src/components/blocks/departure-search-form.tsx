@@ -95,7 +95,6 @@ const DepartureSearchForm = ({
 
           <FormField label="IZBERITE DATUM">
             <DateInput
-              //  className="w-fit"
               value={date ? new Date(date) : undefined}
               onChange={(newDate) => {
                 if (newDate) {
