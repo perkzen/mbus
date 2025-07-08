@@ -1,3 +1,4 @@
+# .github/workflows/build-check.yml
 name: Build Check
 
 on:
@@ -27,25 +28,29 @@ jobs:
   build-web:
     name: Build Web App
     runs-on: ubuntu-22.04
-    defaults:
-      run:
-        working-directory: apps/web
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install pnpm
+      - name: Set up pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 10.2
+          version: 10
 
-      - name: Use Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 22.14.0
-          cache: 'pnpm'
+          node-version: 20
+
+      - name: Cache pnpm store
+        uses: actions/cache@v4
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
         run: pnpm install
 
       - name: Build React app
-        run: pnpm run build
+        run: pnpm run build --filter ./apps/web
