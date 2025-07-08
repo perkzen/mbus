@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/perkzen/mbus/apps/bus-service/internal/integrations/marprom"
 	"github.com/perkzen/mbus/apps/bus-service/internal/utils"
+	"strconv"
 )
 
 func main() {
@@ -17,7 +18,9 @@ func main() {
 
 	for _, station := range stations {
 
-		details, err := client.GetBusStationDetails(station.Code)
+		code, _ := strconv.Atoi(station.Code)
+
+		details, err := client.GetBusStationDetails(code, utils.Today())
 		if err != nil {
 			panic(err)
 		}
