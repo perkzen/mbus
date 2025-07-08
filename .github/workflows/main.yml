@@ -28,6 +28,9 @@ jobs:
   build-web:
     name: Build Web App
     runs-on: ubuntu-22.04
+    defaults:
+      run:
+        working-directory: apps/web
     steps:
       - uses: actions/checkout@v4
 
@@ -45,7 +48,7 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.pnpm-store
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('pnpm-lock.yaml') }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('apps/web/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
@@ -53,4 +56,4 @@ jobs:
         run: pnpm install
 
       - name: Build React app
-        run: pnpm run build --filter ./apps/web
+        run: pnpm run build
