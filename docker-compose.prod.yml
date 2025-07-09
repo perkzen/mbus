@@ -4,9 +4,6 @@ services:
     build:
       context: ./apps/bus-service
       dockerfile: Dockerfile
-    depends_on:
-      - db
-      - redis
     environment:
       POSTGRES_URL: ${POSTGRES_URL}
       REDIS_PASSWORD: ${REDIS_PASSWORD}
