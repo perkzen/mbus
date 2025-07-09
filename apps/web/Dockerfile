@@ -1,3 +1,4 @@
+# ---- Build Stage ----
 FROM node:20-slim AS builder
 
 ENV PNPM_HOME="/pnpm"
@@ -15,10 +16,11 @@ RUN pnpm install --frozen-lockfile
 COPY . .
 RUN pnpm build
 
+# ---- Serve Stage ----
 FROM nginx:alpine AS serve
 
-WORKDIR /usr/share/nginx/html
-COPY --from=builder /app/dist ./
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+COPY ./config/nginx/nginx.conf /etc/nginx/conf.d
 
 EXPOSE 80
-
