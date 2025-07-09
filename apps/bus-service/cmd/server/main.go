@@ -5,8 +5,10 @@ import (
 	"github.com/perkzen/mbus/apps/bus-service/internal/app"
 	"github.com/perkzen/mbus/apps/bus-service/internal/config"
 	"github.com/perkzen/mbus/apps/bus-service/internal/server"
+	"github.com/perkzen/mbus/apps/bus-service/internal/utils"
 	"log"
 	"net/http"
+	"time"
 )
 
 func main() {
@@ -15,9 +17,16 @@ func main() {
 		log.Fatalf("❌ Failed to load environment variables: %v", err)
 	}
 
-	restApp, err := app.NewApplication(env)
+	var restApp *app.Application
+
+	err = utils.Retry("Initialize application (DB + Redis)", 10, 3*time.Second, func() error {
+		var initErr error
+		restApp, initErr = app.NewApplication(env)
+		return initErr
+	})
+
 	if err != nil {
-		log.Fatalf("❌ Failed to initialize application: %v", err)
+		log.Fatalf("❌ Could not initialize application after retries: %v", err)
 	}
 
 	httpServer := server.NewHttpServer(restApp)
@@ -26,7 +35,6 @@ func main() {
 	defer restApp.Cache.Close()
 
 	done := make(chan bool, 1)
-
 	go server.GracefulShutdown(httpServer, done)
 
 	err = httpServer.ListenAndServe()
@@ -36,5 +44,4 @@ func main() {
 
 	<-done
 	log.Println("Graceful shutdown complete.")
-
 }
