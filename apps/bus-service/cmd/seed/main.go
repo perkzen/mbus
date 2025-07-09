@@ -11,8 +11,10 @@ import (
 	"github.com/perkzen/mbus/apps/bus-service/internal/db"
 	"github.com/perkzen/mbus/apps/bus-service/internal/integrations/marprom"
 	"github.com/perkzen/mbus/apps/bus-service/internal/store"
+	"github.com/perkzen/mbus/apps/bus-service/internal/utils"
 	"github.com/perkzen/mbus/bus-service/migrations"
 	"log"
+	"time"
 )
 
 var (
@@ -20,13 +22,20 @@ var (
 )
 
 func main() {
-	initDB()
+	err := utils.Retry("Initialize DB for seeding", 10, 3*time.Second, func() error {
+		return initDB()
+	})
+
+	if err != nil {
+		log.Fatalf("❌ Could not connect and initialize DB: %v", err)
+	}
+
 	defer pgDb.Close()
 
 	numOfStations := 444
 	var count int
 	query := "SELECT COUNT(*) FROM bus_stations"
-	err := pgDb.QueryRow(query).Scan(&count)
+	err = pgDb.QueryRow(query).Scan(&count)
 	if err != nil {
 		log.Fatalf("❌ Failed to count bus_stations: %v", err)
 	}
@@ -43,22 +52,23 @@ func main() {
 	log.Println("✅ Seeding completed successfully.")
 }
 
-func initDB() {
-	var err error
-
+func initDB() error {
 	env, err := config.LoadEnvironment()
 	if err != nil {
-		log.Fatalf("❌ Failed to load environment variables: %v", err)
+		return err
 	}
+
 	pgDb, err = db.NewPostgresDB(env.PostgresURL).Open()
 	if err != nil {
-		log.Fatalf("❌ Failed to connect to DB: %v", err)
+		return err
 	}
 
 	err = db.MigrateFS(pgDb, migrations.FS, ".")
 	if err != nil {
-		log.Fatalf("❌ Failed to run migrations: %v", err)
+		return err
 	}
+
+	return nil
 }
 
 func loadSeedData(path string) []marprom.BusStationWithDetails {
