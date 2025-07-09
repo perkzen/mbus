@@ -12,18 +12,18 @@ func RegisterRoutes(app *app.Application) *chi.Mux {
 
 	middleware.Init(r)
 
-	r.Get("/health", api.MakeHandlerFunc(app.HealthCheck))
+	r.Get("/api/health", api.MakeHandlerFunc(app.HealthCheck))
 
-	r.Route("/bus-stations", func(r chi.Router) {
+	r.Route("/api/bus-stations", func(r chi.Router) {
 		r.Get("/", api.MakeHandlerFunc(app.BusStationHandler.GetBusStations))
 		r.Get("/{code}", api.MakeHandlerFunc(app.BusStationHandler.GetBusStationByCode))
 	})
 
-	r.Route("/bus-lines", func(r chi.Router) {
+	r.Route("/api/bus-lines", func(r chi.Router) {
 		r.Get("/", api.MakeHandlerFunc(app.BusLineHandler.GetBusLines))
 	})
 
-	r.Route("/departures", func(r chi.Router) {
+	r.Route("/api/departures", func(r chi.Router) {
 		r.Get("/", api.MakeHandlerFunc(app.DepartureHandler.GetDepartures))
 	})
 
