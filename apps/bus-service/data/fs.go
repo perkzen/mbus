@@ -2,5 +2,5 @@ package data
 
 import "embed"
 
-//go:embed seed.json
+//go:embed *.json
 var FS embed.FS
