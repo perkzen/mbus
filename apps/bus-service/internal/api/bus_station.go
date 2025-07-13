@@ -23,7 +23,7 @@ func NewBusStationHandler(busStationStore store.BusStationStore, logger *slog.Lo
 // GetBusStations godoc
 // @Summary Get bus stations
 // @Description Retrieve a list of bus stations with optional filters
-// @Tags BusStations
+// @Tags Bus Stations
 // @Accept json
 // @Produce json
 // @Param limit query int false "Limit the number of results" default(10)
@@ -51,6 +51,15 @@ func (h *BusStationHandler) GetBusStations(w http.ResponseWriter, r *http.Reques
 	return WriteJSON(w, http.StatusOK, busStations)
 }
 
+// GetBusStationByID godoc
+// @Summary Get bus station by id
+// @Description Retrieve a bus station by its id
+// @Tags Bus Stations
+// @Accept json
+// @Produce json
+// @Param id path int true "Bus station id"
+// @Success 200 {object} store.BusStation "Bus station details"
+// @Router /api/bus-stations/{id} [get]
 func (h *BusStationHandler) GetBusStationByID(w http.ResponseWriter, r *http.Request) error {
 
 	id := chi.URLParam(r, "id")

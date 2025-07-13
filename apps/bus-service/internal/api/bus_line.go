@@ -21,7 +21,7 @@ func NewBusLineHandler(busLineStore store.BusLineStore, logger *slog.Logger) *Bu
 // GetBusLines godoc
 // @Summary Get bus lines
 // @Description Retrieve a list of bus lines
-// @Tags BusLines
+// @Tags Bus Lines
 // @Accept json
 // @Produce json
 // @Success 200 {array} store.BusLine "List of bus lines"
