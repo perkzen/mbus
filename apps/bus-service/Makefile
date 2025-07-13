@@ -26,6 +26,9 @@ seed:
 scraper:
 	@go run ./cmd/scraper/main.go
 
+serve:
+	@go run ./cmd/server/main.go
+
 swag:
 	@swag init --parseDependency -g cmd/server/main.go
 

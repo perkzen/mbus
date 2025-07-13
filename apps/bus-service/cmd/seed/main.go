@@ -16,7 +16,7 @@ import (
 	"github.com/perkzen/mbus/apps/bus-service/internal/integrations/marprom"
 	"github.com/perkzen/mbus/apps/bus-service/internal/store"
 	"github.com/perkzen/mbus/apps/bus-service/internal/utils"
-	"github.com/perkzen/mbus/bus-service/migrations"
+	"github.com/perkzen/mbus/apps/bus-service/migrations"
 )
 
 var pgDb *sql.DB
