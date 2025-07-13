@@ -25,7 +25,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "BusLines"
+                    "Bus Lines"
                 ],
                 "summary": "Get bus lines",
                 "responses": {
@@ -51,7 +51,7 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "BusStations"
+                    "Bus Stations"
                 ],
                 "summary": "Get bus stations",
                 "parameters": [
@@ -90,6 +90,38 @@ const docTemplate = `{
                             "items": {
                                 "$ref": "#/definitions/BusStation"
                             }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/bus-stations/{id}": {
+            "get": {
+                "description": "Retrieve a bus station by its id",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Bus Stations"
+                ],
+                "summary": "Get bus station by id",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "Bus station id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Bus station details",
+                        "schema": {
+                            "$ref": "#/definitions/BusStation"
                         }
                     }
                 }

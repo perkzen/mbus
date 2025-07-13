@@ -69,7 +69,7 @@ paths:
             type: array
       summary: Get bus lines
       tags:
-      - BusLines
+      - Bus Lines
   /api/bus-stations:
     get:
       consumes:
@@ -105,7 +105,28 @@ paths:
             type: array
       summary: Get bus stations
       tags:
-      - BusStations
+      - Bus Stations
+  /api/bus-stations/{id}:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve a bus station by its id
+      parameters:
+      - description: Bus station id
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: Bus station details
+          schema:
+            $ref: '#/definitions/BusStation'
+      summary: Get bus station by id
+      tags:
+      - Bus Stations
   /api/departures:
     get:
       consumes:
