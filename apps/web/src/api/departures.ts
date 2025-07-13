@@ -3,7 +3,7 @@ import { api } from '@/lib/axios.ts';
 
 type Station = {
   name: string;
-  code: number;
+  id: number;
 };
 
 export type Departure = {

@@ -7,7 +7,7 @@ import (
 type BusLine struct {
 	ID   int    `json:"id"`
 	Name string `json:"name"`
-}
+} // @name BusLine
 
 type BusLineStore interface {
 	ListBusLines() ([]BusLine, error)

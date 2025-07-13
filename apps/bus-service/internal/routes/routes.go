@@ -5,6 +5,7 @@ import (
 	"github.com/perkzen/mbus/apps/bus-service/internal/api"
 	"github.com/perkzen/mbus/apps/bus-service/internal/app"
 	"github.com/perkzen/mbus/apps/bus-service/internal/middleware"
+	httpSwagger "github.com/swaggo/http-swagger"
 )
 
 func RegisterRoutes(app *app.Application) *chi.Mux {
@@ -12,19 +13,24 @@ func RegisterRoutes(app *app.Application) *chi.Mux {
 
 	middleware.Init(r)
 
-	r.Get("/api/health", api.MakeHandlerFunc(app.HealthCheck))
+	r.Mount("/swagger", httpSwagger.WrapHandler)
 
-	r.Route("/api/bus-stations", func(r chi.Router) {
-		r.Get("/", api.MakeHandlerFunc(app.BusStationHandler.GetBusStations))
-		r.Get("/{code}", api.MakeHandlerFunc(app.BusStationHandler.GetBusStationByCode))
-	})
+	r.Get("/health", api.MakeHandlerFunc(app.HealthCheck))
 
-	r.Route("/api/bus-lines", func(r chi.Router) {
-		r.Get("/", api.MakeHandlerFunc(app.BusLineHandler.GetBusLines))
-	})
+	r.Route("/api", func(r chi.Router) {
+		r.Route("/bus-stations", func(r chi.Router) {
+			r.Get("/", api.MakeHandlerFunc(app.BusStationHandler.GetBusStations))
+			r.Get("/{id}", api.MakeHandlerFunc(app.BusStationHandler.GetBusStationByID))
 
-	r.Route("/api/departures", func(r chi.Router) {
-		r.Get("/", api.MakeHandlerFunc(app.DepartureHandler.GetDepartures))
+		})
+
+		r.Route("/bus-lines", func(r chi.Router) {
+			r.Get("/", api.MakeHandlerFunc(app.BusLineHandler.GetBusLines))
+		})
+
+		r.Route("/departures", func(r chi.Router) {
+			r.Get("/", api.MakeHandlerFunc(app.DepartureHandler.GetDepartures))
+		})
 	})
 
 	return r

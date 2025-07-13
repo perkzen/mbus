@@ -25,3 +25,10 @@ seed:
 
 scraper:
 	@go run ./cmd/scraper/main.go
+
+swag:
+	@swag init --parseDependency -g cmd/server/main.go
+
+
+
+

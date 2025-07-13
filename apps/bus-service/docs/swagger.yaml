@@ -1,0 +1,142 @@
+definitions:
+  BusLine:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+  BusStation:
+    properties:
+      code:
+        type: integer
+      id:
+        type: integer
+      imageUrl:
+        type: string
+      lat:
+        type: number
+      lon:
+        type: number
+      name:
+        type: string
+    type: object
+  TimetableRow:
+    properties:
+      arriveAt:
+        type: string
+      departureAt:
+        type: string
+      direction:
+        type: string
+      distance:
+        type: number
+      duration:
+        type: string
+      fromStation:
+        $ref: '#/definitions/TimetableRow.Station'
+      line:
+        type: string
+      toStation:
+        $ref: '#/definitions/TimetableRow.Station'
+    type: object
+  TimetableRow.Station:
+    properties:
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+info:
+  contact: {}
+  description: This is the API for the MBus Bus Service.
+  title: MBus Bus Service API
+  version: "1.0"
+paths:
+  /api/bus-lines:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve a list of bus lines
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: List of bus lines
+          schema:
+            items:
+              $ref: '#/definitions/BusLine'
+            type: array
+      summary: Get bus lines
+      tags:
+      - BusLines
+  /api/bus-stations:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve a list of bus stations with optional filters
+      parameters:
+      - default: 10
+        description: Limit the number of results
+        in: query
+        name: limit
+        type: integer
+      - default: 0
+        description: Offset for pagination
+        in: query
+        name: offset
+        type: integer
+      - description: Filter by bus station name
+        in: query
+        name: name
+        type: string
+      - description: Filter by bus line
+        in: query
+        name: line
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: List of bus stations
+          schema:
+            items:
+              $ref: '#/definitions/BusStation'
+            type: array
+      summary: Get bus stations
+      tags:
+      - BusStations
+  /api/departures:
+    get:
+      consumes:
+      - application/json
+      description: Retrieve departures between two bus stations on a specific date
+      parameters:
+      - description: TimetableRow station code
+        in: query
+        name: from
+        required: true
+        type: integer
+      - description: Arrival station code
+        in: query
+        name: to
+        required: true
+        type: integer
+      - default: '"today"'
+        description: Date in YYYY-MM-DD format
+        in: query
+        name: date
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: List of departures
+          schema:
+            items:
+              $ref: '#/definitions/TimetableRow'
+            type: array
+      summary: Get departures
+      tags:
+      - Departures
+swagger: "2.0"

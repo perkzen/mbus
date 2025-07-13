@@ -20,17 +20,28 @@ func NewDepartureHandler(departureService *departure.Service, logger *slog.Logge
 	}
 }
 
+// GetDepartures godoc
+// @Summary Get departures
+// @Description Retrieve departures between two bus stations on a specific date
+// @Tags Departures
+// @Accept json
+// @Produce json
+// @Param from query int true "TimetableRow station code"
+// @Param to query int true "Arrival station code"
+// @Param date query string false "Date in YYYY-MM-DD format" default("today")
+// @Success 200 {array} departure.TimetableRow "List of departures"
+// @Router /api/departures [get]
 func (h *DepartureHandler) GetDepartures(w http.ResponseWriter, r *http.Request) error {
-	fromCode := QueryInt(r, "from", -1)
-	toCode := QueryInt(r, "to", -1)
-	if fromCode == -1 || toCode == -1 {
-		h.logger.Error("Invalid request parameters", slog.String("from", strconv.Itoa(fromCode)), slog.String("to", strconv.Itoa(toCode)))
+	fromID := QueryInt(r, "from", -1)
+	toID := QueryInt(r, "to", -1)
+	if fromID == -1 || toID == -1 {
+		h.logger.Error("Invalid request parameters", slog.String("from", strconv.Itoa(fromID)), slog.String("to", strconv.Itoa(toID)))
 		return BadRequestError("Both 'from' and 'to' parameters are required")
 	}
 
 	date := QueryDateStr(r, "date", utils.Today())
 
-	data, err := h.departureService.GenerateTimetable(fromCode, toCode, date)
+	data, err := h.departureService.GenerateTimetable(fromID, toID, date)
 	if err != nil {
 		h.logger.Error("Failed to generate timetable", slog.Any("error", err))
 		return InternalServerError()

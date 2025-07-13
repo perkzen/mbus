@@ -18,6 +18,14 @@ func NewBusLineHandler(busLineStore store.BusLineStore, logger *slog.Logger) *Bu
 	}
 }
 
+// GetBusLines godoc
+// @Summary Get bus lines
+// @Description Retrieve a list of bus lines
+// @Tags BusLines
+// @Accept json
+// @Produce json
+// @Success 200 {array} store.BusLine "List of bus lines"
+// @Router /api/bus-lines [get]
 func (h *BusLineHandler) GetBusLines(w http.ResponseWriter, r *http.Request) error {
 	lines, err := h.busLineStore.ListBusLines()
 

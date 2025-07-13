@@ -3,7 +3,6 @@ package departure
 import (
 	"context"
 	"fmt"
-	"github.com/perkzen/mbus/apps/bus-service/internal/integrations/marprom"
 	"github.com/perkzen/mbus/apps/bus-service/internal/integrations/ors"
 	"github.com/perkzen/mbus/apps/bus-service/internal/store"
 	"github.com/perkzen/mbus/apps/bus-service/internal/utils"
@@ -12,52 +11,41 @@ import (
 )
 
 type Service struct {
-	marpromClient   *marprom.APIClient
 	orsApiClient    *ors.APIClient
 	cache           *redis.Client
 	busStationStore store.BusStationStore
+	departureStore  store.DepartureStore
 }
 
-func NewService(marpromClient *marprom.APIClient, orsApiClient *ors.APIClient, cache *redis.Client, busStationStore store.BusStationStore) *Service {
+func NewService(orsApiClient *ors.APIClient, cache *redis.Client, busStationStore store.BusStationStore, departureStore store.DepartureStore) *Service {
 	return &Service{
-		marpromClient:   marpromClient,
 		orsApiClient:    orsApiClient,
 		cache:           cache,
 		busStationStore: busStationStore,
+		departureStore:  departureStore,
 	}
 }
 
-func (s *Service) GenerateTimetable(fromCode, toCode int, date string) ([]Departure, error) {
+func (s *Service) GenerateTimetable(fromID, toID int, date string) ([]TimetableRow, error) {
 	ctx := context.Background()
-	cacheKey := fmt.Sprintf("timetable_%d_%d_%s", fromCode, toCode, date)
+	cacheKey := fmt.Sprintf("timetable_%d_%d_%s", fromID, toID, date)
 
-	if cached, ok := utils.TryGetFromCache[[]Departure](ctx, s.cache, cacheKey); ok {
+	if cached, ok := utils.TryGetFromCache[[]TimetableRow](ctx, s.cache, cacheKey); ok {
 		return *cached, nil
 	}
 
-	fromStation, err := s.busStationStore.FindBusStationByCode(fromCode)
+	fromStation, err := s.busStationStore.FindBusStationByID(fromID)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("failed to find from station: %w", err)
 	}
 
-	toStation, err := s.busStationStore.FindBusStationByCode(toCode)
+	toStation, err := s.busStationStore.FindBusStationByID(toID)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("failed to find to station: %w", err)
 	}
 
-	fromDetails, err := s.marpromClient.GetBusStationDetails(fromCode, date)
-	if err != nil {
-		return nil, err
-	}
-
-	toDetails, err := s.marpromClient.GetBusStationDetails(toCode, date)
-	if err != nil {
-		return nil, err
-	}
-
-	departures, err := s.marpromClient.GetDeparturesFromStationToStation(fromCode, toCode, date)
-	if err != nil {
-		return nil, err
+	if fromStation == nil || toStation == nil {
+		return nil, fmt.Errorf("one of the bus stations not found: fromID=%d, toID=%d", fromID, toID)
 	}
 
 	locs := [][]float64{{fromStation.Lon, fromStation.Lat}, {toStation.Lon, toStation.Lat}}
@@ -67,30 +55,52 @@ func (s *Service) GenerateTimetable(fromCode, toCode int, date string) ([]Depart
 	}
 	distance := matrix.Distances[0][1]
 
-	rows := make([]Departure, 0, len(departures))
-	for _, dep := range departures {
-		for _, depTime := range dep.Times {
-			arriveAt, err := s.getArriveAt(depTime, dep.Line, dep.Direction, toDetails.Departures)
+	departures, err := s.departureStore.FindDeparturesFromStationToStation(fromID, toID, store.ScheduleTyp(date))
+	if err != nil {
+		return nil, fmt.Errorf("failed to find departures: %w", err)
+	}
 
-			if err != nil {
-				return []Departure{}, nil
-			}
+	directions, err := s.departureStore.FindSharedDirections(fromID, toID)
+	if err != nil {
+		return nil, fmt.Errorf("failed to find shared directions: %w", err)
+	}
 
-			start, _ := utils.ParseClock(depTime)
-			end, _ := utils.ParseClock(arriveAt)
-			formattedDuration := utils.FormatDuration(start, end)
-
-			rows = append(rows, Departure{
-				Direction:   dep.Direction,
-				Line:        dep.Line,
-				FromStation: Station{Name: fromDetails.Name, Code: fromCode},
-				ToStation:   Station{Name: toDetails.Name, Code: toCode},
-				DepartureAt: depTime,
-				ArriveAt:    arriveAt,
-				Duration:    formattedDuration,
-				Distance:    distance,
-			})
+	toDeparturesMap := make(map[string][]store.Departure)
+	for _, dir := range directions {
+		toDepartures, err := s.departureStore.FindDeparturesByStationIDAndDirection(toID, dir, store.ScheduleTyp(date))
+		if err != nil {
+			return nil, fmt.Errorf("failed to find departures for direction %s: %w", dir, err)
 		}
+		toDeparturesMap[dir] = toDepartures
+	}
+
+	rows := make([]TimetableRow, 0, len(departures))
+	for _, dep := range departures {
+		toDepTimes, ok := toDeparturesMap[dep.Direction]
+		if !ok {
+			continue
+		}
+
+		arriveAt, err := getArriveAt(dep.DepartureTime, dep.Direction, toDepTimes)
+		if err != nil {
+			return []TimetableRow{}, nil
+		}
+
+		start, _ := utils.ParseClock(dep.DepartureTime)
+		end, _ := utils.ParseClock(arriveAt)
+		formattedDuration := utils.FormatDuration(start, end)
+
+		rows = append(rows, TimetableRow{
+			Direction:   dep.Direction,
+			Line:        dep.Line.Name,
+			FromStation: Station{Name: fromStation.Name, ID: fromStation.ID},
+			ToStation:   Station{Name: toStation.Name, ID: toStation.ID},
+			DepartureAt: dep.DepartureTime,
+			ArriveAt:    arriveAt,
+			Duration:    formattedDuration,
+			Distance:    distance,
+		})
+
 	}
 
 	utils.SortByDepartureAtAsc(rows)
@@ -99,22 +109,27 @@ func (s *Service) GenerateTimetable(fromCode, toCode int, date string) ([]Depart
 	return rows, nil
 }
 
-func (s *Service) getArriveAt(fromDepTime, line, direction string, toDepTimes []marprom.Departure) (string, error) {
-	for _, toDep := range toDepTimes {
-
+func getArriveAt(fromDeTime, direction string, toDeps []store.Departure) (string, error) {
+	for _, toDep := range toDeps {
 		if toDep.Direction != direction {
 			continue
 		}
 
-		for _, toDepTime := range toDep.Times {
-			fromTime, _ := utils.ParseClock(fromDepTime)
-			toTime, _ := utils.ParseClock(toDepTime)
-			if toTime.After(fromTime) {
-				return toDepTime, nil
-			}
+		toTime, err := utils.ParseClock(toDep.DepartureTime)
+		if err != nil {
+			return "", fmt.Errorf("failed to parse departure time: %w", err)
+		}
 
+		fromTime, err := utils.ParseClock(fromDeTime)
+		if err != nil {
+			return "", fmt.Errorf("failed to parse from departure time: %w", err)
+		}
+
+		if toTime.After(fromTime) {
+			return toDep.DepartureTime, nil
 		}
 	}
 
-	return "", fmt.Errorf("station is not in route or no valid arrival time found for line %s and direction %s", line, direction)
+	return "", fmt.Errorf("no valid arrival time found for direction %s", direction)
+
 }

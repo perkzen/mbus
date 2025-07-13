@@ -20,6 +20,18 @@ func NewBusStationHandler(busStationStore store.BusStationStore, logger *slog.Lo
 	}
 }
 
+// GetBusStations godoc
+// @Summary Get bus stations
+// @Description Retrieve a list of bus stations with optional filters
+// @Tags BusStations
+// @Accept json
+// @Produce json
+// @Param limit query int false "Limit the number of results" default(10)
+// @Param offset query int false "Offset for pagination" default(0)
+// @Param name query string false "Filter by bus station name"
+// @Param line query string false "Filter by bus line"
+// @Success 200 {array} store.BusStation "List of bus stations"
+// @Router /api/bus-stations [get]
 func (h *BusStationHandler) GetBusStations(w http.ResponseWriter, r *http.Request) error {
 	limit := QueryInt(r, "limit", 10)
 	offset := QueryInt(r, "offset", 0)
@@ -39,26 +51,26 @@ func (h *BusStationHandler) GetBusStations(w http.ResponseWriter, r *http.Reques
 	return WriteJSON(w, http.StatusOK, busStations)
 }
 
-func (h *BusStationHandler) GetBusStationByCode(w http.ResponseWriter, r *http.Request) error {
+func (h *BusStationHandler) GetBusStationByID(w http.ResponseWriter, r *http.Request) error {
 
-	code := chi.URLParam(r, "code")
-	if code == "" {
-		return BadRequestError("Bus station code is required")
+	id := chi.URLParam(r, "id")
+	if id == "" {
+		return BadRequestError("Bus station id is required")
 	}
 
-	stationCode, err := strconv.Atoi(code)
+	stationID, err := strconv.Atoi(id)
 	if err != nil {
-		return BadRequestError("Invalid bus station code format")
+		return BadRequestError("Invalid bus station id format")
 	}
 
-	busStation, err := h.busStationStore.FindBusStationByCode(stationCode)
+	busStation, err := h.busStationStore.FindBusStationByID(stationID)
 	if err != nil {
 		h.logger.Error("failed to fetch station", slog.Any("error", err))
 		return err
 	}
 
 	if busStation == nil {
-		h.logger.Warn("bus station not found", slog.String("code", code))
+		h.logger.Warn("bus station not found", slog.String("id", id))
 		return NotFoundError("Bus station not found")
 	}
 

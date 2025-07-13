@@ -12,13 +12,13 @@ import type {
 
 const mapBusStationToOption = ({
   name,
-  code,
+  id,
 }: {
   name: string;
-  code: number;
+  id: number;
 }): ComboBoxItem => ({
-  label: `${name} (${code})`,
-  value: code.toString(),
+  label: `${name} (${id})`,
+  value: id.toString(),
 });
 
 export function toComboBoxItem(station?: BusStation): ComboBoxItem {
@@ -27,10 +27,8 @@ export function toComboBoxItem(station?: BusStation): ComboBoxItem {
   }
 
   return {
-    value: station.code.toString(),
-    label: station.name
-      ? `${station.name} (${station.code})`
-      : `${station.code}`,
+    value: station.id.toString(),
+    label: station.name ? `${station.name} (${station.id})` : `${station.id}`,
   };
 }
 

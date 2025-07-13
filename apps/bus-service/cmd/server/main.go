@@ -2,6 +2,7 @@ package main
 
 import (
 	"errors"
+	_ "github.com/perkzen/mbus/apps/bus-service/docs"
 	"github.com/perkzen/mbus/apps/bus-service/internal/app"
 	"github.com/perkzen/mbus/apps/bus-service/internal/config"
 	"github.com/perkzen/mbus/apps/bus-service/internal/server"
@@ -11,6 +12,9 @@ import (
 	"time"
 )
 
+// @title MBus Bus Service API
+// @version 1.0
+// @description This is the API for the MBus Bus Service.
 func main() {
 	env, err := config.LoadEnvironment()
 	if err != nil {
@@ -30,6 +34,8 @@ func main() {
 	}
 
 	httpServer := server.NewHttpServer(restApp)
+	log.Printf("✅ Server is running at http://localhost%s\n", httpServer.Addr)
+	log.Printf("Swagger documentation is available at http://localhost%s/swagger/index.html\n", httpServer.Addr)
 
 	defer restApp.DB.Close()
 	defer restApp.Cache.Close()

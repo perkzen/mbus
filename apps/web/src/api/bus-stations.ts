@@ -10,7 +10,7 @@ export type BusStationSearchParams = {
 
 export type BusStation = {
   name: string;
-  code: number;
+  id: number;
 };
 
 export type GetBusStationsResponse = BusStation[];
@@ -33,8 +33,8 @@ export const getBusStations = async (params: BusStationSearchParams = {}) => {
   return response.data;
 };
 
-export const getBusStationByCode = async (code: number) => {
-  const url = `${ENDPOINTS.BUS_STATIONS}/${code}`;
+export const getBusStationByCode = async (id: number) => {
+  const url = `${ENDPOINTS.BUS_STATIONS}/${id}`;
 
   const response = await api.get<BusStation>(url);
   return response.data;

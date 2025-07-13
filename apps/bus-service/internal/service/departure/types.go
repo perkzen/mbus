@@ -2,10 +2,10 @@ package departure
 
 type Station struct {
 	Name string `json:"name"`
-	Code int    `json:"code"`
-}
+	ID   int    `json:"id"`
+} // @name TimetableRow.Station
 
-type Departure struct {
+type TimetableRow struct {
 	Direction   string  `json:"direction"`
 	Line        string  `json:"line"`
 	FromStation Station `json:"fromStation"`
@@ -14,8 +14,8 @@ type Departure struct {
 	Distance    float64 `json:"distance"`
 	DepartureAt string  `json:"departureAt"`
 	ArriveAt    string  `json:"arriveAt"`
-}
+} // @name TimetableRow
 
-func (d Departure) GetDepartureAt() string {
-	return d.DepartureAt
+func (t TimetableRow) GetDepartureAt() string {
+	return t.DepartureAt
 }
