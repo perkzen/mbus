@@ -1,11 +1,13 @@
 package departure
 
 import (
+	"context"
 	"fmt"
 	"github.com/perkzen/mbus/apps/bus-service/internal/integrations/ors"
 	"github.com/perkzen/mbus/apps/bus-service/internal/store"
 	"github.com/perkzen/mbus/apps/bus-service/internal/utils"
 	"github.com/redis/go-redis/v9"
+	"time"
 )
 
 type Service struct {
@@ -25,12 +27,12 @@ func NewService(orsApiClient *ors.APIClient, cache *redis.Client, busStationStor
 }
 
 func (s *Service) GenerateTimetable(fromID, toID int, date string) ([]TimetableRow, error) {
-	//ctx := context.Background()
-	//cacheKey := fmt.Sprintf("timetable_%d_%d_%s", fromID, toID, date)
+	ctx := context.Background()
+	cacheKey := fmt.Sprintf("timetable_%d_%d_%s", fromID, toID, date)
 
-	//if cached, ok := utils.TryGetFromCache[[]TimetableRow](ctx, s.cache, cacheKey); ok {
-	//	return *cached, nil
-	//}
+	if cached, ok := utils.TryGetFromCache[[]TimetableRow](ctx, s.cache, cacheKey); ok {
+		return *cached, nil
+	}
 
 	fromStation, err := s.busStationStore.FindBusStationByID(fromID)
 	if err != nil {
@@ -117,7 +119,7 @@ func (s *Service) GenerateTimetable(fromID, toID int, date string) ([]TimetableR
 	}
 
 	utils.SortByDepartureAtAsc(rows)
-	//utils.SaveToCache(ctx, s.cache, cacheKey, rows, 24*time.Hour)
+	utils.SaveToCache(ctx, s.cache, cacheKey, rows, 24*time.Hour)
 
 	return rows, nil
 }
