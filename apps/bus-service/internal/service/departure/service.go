@@ -55,19 +55,43 @@ func (s *Service) GenerateTimetable(fromID, toID int, date string) ([]TimetableR
 	}
 	distance := matrix.Distances[0][1]
 
-	departures, err := s.departureStore.FindDeparturesFromStationToStation(fromID, toID, store.ScheduleTyp(date))
-	if err != nil {
-		return nil, fmt.Errorf("failed to find departures: %w", err)
+	scheduleType := store.ScheduleTyp(date)
+
+	var fromCode, toCode int
+	var departures []store.Departure
+	found := false
+
+	for _, fc := range fromStation.Codes {
+		for _, tc := range toStation.Codes {
+			d, err := s.departureStore.FindDepartures(fc, tc, scheduleType)
+			if err != nil {
+				return nil, fmt.Errorf("failed to fetch departures from %d to %d: %w", fc, tc, err)
+			}
+			if len(d) > 0 {
+				fromCode = fc
+				toCode = tc
+				departures = d
+				found = true
+				break
+			}
+		}
+		if found {
+			break
+		}
 	}
 
-	directions, err := s.departureStore.FindSharedDirections(fromID, toID)
+	if !found {
+		return nil, fmt.Errorf("no departures found between %v and %v", fromStation.Codes, toStation.Codes)
+	}
+
+	directions, err := s.departureStore.FindSharedDirectionsByCodes(fromCode, toCode)
 	if err != nil {
 		return nil, fmt.Errorf("failed to find shared directions: %w", err)
 	}
 
 	toDeparturesMap := make(map[string][]store.Departure)
 	for _, dir := range directions {
-		toDepartures, err := s.departureStore.FindDeparturesByStationIDAndDirection(toID, dir, store.ScheduleTyp(date))
+		toDepartures, err := s.departureStore.FindDeparturesByStationCodeAndDirection(toCode, dir, scheduleType)
 		if err != nil {
 			return nil, fmt.Errorf("failed to find departures for direction %s: %w", dir, err)
 		}

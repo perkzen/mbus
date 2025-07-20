@@ -26,9 +26,9 @@ func NewDepartureHandler(departureService *departure.Service, logger *slog.Logge
 // @Tags Departures
 // @Accept json
 // @Produce json
-// @Param from query int true "TimetableRow station code"
+// @Param from query int true "Departure station code"
 // @Param to query int true "Arrival station code"
-// @Param date query string false "Date in YYYY-MM-DD format" default("today")
+// @Param date query string false "Date in YYYY-MM-DD format"
 // @Success 200 {array} departure.TimetableRow "List of departures"
 // @Router /api/departures [get]
 func (h *DepartureHandler) GetDepartures(w http.ResponseWriter, r *http.Request) error {

@@ -143,7 +143,7 @@ const docTemplate = `{
                 "parameters": [
                     {
                         "type": "integer",
-                        "description": "TimetableRow station code",
+                        "description": "Departure station code",
                         "name": "from",
                         "in": "query",
                         "required": true
@@ -157,7 +157,6 @@ const docTemplate = `{
                     },
                     {
                         "type": "string",
-                        "default": "\"today\"",
                         "description": "Date in YYYY-MM-DD format",
                         "name": "date",
                         "in": "query"
@@ -192,8 +191,11 @@ const docTemplate = `{
         "BusStation": {
             "type": "object",
             "properties": {
-                "code": {
-                    "type": "integer"
+                "codes": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
                 },
                 "id": {
                     "type": "integer"

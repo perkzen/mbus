@@ -4,18 +4,25 @@ import (
 	"database/sql"
 	"errors"
 	"fmt"
-
 	sq "github.com/Masterminds/squirrel"
+	"github.com/lib/pq"
+	_ "github.com/lib/pq"
 )
 
 type BusStation struct {
 	ID       int     `json:"id"`
-	Code     int     `json:"code"`
 	Name     string  `json:"name"`
 	ImageURL string  `json:"imageUrl"`
 	Lat      float64 `json:"lat"`
 	Lon      float64 `json:"lon"`
+	Codes    []int   `json:"codes,omitempty"`
 } // @name BusStation
+
+type StationCode struct {
+	ID        int `json:"id"`
+	StationID int `json:"stationId"`
+	Code      int `json:"code"`
+}
 
 type BusStationFilterOptions struct {
 	Name string
@@ -24,8 +31,8 @@ type BusStationFilterOptions struct {
 
 type BusStationStore interface {
 	ListBusStations(limit, offset int, opts *BusStationFilterOptions) ([]BusStation, error)
-	FindBusStationByCode(code int) (*BusStation, error)
 	FindBusStationByID(id int) (*BusStation, error)
+	FindBusStationIDByCode(code string) (*StationCode, error)
 }
 
 type PostgresBusStationStore struct {
@@ -38,37 +45,8 @@ func NewPostgresBusStationStore(db *sql.DB) *PostgresBusStationStore {
 	}
 }
 
-func (store *PostgresBusStationStore) FindBusStationByCode(code int) (*BusStation, error) {
-	fmt.Println("Fetching station with code:", code)
-
-	queryBuilder := Qb.
-		Select("code", "name", "image_url", "lat", "lng").
-		From("bus_stations").
-		Where(sq.Eq{"code": code})
-
-	query, args, err := queryBuilder.ToSql()
-	if err != nil {
-		return nil, fmt.Errorf("error building SQL: %w", err)
-	}
-
-	fmt.Printf("SQL: %s\nARGS: %v\n", query, args)
-
-	var station BusStation
-	err = store.db.QueryRow(query, args...).Scan(
-		&station.Code, &station.Name, &station.ImageURL, &station.Lat, &station.Lon,
-	)
-	if err != nil {
-		if errors.Is(err, sql.ErrNoRows) {
-			return nil, nil
-		}
-		return nil, fmt.Errorf("query error: %w", err)
-	}
-
-	return &station, nil
-}
-
 func (store *PostgresBusStationStore) ListBusStations(limit, offset int, opts *BusStationFilterOptions) ([]BusStation, error) {
-	builder := Qb.Select("bs.id", "bs.code", "bs.name", "bs.image_url", "bs.lat", "bs.lng").
+	builder := Qb.Select("bs.id", "bs.name", "bs.image_url", "bs.lat", "bs.lng").
 		From("bus_stations bs").
 		Limit(uint64(limit)).
 		Offset(uint64(offset)).
@@ -100,7 +78,7 @@ func (store *PostgresBusStationStore) ListBusStations(limit, offset int, opts *B
 	stations := make([]BusStation, 0)
 	for rows.Next() {
 		var s BusStation
-		if err := rows.Scan(&s.ID, &s.Code, &s.Name, &s.ImageURL, &s.Lat, &s.Lon); err != nil {
+		if err := rows.Scan(&s.ID, &s.Name, &s.ImageURL, &s.Lat, &s.Lon); err != nil {
 			return nil, err
 		}
 		stations = append(stations, s)
@@ -115,9 +93,18 @@ func (store *PostgresBusStationStore) ListBusStations(limit, offset int, opts *B
 
 func (store *PostgresBusStationStore) FindBusStationByID(id int) (*BusStation, error) {
 	queryBuilder := Qb.
-		Select("id", "code", "name", "image_url", "lat", "lng").
-		From("bus_stations").
-		Where(sq.Eq{"id": id})
+		Select(
+			"bs.id",
+			"bs.name",
+			"bs.image_url",
+			"bs.lat",
+			"bs.lng",
+			"COALESCE(array_agg(sc.code ORDER BY sc.code), '{}') AS codes",
+		).
+		From("bus_stations bs").
+		LeftJoin("station_codes sc ON sc.station_id = bs.id").
+		Where(sq.Eq{"bs.id": id}).
+		GroupBy("bs.id")
 
 	query, args, err := queryBuilder.ToSql()
 	if err != nil {
@@ -125,8 +112,15 @@ func (store *PostgresBusStationStore) FindBusStationByID(id int) (*BusStation, e
 	}
 
 	var station BusStation
+	var rawCodes pq.Int64Array
+
 	err = store.db.QueryRow(query, args...).Scan(
-		&station.ID, &station.Code, &station.Name, &station.ImageURL, &station.Lat, &station.Lon,
+		&station.ID,
+		&station.Name,
+		&station.ImageURL,
+		&station.Lat,
+		&station.Lon,
+		&rawCodes,
 	)
 	if err != nil {
 		if errors.Is(err, sql.ErrNoRows) {
@@ -135,5 +129,32 @@ func (store *PostgresBusStationStore) FindBusStationByID(id int) (*BusStation, e
 		return nil, fmt.Errorf("query error: %w", err)
 	}
 
+	station.Codes = make([]int, len(rawCodes))
+	for i, val := range rawCodes {
+		station.Codes[i] = int(val)
+	}
+
 	return &station, nil
+}
+
+func (store *PostgresBusStationStore) FindBusStationIDByCode(code string) (*StationCode, error) {
+	queryBuilder := Qb.Select("id", "station_id", "code").
+		From("station_codes").
+		Where(sq.Eq{"code": code})
+
+	query, args, err := queryBuilder.ToSql()
+	if err != nil {
+		return nil, fmt.Errorf("error building SQL: %w", err)
+	}
+
+	var stationCode StationCode
+	err = store.db.QueryRow(query, args...).Scan(&stationCode.ID, &stationCode.StationID, &stationCode.Code)
+	if err != nil {
+		if errors.Is(err, sql.ErrNoRows) {
+			return nil, nil
+		}
+		return nil, fmt.Errorf("query error: %w", err)
+	}
+
+	return &stationCode, nil
 }

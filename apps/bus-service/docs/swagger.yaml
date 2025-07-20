@@ -8,8 +8,10 @@ definitions:
     type: object
   BusStation:
     properties:
-      code:
-        type: integer
+      codes:
+        items:
+          type: integer
+        type: array
       id:
         type: integer
       imageUrl:
@@ -133,7 +135,7 @@ paths:
       - application/json
       description: Retrieve departures between two bus stations on a specific date
       parameters:
-      - description: TimetableRow station code
+      - description: Departure station code
         in: query
         name: from
         required: true
@@ -143,8 +145,7 @@ paths:
         name: to
         required: true
         type: integer
-      - default: '"today"'
-        description: Date in YYYY-MM-DD format
+      - description: Date in YYYY-MM-DD format
         in: query
         name: date
         type: string
