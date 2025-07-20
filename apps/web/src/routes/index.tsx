@@ -5,6 +5,7 @@ import { departuresQueryOptions } from '@/api/query-options.ts';
 import DeparturesTable from '@/components/blocks/departures-table.tsx';
 import { z } from 'zod';
 import { format } from 'date-fns';
+import DepartureList from '@/components/blocks/departures-list.tsx';
 
 const defaultSearchParams = {
   from: 0,
@@ -42,12 +43,17 @@ function App() {
   } = useQuery(departuresQueryOptions(searchParams));
 
   return (
-    <div className="mx-auto max-w-6xl p-10">
+    <div className="mx-auto max-w-6xl p-2 md:p-10">
       <DepartureSearchForm
         searchDepartures={() => searchDepartures()}
         isLoading={isFetching}
       />
-      <DeparturesTable data={data} isLoading={isFetching} />
+      <div className="hidden md:block">
+        <DeparturesTable data={data} isLoading={isFetching} />
+      </div>
+      <div className="block md:hidden">
+        <DepartureList data={data} isLoading={isFetching} />
+      </div>
     </div>
   );
 }

@@ -109,7 +109,7 @@ const DeparturesTable: FC<TimetableTableProps> = ({ data = [], isLoading }) => {
   }
 
   return (
-    <div className="overflow-auto rounded border">
+    <div className="overflow-auto border">
       <table className="min-w-full table-auto text-sm">
         <thead className="bg-gray-100">
           {table.getHeaderGroups().map((headerGroup) => (

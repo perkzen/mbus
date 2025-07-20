@@ -3,7 +3,7 @@ import {
   type ApiComboboxProps,
   type ComboBoxItem,
 } from '@/components/ui/api-combobox.tsx';
-import { busStationQueryOptions } from '@/api/query-options.ts';
+import { busStationsQueryOptions } from '@/api/query-options.ts';
 import type {
   BusStation,
   BusStationSearchParams,
@@ -17,7 +17,7 @@ const mapBusStationToOption = ({
   name: string;
   id: number;
 }): ComboBoxItem => ({
-  label: `${name} (${id})`,
+  label: name,
   value: id.toString(),
 });
 
@@ -28,7 +28,7 @@ export function toComboBoxItem(station?: BusStation): ComboBoxItem {
 
   return {
     value: station.id.toString(),
-    label: station.name ? `${station.name} (${station.id})` : `${station.id}`,
+    label: station.name,
   };
 }
 
@@ -56,7 +56,9 @@ export const BusStationSelect = ({
       (string | BusStationSearchParams | undefined)[]
     >
       {...props}
-      queryOptionsFactory={(search) => busStationQueryOptions({ name: search })}
+      queryOptionsFactory={(search) =>
+        busStationsQueryOptions({ name: search })
+      }
       mapDataToItems={(data) => data.map(mapBusStationToOption)}
       className={className}
     />

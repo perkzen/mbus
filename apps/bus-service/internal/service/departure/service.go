@@ -1,13 +1,11 @@
 package departure
 
 import (
-	"context"
 	"fmt"
 	"github.com/perkzen/mbus/apps/bus-service/internal/integrations/ors"
 	"github.com/perkzen/mbus/apps/bus-service/internal/store"
 	"github.com/perkzen/mbus/apps/bus-service/internal/utils"
 	"github.com/redis/go-redis/v9"
-	"time"
 )
 
 type Service struct {
@@ -27,12 +25,12 @@ func NewService(orsApiClient *ors.APIClient, cache *redis.Client, busStationStor
 }
 
 func (s *Service) GenerateTimetable(fromID, toID int, date string) ([]TimetableRow, error) {
-	ctx := context.Background()
-	cacheKey := fmt.Sprintf("timetable_%d_%d_%s", fromID, toID, date)
+	//ctx := context.Background()
+	//cacheKey := fmt.Sprintf("timetable_%d_%d_%s", fromID, toID, date)
 
-	if cached, ok := utils.TryGetFromCache[[]TimetableRow](ctx, s.cache, cacheKey); ok {
-		return *cached, nil
-	}
+	//if cached, ok := utils.TryGetFromCache[[]TimetableRow](ctx, s.cache, cacheKey); ok {
+	//	return *cached, nil
+	//}
 
 	fromStation, err := s.busStationStore.FindBusStationByID(fromID)
 	if err != nil {
@@ -48,18 +46,17 @@ func (s *Service) GenerateTimetable(fromID, toID int, date string) ([]TimetableR
 		return nil, fmt.Errorf("one of the bus stations not found: fromID=%d, toID=%d", fromID, toID)
 	}
 
-	locs := [][]float64{{fromStation.Lon, fromStation.Lat}, {toStation.Lon, toStation.Lat}}
-	matrix, err := s.orsApiClient.GetMatrix(locs)
-	if err != nil {
-		return nil, err
-	}
-	distance := matrix.Distances[0][1]
+	//locs := [][]float64{{fromStation.Lon, fromStation.Lat}, {toStation.Lon, toStation.Lat}}
+	//matrix, err := s.orsApiClient.GetMatrix(locs)
+	//if err != nil {
+	//	return nil, err
+	//}
+	//distance := matrix.Distances[0][1]
 
 	scheduleType := store.ScheduleTyp(date)
 
 	var fromCode, toCode int
 	var departures []store.Departure
-	found := false
 
 	for _, fc := range fromStation.Codes {
 		for _, tc := range toStation.Codes {
@@ -71,17 +68,9 @@ func (s *Service) GenerateTimetable(fromID, toID int, date string) ([]TimetableR
 				fromCode = fc
 				toCode = tc
 				departures = d
-				found = true
-				break
+				// ❌ no break — keep checking for later matches
 			}
 		}
-		if found {
-			break
-		}
-	}
-
-	if !found {
-		return nil, fmt.Errorf("no departures found between %v and %v", fromStation.Codes, toStation.Codes)
 	}
 
 	directions, err := s.departureStore.FindSharedDirectionsByCodes(fromCode, toCode)
@@ -122,29 +111,31 @@ func (s *Service) GenerateTimetable(fromID, toID int, date string) ([]TimetableR
 			DepartureAt: dep.DepartureTime,
 			ArriveAt:    arriveAt,
 			Duration:    formattedDuration,
-			Distance:    distance,
+			Distance:    0,
 		})
 
 	}
 
 	utils.SortByDepartureAtAsc(rows)
-	utils.SaveToCache(ctx, s.cache, cacheKey, rows, 24*time.Hour)
+	//utils.SaveToCache(ctx, s.cache, cacheKey, rows, 24*time.Hour)
 
 	return rows, nil
 }
 
-func getArriveAt(fromDeTime, direction string, toDeps []store.Departure) (string, error) {
+func getArriveAt(fromDepTime, direction string, toDeps []store.Departure) (string, error) {
 	for _, toDep := range toDeps {
 		if toDep.Direction != direction {
 			continue
 		}
+
+		println(fromDepTime, toDep.DepartureTime)
 
 		toTime, err := utils.ParseClock(toDep.DepartureTime)
 		if err != nil {
 			return "", fmt.Errorf("failed to parse departure time: %w", err)
 		}
 
-		fromTime, err := utils.ParseClock(fromDeTime)
+		fromTime, err := utils.ParseClock(fromDepTime)
 		if err != nil {
 			return "", fmt.Errorf("failed to parse from departure time: %w", err)
 		}

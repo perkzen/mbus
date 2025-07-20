@@ -44,7 +44,7 @@ func (h *DepartureHandler) GetDepartures(w http.ResponseWriter, r *http.Request)
 	data, err := h.departureService.GenerateTimetable(fromID, toID, date)
 	if err != nil {
 		h.logger.Error("Failed to generate timetable", slog.Any("error", err))
-		return InternalServerError()
+		return NotFoundError(err.Error())
 	}
 
 	return WriteJSON(w, http.StatusOK, data)

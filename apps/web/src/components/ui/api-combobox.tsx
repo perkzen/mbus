@@ -104,10 +104,10 @@ export function ApiComboBox<
           <CommandList>
             {isLoading && (
               <div className="text-muted-foreground p-4 text-sm">
-                Loading...
+                Nalagam...
               </div>
             )}
-            <CommandEmpty>No results found.</CommandEmpty>
+            <CommandEmpty>Ni rezultatov.</CommandEmpty>
             <CommandGroup>
               {items.map((item) => {
                 const isSelected = selectedItem?.value === item.value;

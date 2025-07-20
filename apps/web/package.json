@@ -20,6 +20,7 @@
     "@tanstack/react-router": "^1.121.2",
     "@tanstack/react-router-devtools": "^1.121.2",
     "@tanstack/react-table": "^8.21.3",
+    "@tanstack/react-virtual": "^3.13.12",
     "@tanstack/router-plugin": "^1.121.2",
     "@types/node": "^24.0.10",
     "axios": "^1.10.0",

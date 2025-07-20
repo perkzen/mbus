@@ -1,18 +1,16 @@
-// components/blocks/DepartureSearchForm.tsx
-
+import type { ReactNode } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowLeftRight } from 'lucide-react';
 import { DateInput } from '@/components/ui/date-input';
+import { type DepartureSearchParams, Route } from '@/routes';
+import { format } from 'date-fns';
 import {
   BusStationSelect,
   toComboBoxItem,
-} from '@/components/blocks/bus-station-select';
-import { type DepartureSearchParams, Route } from '@/routes';
+} from '@/components/blocks/bus-station-select.tsx';
 import { useQuery } from '@tanstack/react-query';
-import { busStationByCodeQueryOptions } from '@/api/query-options';
-import type { ReactNode } from 'react';
-import { format } from 'date-fns';
+import { busStationByCodeQueryOptions } from '@/api/query-options.ts';
 
 type DepartureSearchFormProps = {
   searchDepartures: () => void;

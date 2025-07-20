@@ -9,7 +9,7 @@ import {
   type DeparturesSearchParams,
 } from '@/api/departures.ts';
 
-export const busStationQueryOptions = (params?: BusStationSearchParams) =>
+export const busStationsQueryOptions = (params?: BusStationSearchParams) =>
   queryOptions({
     queryKey: ['bus-stations', params],
     queryFn: () => getBusStations(params),
