@@ -23,6 +23,9 @@ migrate-create:
 seed:
 	@go run ./cmd/seed/main.go
 
+truncate:
+	@go run ./cmd/truncate-tables/main.go
+
 scraper:
 	@go run ./cmd/scraper/main.go
 
