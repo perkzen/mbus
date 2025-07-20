@@ -135,7 +135,7 @@
                 "parameters": [
                     {
                         "type": "integer",
-                        "description": "TimetableRow station code",
+                        "description": "Departure station code",
                         "name": "from",
                         "in": "query",
                         "required": true
@@ -149,7 +149,6 @@
                     },
                     {
                         "type": "string",
-                        "default": "\"today\"",
                         "description": "Date in YYYY-MM-DD format",
                         "name": "date",
                         "in": "query"
@@ -184,8 +183,11 @@
         "BusStation": {
             "type": "object",
             "properties": {
-                "code": {
-                    "type": "integer"
+                "codes": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer"
+                    }
                 },
                 "id": {
                     "type": "integer"

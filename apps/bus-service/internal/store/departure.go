@@ -16,7 +16,7 @@ const (
 
 type Departure struct {
 	ID            int
-	StationID     int
+	StationCodeID int
 	LineID        int
 	Line          BusLine
 	Direction     string
@@ -27,10 +27,10 @@ type Departure struct {
 }
 
 type DepartureStore interface {
-	FindDeparturesByStationID(stationID int, scheduleType ScheduleType) ([]Departure, error)
-	FindDeparturesFromStationToStation(fromStationID, toStationID int, scheduleType ScheduleType) ([]Departure, error)
-	FindDeparturesByStationIDAndDirection(stationID int, direction string, scheduleType ScheduleType) ([]Departure, error)
-	FindSharedDirections(toStationID, fromStationID int) ([]string, error)
+	FindDeparturesByStationCode(stationCode int, scheduleType ScheduleType) ([]Departure, error)
+	FindDepartures(fromCode, toCode int, scheduleType ScheduleType) ([]Departure, error)
+	FindDeparturesByStationCodeAndDirection(stationCode int, direction string, scheduleType ScheduleType) ([]Departure, error)
+	FindSharedDirectionsByCodes(fromCode, toCode int) ([]string, error)
 }
 
 type PostgresDepartureStore struct {
@@ -38,9 +38,7 @@ type PostgresDepartureStore struct {
 }
 
 func NewPostgresDepartureStore(db *sql.DB) *PostgresDepartureStore {
-	return &PostgresDepartureStore{
-		db: db,
-	}
+	return &PostgresDepartureStore{db: db}
 }
 
 func ScheduleTyp(dateStr string) ScheduleType {
@@ -59,10 +57,14 @@ func ScheduleTyp(dateStr string) ScheduleType {
 	}
 }
 
-func (store *PostgresDepartureStore) FindDeparturesByStationID(stationID int, scheduleType ScheduleType) ([]Departure, error) {
-	queryBuilder := Qb.Select("*").
-		From("departures").
-		Where(sq.Eq{"station_id": stationID, "schedule_type": scheduleType})
+func (store *PostgresDepartureStore) FindDeparturesByStationCode(stationCode int, scheduleType ScheduleType) ([]Departure, error) {
+	queryBuilder := Qb.Select("d.*").
+		From("departures d").
+		Join("station_codes sc ON d.code_id = sc.id").
+		Where(sq.Eq{
+			"sc.code":         stationCode,
+			"d.schedule_type": scheduleType,
+		})
 
 	query, args, err := queryBuilder.ToSql()
 	if err != nil {
@@ -75,25 +77,22 @@ func (store *PostgresDepartureStore) FindDeparturesByStationID(stationID int, sc
 	}
 	defer rows.Close()
 
-	departures := make([]Departure, 0)
+	var departures []Departure
 	for rows.Next() {
 		var dep Departure
-		if err := rows.Scan(&dep.ID, &dep.StationID, &dep.LineID, &dep.Direction, &dep.DepartureTime, &dep.ScheduleType, &dep.CreatedAt, &dep.UpdatedAt); err != nil {
+		if err := rows.Scan(&dep.ID, &dep.StationCodeID, &dep.LineID, &dep.Direction, &dep.DepartureTime, &dep.ScheduleType, &dep.CreatedAt, &dep.UpdatedAt); err != nil {
 			return nil, err
 		}
 		departures = append(departures, dep)
 	}
 
-	if err := rows.Err(); err != nil {
-		return nil, err
-	}
-	return departures, nil
+	return departures, rows.Err()
 }
 
-func (store *PostgresDepartureStore) FindDeparturesFromStationToStation(fromStationID, toStationID int, scheduleType ScheduleType) ([]Departure, error) {
+func (store *PostgresDepartureStore) FindDepartures(fromCode, toCode int, scheduleType ScheduleType) ([]Departure, error) {
 	queryBuilder := Qb.Select(
 		"d1.id",
-		"d1.station_id",
+		"d1.code_id",
 		"d1.line_id",
 		"bl.id AS bus_line_id",
 		"bl.name AS bus_line_name",
@@ -104,12 +103,19 @@ func (store *PostgresDepartureStore) FindDeparturesFromStationToStation(fromStat
 		"d1.updated_at",
 	).
 		From("departures d1").
+		Join("station_codes sc1 ON d1.code_id = sc1.id").
 		Join("bus_lines bl ON d1.line_id = bl.id").
 		Where(sq.Eq{
-			"d1.station_id":    fromStationID,
+			"sc1.code":         fromCode,
 			"d1.schedule_type": scheduleType,
 		}).
-		Where("EXISTS (SELECT 1 FROM departures d2 WHERE d2.station_id = ? AND d2.schedule_type = d1.schedule_type AND d2.direction = d1.direction)", toStationID)
+		Where(`
+			EXISTS (
+				SELECT 1 FROM departures d2
+				JOIN station_codes sc2 ON d2.code_id = sc2.id
+				WHERE sc2.code = ? AND d2.schedule_type = d1.schedule_type AND d2.direction = d1.direction
+			)
+		`, toCode)
 
 	query, args, err := queryBuilder.ToSql()
 	if err != nil {
@@ -122,12 +128,12 @@ func (store *PostgresDepartureStore) FindDeparturesFromStationToStation(fromStat
 	}
 	defer rows.Close()
 
-	var departures = make([]Departure, 0)
+	var departures []Departure
 	for rows.Next() {
 		var dep Departure
 		if err := rows.Scan(
 			&dep.ID,
-			&dep.StationID,
+			&dep.StationCodeID,
 			&dep.LineID,
 			&dep.Line.ID,
 			&dep.Line.Name,
@@ -142,17 +148,13 @@ func (store *PostgresDepartureStore) FindDeparturesFromStationToStation(fromStat
 		departures = append(departures, dep)
 	}
 
-	if err := rows.Err(); err != nil {
-		return nil, err
-	}
-
-	return departures, nil
+	return departures, rows.Err()
 }
 
-func (store *PostgresDepartureStore) FindDeparturesByStationIDAndDirection(stationID int, direction string, scheduleType ScheduleType) ([]Departure, error) {
+func (store *PostgresDepartureStore) FindDeparturesByStationCodeAndDirection(stationCode int, direction string, scheduleType ScheduleType) ([]Departure, error) {
 	queryBuilder := Qb.Select(
 		"d.id",
-		"d.station_id",
+		"d.code_id",
 		"d.line_id",
 		"bl.id AS bus_line_id",
 		"bl.name AS bus_line_name",
@@ -163,9 +165,10 @@ func (store *PostgresDepartureStore) FindDeparturesByStationIDAndDirection(stati
 		"d.updated_at",
 	).
 		From("departures d").
+		Join("station_codes sc ON d.code_id = sc.id").
 		Join("bus_lines bl ON d.line_id = bl.id").
 		Where(sq.Eq{
-			"d.station_id":    stationID,
+			"sc.code":         stationCode,
 			"d.direction":     direction,
 			"d.schedule_type": scheduleType,
 		})
@@ -181,12 +184,12 @@ func (store *PostgresDepartureStore) FindDeparturesByStationIDAndDirection(stati
 	}
 	defer rows.Close()
 
-	departures := make([]Departure, 0)
+	var departures []Departure
 	for rows.Next() {
 		var dep Departure
 		if err := rows.Scan(
 			&dep.ID,
-			&dep.StationID,
+			&dep.StationCodeID,
 			&dep.LineID,
 			&dep.Line.ID,
 			&dep.Line.Name,
@@ -201,20 +204,18 @@ func (store *PostgresDepartureStore) FindDeparturesByStationIDAndDirection(stati
 		departures = append(departures, dep)
 	}
 
-	if err := rows.Err(); err != nil {
-		return nil, err
-	}
-
-	return departures, nil
+	return departures, rows.Err()
 }
 
-func (store *PostgresDepartureStore) FindSharedDirections(toStationID, fromStationID int) ([]string, error) {
+func (store *PostgresDepartureStore) FindSharedDirectionsByCodes(fromCode, toCode int) ([]string, error) {
 	queryBuilder := Qb.Select("DISTINCT d1.direction").
 		From("departures d1").
+		Join("station_codes sc1 ON d1.code_id = sc1.id").
 		Join("departures d2 ON d1.direction = d2.direction").
+		Join("station_codes sc2 ON d2.code_id = sc2.id").
 		Where(sq.Eq{
-			"d1.station_id": fromStationID,
-			"d2.station_id": toStationID,
+			"sc1.code": fromCode,
+			"sc2.code": toCode,
 		})
 
 	query, args, err := queryBuilder.ToSql()
@@ -228,18 +229,14 @@ func (store *PostgresDepartureStore) FindSharedDirections(toStationID, fromStati
 	}
 	defer rows.Close()
 
-	directions := make([]string, 0)
+	var directions []string
 	for rows.Next() {
-		var direction string
-		if err := rows.Scan(&direction); err != nil {
+		var dir string
+		if err := rows.Scan(&dir); err != nil {
 			return nil, err
 		}
-		directions = append(directions, direction)
+		directions = append(directions, dir)
 	}
 
-	if err := rows.Err(); err != nil {
-		return nil, err
-	}
-
-	return directions, nil
+	return directions, rows.Err()
 }

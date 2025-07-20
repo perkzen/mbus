@@ -4,13 +4,14 @@ import (
 	"database/sql"
 	"encoding/json"
 	"errors"
-	"github.com/perkzen/mbus/apps/bus-service/data"
 	"log"
+	"strconv"
 	"time"
 
 	sq "github.com/Masterminds/squirrel"
 	_ "github.com/jackc/pgx/v5/stdlib"
 
+	"github.com/perkzen/mbus/apps/bus-service/data"
 	"github.com/perkzen/mbus/apps/bus-service/internal/config"
 	"github.com/perkzen/mbus/apps/bus-service/internal/db"
 	"github.com/perkzen/mbus/apps/bus-service/internal/integrations/marprom"
@@ -19,205 +20,270 @@ import (
 	"github.com/perkzen/mbus/apps/bus-service/migrations"
 )
 
+/*
+   ──────────────────────────
+        globals / helpers
+   ──────────────────────────
+*/
+
 var pgDb *sql.DB
+var qb = store.Qb // shorthand
+
+/*
+   ──────────────────────────
+               main
+   ──────────────────────────
+*/
 
 func main() {
-	err := utils.Retry("Initialize DB for seeding", 10, 3*time.Second, func() error {
-		return initDB()
-	})
-	if err != nil {
-		log.Fatalf("❌ Could not connect and initialize DB: %v", err)
+	if err := utils.Retry(
+		"Initialize DB for seeding",
+		10, 3*time.Second,
+		initDB,
+	); err != nil {
+		log.Fatalf("❌ Could not connect / migrate DB: %v", err)
 	}
 	defer pgDb.Close()
 
-	numOfStations := 444
-	var count int
-	err = pgDb.QueryRow("SELECT COUNT(*) FROM bus_stations").Scan(&count)
-	if err != nil {
-		log.Fatalf("❌ Failed to count bus_stations: %v", err)
+	// ─── Seed bus-stations / lines (once) ────────────────────────────
+	const expectedStations = 444
+	var have int
+	if err := pgDb.QueryRow(`SELECT COUNT(*) FROM bus_stations`).Scan(&have); err != nil {
+		log.Fatalf("❌ COUNT(bus_stations) failed: %v", err)
 	}
 
-	if count < numOfStations {
+	if have < expectedStations {
 		stations := loadSeedData("seed-weekday.json")
-		lineIDs := insertBusLines(stations)
-		insertBusStationsAndLinks(stations, lineIDs)
-		log.Println("✅ Bus stations and lines inserted.")
+
+		lineIDs := upsertBusLines(stations)
+		stationIDs, codeIDs := upsertBusStations(stations, lineIDs)
+
+		log.Printf("✅ Inserted %d bus stations, %d station codes, %d lines.",
+			len(stationIDs), len(codeIDs), len(lineIDs))
 	} else {
-		log.Printf("✅ Database already seeded with %d bus stations, skipping station insert.", count)
+		log.Printf("✅ DB already seeded with %d stations – skipping.", have)
 	}
 
-	lineIDs := reloadLineIDs()
-	stationIDs := reloadStationIDs()
+	// ─── Reload fresh id maps (in case rows already existed) ─────────
+	lineIDs := loadLineIDs()
+	codeIDs := loadStationCodeIDs()
 
-	insertDepartures("weekday", loadSeedData("seed-weekday.json"), lineIDs, stationIDs)
-	insertDepartures("saturday", loadSeedData("seed-saturday.json"), lineIDs, stationIDs)
-	insertDepartures("sunday", loadSeedData("seed-sunday.json"), lineIDs, stationIDs)
-
-	log.Println("✅ All departures inserted successfully.")
+	// ─── Departures ──────────────────────────────────────────────────
+	for _, day := range []string{"weekday", "saturday", "sunday"} {
+		insertDepartures(day, loadSeedData("seed-"+day+".json"), lineIDs, codeIDs)
+	}
+	log.Println("✅ All departures inserted.")
 }
+
+/*
+   ──────────────────────────
+            database
+   ──────────────────────────
+*/
 
 func initDB() error {
 	env, err := config.LoadEnvironment()
 	if err != nil {
 		return err
 	}
-
 	pgDb, err = db.NewPostgresDB(env.PostgresURL).Open()
 	if err != nil {
 		return err
 	}
-
 	return db.MigrateFS(pgDb, migrations.FS, ".")
 }
 
-func loadSeedData(filename string) []marprom.BusStationWithDetails {
-	file, err := data.FS.Open(filename)
+/*
+   ──────────────────────────
+      seed-file helpers
+   ──────────────────────────
+*/
 
+func loadSeedData(file string) []marprom.BusStationWithDetails {
+	f, err := data.FS.Open(file)
 	if err != nil {
-		log.Fatalf("❌ Failed to open seed file %s: %v", filename, err)
+		log.Fatalf("❌ open %s: %v", file, err)
 	}
-	defer file.Close()
+	defer f.Close()
 
-	var stations []marprom.BusStationWithDetails
-	if err := json.NewDecoder(file).Decode(&stations); err != nil {
-		log.Fatalf("❌ Failed to parse seed file %s: %v", filename, err)
+	var bs []marprom.BusStationWithDetails
+	if err := json.NewDecoder(f).Decode(&bs); err != nil {
+		log.Fatalf("❌ parse %s: %v", file, err)
 	}
-	return stations
+	return bs
 }
 
-func insertBusLines(stations []marprom.BusStationWithDetails) map[string]int {
-	lineIDs := make(map[string]int)
-	uniqueLines := make(map[string]bool)
+/*
+   ──────────────────────────
+       lines / stations
+   ──────────────────────────
+*/
 
-	for _, station := range stations {
-		for _, line := range station.Lines {
-			uniqueLines[line] = true
+func upsertBusLines(stations []marprom.BusStationWithDetails) map[string]int {
+	lineIDs := make(map[string]int)
+
+	unique := map[string]struct{}{}
+	for _, s := range stations {
+		for _, l := range s.Lines {
+			unique[l] = struct{}{}
 		}
 	}
 
-	for line := range uniqueLines {
+	for line := range unique {
 		var id int
-		query, args, _ := store.Qb.Select("id").From("bus_lines").Where(sq.Eq{"name": line}).ToSql()
-		err := pgDb.QueryRow(query, args...).Scan(&id)
-
+		q, a, _ := qb.Select("id").From("bus_lines").Where(sq.Eq{"name": line}).ToSql()
+		err := pgDb.QueryRow(q, a...).Scan(&id)
 		if errors.Is(err, sql.ErrNoRows) {
-			query, args, _ = store.Qb.Insert("bus_lines").
-				Columns("name").
-				Values(line).
-				Suffix("RETURNING id").
-				ToSql()
-			err = pgDb.QueryRow(query, args...).Scan(&id)
-			if err != nil {
-				log.Fatalf("❌ Failed to insert bus line '%s': %v", line, err)
+			q, a, _ = qb.Insert("bus_lines").Columns("name").
+				Values(line).Suffix("RETURNING id").ToSql()
+			if err = pgDb.QueryRow(q, a...).Scan(&id); err != nil {
+				log.Fatalf("❌ insert line %s: %v", line, err)
 			}
 		} else if err != nil {
-			log.Fatalf("❌ Failed to fetch line '%s': %v", line, err)
+			log.Fatalf("❌ select line %s: %v", line, err)
 		}
-
 		lineIDs[line] = id
 	}
-
 	return lineIDs
 }
 
-func insertBusStationsAndLinks(stations []marprom.BusStationWithDetails, lineIDs map[string]int) map[string]int {
-	stationIDs := make(map[string]int)
+func upsertBusStations(
+	stations []marprom.BusStationWithDetails,
+	lineIDs map[string]int,
+) (map[string]int /*stationID*/, map[string]int /*codeID*/) {
+
+	stationIDs := map[string]int{} // keyed by code
+	codeIDs := map[string]int{}    // keyed by code
 
 	for _, s := range stations {
-		id := insertBusStation(s)
-		stationIDs[s.Code] = id
+		// 1️⃣ insert (or fetch) bus_stations row (no code column anymore)
+		var stationID int
+		q, a, _ := qb.Select("id").From("bus_stations").
+			Where(sq.Eq{"name": s.Name}).ToSql()
+		err := pgDb.QueryRow(q, a...).Scan(&stationID)
+		if errors.Is(err, sql.ErrNoRows) {
+			q, a, _ = qb.Insert("bus_stations").
+				Columns("name", "image_url", "lat", "lng").
+				Values(s.Name, s.ImageURL, s.Lat, s.Lon).
+				Suffix("RETURNING id").ToSql()
+			if err = pgDb.QueryRow(q, a...).Scan(&stationID); err != nil {
+				log.Fatalf("❌ insert station %s: %v", s.Name, err)
+			}
+		} else if err != nil {
+			log.Fatalf("❌ select station %s: %v", s.Name, err)
+		}
 
-		for _, line := range s.Lines {
-			linkStationToLine(id, lineIDs[line])
+		// 2️⃣ insert (or fetch) station_codes row
+		codeInt, _ := strconv.Atoi(s.Code)
+		var codeID int
+		q, a, _ = qb.Select("id").From("station_codes").
+			Where(sq.Eq{"code": codeInt}).ToSql()
+		err = pgDb.QueryRow(q, a...).Scan(&codeID)
+		if errors.Is(err, sql.ErrNoRows) {
+			q, a, _ = qb.Insert("station_codes").
+				Columns("station_id", "code").
+				Values(stationID, codeInt).
+				Suffix("RETURNING id").ToSql()
+			if err = pgDb.QueryRow(q, a...).Scan(&codeID); err != nil {
+				log.Fatalf("❌ insert station_code %s: %v", s.Code, err)
+			}
+		} else if err != nil {
+			log.Fatalf("❌ select station_code %s: %v", s.Code, err)
+		}
+
+		stationIDs[s.Code] = stationID
+		codeIDs[s.Code] = codeID
+
+		// 3️⃣ link to lines (ignore duplicates)
+		for _, l := range s.Lines {
+			q, a, _ := qb.Insert("bus_stations_bus_lines").
+				Columns("bus_station_id", "bus_line_id").
+				Values(stationID, lineIDs[l]).
+				Suffix("ON CONFLICT DO NOTHING").ToSql()
+			if _, err := pgDb.Exec(q, a...); err != nil {
+				log.Fatalf("❌ link station %d ↔ line %d: %v", stationID, lineIDs[l], err)
+			}
 		}
 	}
-
-	return stationIDs
+	return stationIDs, codeIDs
 }
 
-func insertBusStation(s marprom.BusStationWithDetails) int {
-	query, args, _ := store.Qb.Insert("bus_stations").
-		Columns("code", "name", "image_url", "lat", "lng").
-		Values(s.Code, s.Name, s.ImageURL, s.Lat, s.Lon).
-		Suffix("RETURNING id").
-		ToSql()
+/*
+   ──────────────────────────
+           departures
+   ──────────────────────────
+*/
 
-	var id int
-	err := pgDb.QueryRow(query, args...).Scan(&id)
-	if err != nil {
-		log.Fatalf("❌ Failed to insert station %s: %v", s.Code, err)
-	}
-	return id
-}
-
-func linkStationToLine(stationID, lineID int) {
-	query, args, _ := store.Qb.Insert("bus_stations_bus_lines").
-		Columns("bus_station_id", "bus_line_id").
-		Values(stationID, lineID).
-		Suffix("ON CONFLICT DO NOTHING").
-		ToSql()
-
-	_, err := pgDb.Exec(query, args...)
-	if err != nil {
-		log.Fatalf("❌ Failed to link station %d to line %d: %v", stationID, lineID, err)
-	}
-}
-
-func insertDepartures(scheduleType string, stations []marprom.BusStationWithDetails, lineIDs, stationIDs map[string]int) {
+func insertDepartures(
+	schedule string,
+	stations []marprom.BusStationWithDetails,
+	lineIDs map[string]int,
+	codeIDs map[string]int,
+) {
 	for _, s := range stations {
+		codeID, ok := codeIDs[s.Code]
+		if !ok {
+			log.Fatalf("❌ code %s not in codeIDs map", s.Code)
+		}
+
 		for _, d := range s.Departures {
 			lineID := lineIDs[d.Line]
-			stationID := stationIDs[s.Code]
 
 			for _, t := range d.Times {
-				query, args, _ := store.Qb.Insert("departures").
-					Columns("station_id", "line_id", "direction", "departure_time", "schedule_type").
-					Values(stationID, lineID, d.Direction, t, scheduleType).
-					ToSql()
+				q, a, _ := qb.Insert("departures").
+					Columns("code_id", "line_id", "direction",
+						"departure_time", "schedule_type").
+					Values(codeID, lineID, d.Direction, t, schedule).ToSql()
 
-				_, err := pgDb.Exec(query, args...)
-				if err != nil {
-					log.Fatalf("❌ Failed to insert departure for station %s, line %s: %v", s.Code, d.Line, err)
+				if _, err := pgDb.Exec(q, a...); err != nil {
+					log.Fatalf("❌ dep insert stationCode %s line %s time %s: %v",
+						s.Code, d.Line, t, err)
 				}
 			}
 		}
 	}
 }
 
-func reloadLineIDs() map[string]int {
-	rows, err := pgDb.Query("SELECT id, name FROM bus_lines")
+/*
+   ──────────────────────────
+        reload helpers
+   ──────────────────────────
+*/
+
+func loadLineIDs() map[string]int {
+	rows, err := pgDb.Query(`SELECT id, name FROM bus_lines`)
 	if err != nil {
-		log.Fatalf("❌ Failed to reload bus_lines: %v", err)
+		log.Fatalf("❌ reload lines: %v", err)
 	}
 	defer rows.Close()
 
-	lines := make(map[string]int)
+	lines := map[string]int{}
 	for rows.Next() {
 		var id int
 		var name string
 		if err := rows.Scan(&id, &name); err != nil {
-			log.Fatalf("❌ Failed to scan line: %v", err)
+			log.Fatalf("❌ scan line: %v", err)
 		}
 		lines[name] = id
 	}
 	return lines
 }
 
-func reloadStationIDs() map[string]int {
-	rows, err := pgDb.Query("SELECT id, code FROM bus_stations")
+func loadStationCodeIDs() map[string]int {
+	rows, err := pgDb.Query(`SELECT id, code FROM station_codes`)
 	if err != nil {
-		log.Fatalf("❌ Failed to reload bus_stations: %v", err)
+		log.Fatalf("❌ reload station_codes: %v", err)
 	}
 	defer rows.Close()
 
-	stations := make(map[string]int)
+	sc := map[string]int{}
 	for rows.Next() {
 		var id int
-		var code string
+		var code int
 		if err := rows.Scan(&id, &code); err != nil {
-			log.Fatalf("❌ Failed to scan station: %v", err)
+			log.Fatalf("❌ scan station_code: %v", err)
 		}
-		stations[code] = id
+		sc[strconv.Itoa(code)] = id
 	}
-	return stations
+	return sc
 }
