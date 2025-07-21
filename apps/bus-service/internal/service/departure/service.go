@@ -48,12 +48,12 @@ func (s *Service) GenerateTimetable(fromID, toID int, date string) ([]TimetableR
 		return nil, fmt.Errorf("one of the bus stations not found: fromID=%d, toID=%d", fromID, toID)
 	}
 
-	//locs := [][]float64{{fromStation.Lon, fromStation.Lat}, {toStation.Lon, toStation.Lat}}
-	//matrix, err := s.orsApiClient.GetMatrix(locs)
-	//if err != nil {
-	//	return nil, err
-	//}
-	//distance := matrix.Distances[0][1]
+	locs := [][]float64{{fromStation.Lon, fromStation.Lat}, {toStation.Lon, toStation.Lat}}
+	matrix, err := s.orsApiClient.GetMatrix(locs)
+	if err != nil {
+		return nil, err
+	}
+	distance := matrix.Distances[0][1]
 
 	scheduleType := store.ScheduleTyp(date)
 
@@ -118,7 +118,7 @@ func (s *Service) GenerateTimetable(fromID, toID int, date string) ([]TimetableR
 			DepartureAt: dep.DepartureTime,
 			ArriveAt:    arriveAt,
 			Duration:    formattedDuration,
-			Distance:    0,
+			Distance:    distance,
 		})
 
 	}
