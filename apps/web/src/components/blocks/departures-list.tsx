@@ -21,15 +21,15 @@ const DepartureList: FC<DepartureListProps> = ({ data = [], isLoading }) => {
 
   if (isEmpty) {
     return (
-      <div className="flex flex-col items-center justify-center gap-4 p-10 text-center text-gray-500">
+      <div className="flex flex-col items-center justify-center gap-4 p-4 text-center text-gray-500">
         <img
           src="/assets/lost.svg"
           alt="No departures"
-          className="h-80 w-auto"
+          className="h-60 w-auto"
         />
         <p className="text-lg font-medium">Ni odhodov za prikaz.</p>
         <p className="text-sm text-gray-400">
-          Poskusite z drugim datumom ali smerjo.
+          Poskusite z drugim datumom ali postajo.
         </p>
       </div>
     );
@@ -37,11 +37,8 @@ const DepartureList: FC<DepartureListProps> = ({ data = [], isLoading }) => {
 
   return (
     <div className="flex flex-col gap-4">
-      {data.map((departure) => (
-        <div
-          key={`${departure.fromStation.name}-${departure.toStation.name}-${departure.departureAt}`}
-          className="border p-4 shadow-sm"
-        >
+      {data.map((departure, index) => (
+        <div key={index} className="border p-4 shadow-sm">
           <div className="grid grid-cols-[auto_min-content_1fr] items-center gap-x-2">
             <span className="font-semibold">{departure.departureAt}</span>
             <div className="bg-primary h-2 w-2 rounded-full" />
@@ -70,7 +67,6 @@ const DepartureList: FC<DepartureListProps> = ({ data = [], isLoading }) => {
             </div>
             <div className="text-right">
               <div className="font-semibold">{departure.distance} km</div>
-              <div className="font-semibold">1.3 EUR</div>
             </div>
           </div>
         </div>

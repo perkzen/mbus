@@ -44,6 +44,7 @@ type BusStationSelectProps = {
   'selectedItem' | 'onSelect' | 'searchPlaceholder' | 'selectPlaceholder'
 >;
 
+// Deprecated
 export const BusStationSelect = ({
   className,
   ...props

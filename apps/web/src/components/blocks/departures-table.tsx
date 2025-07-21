@@ -61,12 +61,6 @@ const columns = [
     header: 'Kilometri',
     cell: (info) => <span className="font-semibold">{info.getValue()} km</span>,
   }),
-
-  columnHelper.accessor((row) => row, {
-    id: 'price',
-    header: 'Cena',
-    cell: () => <span className="font-semibold">1.3 EUR</span>,
-  }),
 ];
 
 type TimetableTableProps = {
@@ -102,7 +96,7 @@ const DeparturesTable: FC<TimetableTableProps> = ({ data = [], isLoading }) => {
         />
         <p className="text-lg font-medium">Ni odhodov za prikaz.</p>
         <p className="text-sm text-gray-400">
-          Poskusite z drugim datumom ali smerjo.
+          Poskusite z drugim datumom ali postajo.
         </p>
       </div>
     );

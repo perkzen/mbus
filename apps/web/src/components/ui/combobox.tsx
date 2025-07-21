@@ -1,9 +1,5 @@
-'use client';
-
 import * as React from 'react';
 import { Check, ChevronsUpDown } from 'lucide-react';
-import { useVirtualizer } from '@tanstack/react-virtual';
-
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import {
@@ -20,53 +16,38 @@ import {
   PopoverTrigger,
 } from '@/components/ui/popover';
 
-type ComboboxOption = {
+export type ComboboxOption = {
   value: string;
   label: string;
 };
 
 type ComboboxProps = {
   options: ComboboxOption[];
-  value: string;
-  onChange: (value: string) => void;
   placeholder?: string;
   searchPlaceholder?: string;
+  selected?: string;
+  onChange?: (value: string) => void;
   className?: string;
-  itemHeight?: number;
-  maxHeight?: number;
 };
 
-const Combobox: React.FC<ComboboxProps> = ({
+export const Combobox: React.FC<ComboboxProps> = ({
   options,
-  value,
-  onChange,
-  placeholder = 'Select...',
+  placeholder = 'Select an option...',
   searchPlaceholder = 'Search...',
+  selected = '',
+  onChange,
   className,
-  itemHeight = 40,
-  maxHeight = 300,
 }) => {
   const [open, setOpen] = React.useState(false);
-  const [search, setSearch] = React.useState('');
-  const listRef = React.useRef<HTMLDivElement | null>(null);
-  const [scrollElement, setScrollElement] = React.useState<HTMLElement | null>(
-    null
-  );
+  const [value, setValue] = React.useState(selected);
 
-  const filteredOptions = React.useMemo(() => {
-    return options.filter((option) =>
-      option.label.toLowerCase().includes(search.toLowerCase())
-    );
-  }, [options, search]);
+  const handleSelect = (selectedValue: string) => {
+    const newValue = selectedValue === value ? '' : selectedValue;
+    setValue(newValue);
+    setOpen(false);
+    onChange?.(newValue);
+  };
 
-  const virtualizer = useVirtualizer({
-    count: filteredOptions.length,
-    getScrollElement: () => scrollElement,
-    estimateSize: () => itemHeight,
-    overscan: 10,
-  });
-
-  const virtualItems = virtualizer.getVirtualItems();
   const selectedLabel = options.find((opt) => opt.value === value)?.label;
 
   return (
@@ -76,7 +57,7 @@ const Combobox: React.FC<ComboboxProps> = ({
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className={cn('w-[200px] justify-between', className)}
+          className={cn('w-full justify-between', className)}
         >
           {selectedLabel || placeholder}
           <ChevronsUpDown className="ml-2 h-4 w-4 opacity-50" />
@@ -87,67 +68,26 @@ const Combobox: React.FC<ComboboxProps> = ({
         className="p-0"
       >
         <Command>
-          <CommandInput
-            placeholder={searchPlaceholder}
-            className="h-9"
-            value={search}
-            onValueChange={setSearch}
-          />
+          <CommandInput placeholder={searchPlaceholder} className="h-9" />
           <CommandList>
             <CommandEmpty>No results found.</CommandEmpty>
             <CommandGroup>
-              <div
-                ref={(el) => {
-                  listRef.current = el;
-                  if (el) setScrollElement(el);
-                }}
-                style={{
-                  maxHeight,
-                  overflowY: 'auto',
-                  position: 'relative',
-                  height: Math.min(virtualizer.getTotalSize(), maxHeight),
-                }}
-              >
-                <div
-                  style={{
-                    height: virtualizer.getTotalSize(),
-                    width: '100%',
-                    position: 'relative',
-                  }}
+              {options.map((option) => (
+                <CommandItem
+                  key={option.value}
+                  value={option.label}
+                  onSelect={() => handleSelect(option.value)}
                 >
-                  {virtualItems.map((virtualRow) => {
-                    const option = filteredOptions[virtualRow.index];
-                    if (!option) return null;
-
-                    return (
-                      <CommandItem
-                        key={option.value}
-                        onSelect={() => {
-                          onChange(option.value === value ? '' : option.value);
-                          setOpen(false);
-                          setSearch('');
-                        }}
-                        style={{
-                          position: 'absolute',
-                          top: 0,
-                          left: 0,
-                          transform: `translateY(${virtualRow.start}px)`,
-                          height: `${itemHeight}px`,
-                          width: '100%',
-                        }}
-                      >
-                        <Check
-                          className={cn(
-                            'mr-2 h-4 w-4',
-                            value === option.value ? 'opacity-100' : 'opacity-0'
-                          )}
-                        />
-                        {option.label}
-                      </CommandItem>
-                    );
-                  })}
-                </div>
-              </div>
+                  <span>{option.label}</span>
+                  <Check
+                    className={cn(
+                      'ml-auto h-4 w-4',
+                      value === option.value ? 'opacity-100' : 'opacity-0'
+                    )}
+                    aria-hidden="true"
+                  />
+                </CommandItem>
+              ))}
             </CommandGroup>
           </CommandList>
         </Command>
@@ -155,5 +95,3 @@ const Combobox: React.FC<ComboboxProps> = ({
     </Popover>
   );
 };
-
-export default Combobox;

@@ -5,12 +5,7 @@ import { ArrowLeftRight } from 'lucide-react';
 import { DateInput } from '@/components/ui/date-input';
 import { type DepartureSearchParams, Route } from '@/routes';
 import { format } from 'date-fns';
-import {
-  BusStationSelect,
-  toComboBoxItem,
-} from '@/components/blocks/bus-station-select.tsx';
-import { useQuery } from '@tanstack/react-query';
-import { busStationByCodeQueryOptions } from '@/api/query-options.ts';
+import BusStationCombobox from '@/components/blocks/bus-station-combobox.tsx';
 
 type DepartureSearchFormProps = {
   searchDepartures: () => void;
@@ -39,9 +34,6 @@ const DepartureSearchForm = ({
   const { from, to, date } = Route.useSearch();
   const navigate = Route.useNavigate();
 
-  const { data: fromStation } = useQuery(busStationByCodeQueryOptions(from));
-  const { data: toStation } = useQuery(busStationByCodeQueryOptions(to));
-
   const updateSearch = (newParams: Partial<DepartureSearchParams>) => {
     navigate({ search: { from, to, date, ...newParams } });
   };
@@ -51,19 +43,14 @@ const DepartureSearchForm = ({
   };
 
   return (
-    <Card className="mb-6">
-      <CardContent className="p-6">
+    <Card>
+      <CardContent className="md:p-6">
         <div className="flex flex-col items-end gap-2 md:flex-row">
           <div className="flex w-full flex-col items-start gap-2 md:min-w-2/3 md:flex-row md:items-end">
             <FormField label="IZBERITE VSTOPNO POSTAJO">
-              <BusStationSelect
-                selectPlaceholder="Izberi postajo"
-                searchPlaceholder="Poišči postajo"
-                selectedItem={toComboBoxItem(fromStation)}
-                onSelect={(item) => {
-                  updateSearch({ from: parseInt(item.value) });
-                }}
-                className="w-full"
+              <BusStationCombobox
+                value={from.toString()}
+                onChange={(item) => updateSearch({ from: parseInt(item) })}
               />
             </FormField>
 
@@ -79,14 +66,9 @@ const DepartureSearchForm = ({
             </div>
 
             <FormField label="IZBERITE IZSTOPNO POSTAJO">
-              <BusStationSelect
-                selectPlaceholder="Izberi postajo"
-                searchPlaceholder="Poišči postajo"
-                className="w-full"
-                selectedItem={toComboBoxItem(toStation)}
-                onSelect={(item) => {
-                  updateSearch({ to: parseInt(item.value) });
-                }}
+              <BusStationCombobox
+                value={to.toString()}
+                onChange={(item) => updateSearch({ to: parseInt(item) })}
               />
             </FormField>
           </div>

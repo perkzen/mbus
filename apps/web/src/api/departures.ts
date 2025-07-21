@@ -7,6 +7,7 @@ type Station = {
 };
 
 export type Departure = {
+  id: number;
   direction: string;
   line: string;
   fromStation: Station;

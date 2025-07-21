@@ -1,17 +1,16 @@
 import { useQuery } from '@tanstack/react-query';
 import { busStationsQueryOptions } from '@/api/query-options';
-import Combobox from '@/components/ui/combobox';
 import type { FC } from 'react';
+import { Combobox } from '@/components/ui/combobox.tsx';
 
 type Props = {
-  value: string;
+  value?: string;
   onChange: (value: string) => void;
   placeholder?: string;
   searchPlaceholder?: string;
   className?: string;
 };
 
-// TODO: start using this instead of API Combobox
 const BusStationCombobox: FC<Props> = ({
   value,
   onChange,
@@ -19,17 +18,18 @@ const BusStationCombobox: FC<Props> = ({
   searchPlaceholder = 'Poišči postajo',
   className,
 }) => {
-  const { data = [] } = useQuery(busStationsQueryOptions());
+  const { data } = useQuery(busStationsQueryOptions());
 
-  const options = data.map((station) => ({
-    label: station.name,
-    value: station.id.toString(),
-  }));
+  const options =
+    data?.map((station) => ({
+      label: station.name,
+      value: station.id.toString(),
+    })) || [];
 
   return (
     <Combobox
       options={options}
-      value={value}
+      selected={value}
       onChange={onChange}
       placeholder={placeholder}
       searchPlaceholder={searchPlaceholder}

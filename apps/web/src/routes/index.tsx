@@ -1,10 +1,10 @@
+import { z } from 'zod';
+import { format } from 'date-fns';
 import { createFileRoute, stripSearchParams } from '@tanstack/react-router';
 import DepartureSearchForm from '@/components/blocks/departure-search-form.tsx';
 import { useQuery } from '@tanstack/react-query';
 import { departuresQueryOptions } from '@/api/query-options.ts';
 import DeparturesTable from '@/components/blocks/departures-table.tsx';
-import { z } from 'zod';
-import { format } from 'date-fns';
 import DepartureList from '@/components/blocks/departures-list.tsx';
 
 const defaultSearchParams = {
@@ -43,7 +43,7 @@ function App() {
   } = useQuery(departuresQueryOptions(searchParams));
 
   return (
-    <div className="mx-auto max-w-6xl p-2 md:p-10">
+    <div className="mx-auto flex max-w-6xl flex-col gap-4 p-2 md:p-10">
       <DepartureSearchForm
         searchDepartures={() => searchDepartures()}
         isLoading={isFetching}
