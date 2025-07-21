@@ -28,6 +28,7 @@ type ComboboxProps = {
   options: ComboboxOption[];
   placeholder?: string;
   searchPlaceholder?: string;
+  emptyPlaceholder?: string;
   selected?: string;
   onChange?: (value: string) => void;
   className?: string;
@@ -37,6 +38,7 @@ export const Combobox: React.FC<ComboboxProps> = ({
   options,
   placeholder = 'Select an option...',
   searchPlaceholder = 'Search...',
+  emptyPlaceholder,
   selected = '',
   onChange,
   className,
@@ -107,7 +109,7 @@ export const Combobox: React.FC<ComboboxProps> = ({
             }}
             style={{ maxHeight: '300px', overflow: 'auto' }}
           >
-            <CommandEmpty>No results found.</CommandEmpty>
+            <CommandEmpty>{emptyPlaceholder}</CommandEmpty>
             <CommandGroup>
               <div
                 style={{

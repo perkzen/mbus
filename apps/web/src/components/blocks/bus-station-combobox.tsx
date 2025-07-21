@@ -8,6 +8,7 @@ type Props = {
   onChange: (value: string) => void;
   placeholder?: string;
   searchPlaceholder?: string;
+  emptyPlaceholder?: string;
   className?: string;
 };
 
@@ -16,6 +17,7 @@ const BusStationCombobox: FC<Props> = ({
   onChange,
   placeholder = 'Izberi postajo',
   searchPlaceholder = 'Poišči postajo',
+  emptyPlaceholder = 'Ni rezultatov',
   className,
 }) => {
   const { data } = useQuery(busStationsQueryOptions());
@@ -33,6 +35,7 @@ const BusStationCombobox: FC<Props> = ({
       onChange={onChange}
       placeholder={placeholder}
       searchPlaceholder={searchPlaceholder}
+      emptyPlaceholder={emptyPlaceholder}
       className={className}
     />
   );
