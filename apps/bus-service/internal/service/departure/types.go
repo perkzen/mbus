@@ -6,6 +6,7 @@ type Station struct {
 } // @name TimetableRow.Station
 
 type TimetableRow struct {
+	ID          int     `json:"id"`
 	Direction   string  `json:"direction"`
 	Line        string  `json:"line"`
 	FromStation Station `json:"fromStation"`
