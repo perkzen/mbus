@@ -49,6 +49,7 @@ const DepartureSearchForm = ({
           <div className="flex w-full flex-col items-start gap-2 md:min-w-2/3 md:flex-row md:items-end">
             <FormField label="IZBERITE VSTOPNO POSTAJO">
               <BusStationCombobox
+                key={from}
                 value={from.toString()}
                 onChange={(item) => updateSearch({ from: parseInt(item) })}
               />
@@ -67,6 +68,7 @@ const DepartureSearchForm = ({
 
             <FormField label="IZBERITE IZSTOPNO POSTAJO">
               <BusStationCombobox
+                key={to}
                 value={to.toString()}
                 onChange={(item) => updateSearch({ to: parseInt(item) })}
               />

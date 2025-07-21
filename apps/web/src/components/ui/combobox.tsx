@@ -1,5 +1,8 @@
 import * as React from 'react';
+import { useState } from 'react';
 import { Check, ChevronsUpDown } from 'lucide-react';
+import { useVirtualizer } from '@tanstack/react-virtual';
+
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import {
@@ -38,8 +41,16 @@ export const Combobox: React.FC<ComboboxProps> = ({
   onChange,
   className,
 }) => {
-  const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState(selected);
+  const [open, setOpen] = useState(false);
+  const [value, setValue] = useState(selected);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [scrollElement, setScrollElement] = useState<HTMLElement | null>(null);
+
+  const filteredOptions = React.useMemo(() => {
+    return options.filter((opt) =>
+      opt.label.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  }, [searchTerm, options]);
 
   const handleSelect = (selectedValue: string) => {
     const newValue = selectedValue === value ? '' : selectedValue;
@@ -50,8 +61,24 @@ export const Combobox: React.FC<ComboboxProps> = ({
 
   const selectedLabel = options.find((opt) => opt.value === value)?.label;
 
+  const virtualizer = useVirtualizer({
+    count: filteredOptions.length,
+    getScrollElement: () => scrollElement,
+    estimateSize: () => 32,
+    overscan: 5,
+  });
+
+  const virtualItems = scrollElement ? virtualizer.getVirtualItems() : [];
+  const totalSize = scrollElement ? virtualizer.getTotalSize() : 0;
+
   return (
-    <Popover open={open} onOpenChange={setOpen}>
+    <Popover
+      open={open}
+      onOpenChange={(nextOpen) => {
+        setOpen(nextOpen);
+        if (!nextOpen) setSearchTerm('');
+      }}
+    >
       <PopoverTrigger asChild>
         <Button
           variant="outline"
@@ -68,26 +95,53 @@ export const Combobox: React.FC<ComboboxProps> = ({
         className="p-0"
       >
         <Command>
-          <CommandInput placeholder={searchPlaceholder} className="h-9" />
-          <CommandList>
+          <CommandInput
+            placeholder={searchPlaceholder}
+            className="h-9"
+            value={searchTerm}
+            onValueChange={setSearchTerm}
+          />
+          <CommandList
+            ref={(el) => {
+              if (el) setScrollElement(el);
+            }}
+            style={{ maxHeight: '300px', overflow: 'auto' }}
+          >
             <CommandEmpty>No results found.</CommandEmpty>
             <CommandGroup>
-              {options.map((option) => (
-                <CommandItem
-                  key={option.value}
-                  value={option.label}
-                  onSelect={() => handleSelect(option.value)}
-                >
-                  <span>{option.label}</span>
-                  <Check
-                    className={cn(
-                      'ml-auto h-4 w-4',
-                      value === option.value ? 'opacity-100' : 'opacity-0'
-                    )}
-                    aria-hidden="true"
-                  />
-                </CommandItem>
-              ))}
+              <div
+                style={{
+                  height: `${totalSize}px`,
+                  position: 'relative',
+                }}
+              >
+                {virtualItems.map((virtualRow) => {
+                  const option = filteredOptions[virtualRow.index];
+                  return (
+                    <CommandItem
+                      key={option.value}
+                      value={option.label}
+                      onSelect={() => handleSelect(option.value)}
+                      style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        transform: `translateY(${virtualRow.start}px)`,
+                      }}
+                    >
+                      <span>{option.label}</span>
+                      <Check
+                        className={cn(
+                          'ml-auto h-4 w-4',
+                          value === option.value ? 'opacity-100' : 'opacity-0'
+                        )}
+                        aria-hidden="true"
+                      />
+                    </CommandItem>
+                  );
+                })}
+              </div>
             </CommandGroup>
           </CommandList>
         </Command>
