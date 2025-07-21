@@ -59,6 +59,7 @@ func (s *Service) GenerateTimetable(fromID, toID int, date string) ([]TimetableR
 
 	var fromCode, toCode int
 	var departures []store.Departure
+	found := false
 
 	for _, fc := range fromStation.Codes {
 		for _, tc := range toStation.Codes {
@@ -70,8 +71,12 @@ func (s *Service) GenerateTimetable(fromID, toID int, date string) ([]TimetableR
 				fromCode = fc
 				toCode = tc
 				departures = d
-				// ❌ no break — keep checking for later matches
+				found = true
+				break
 			}
+		}
+		if found {
+			break
 		}
 	}
 
