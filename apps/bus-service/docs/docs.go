@@ -206,6 +206,12 @@ const docTemplate = `{
                 "lat": {
                     "type": "number"
                 },
+                "lines": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
                 "lon": {
                     "type": "number"
                 },
@@ -234,6 +240,9 @@ const docTemplate = `{
                 },
                 "fromStation": {
                     "$ref": "#/definitions/TimetableRow.Station"
+                },
+                "id": {
+                    "type": "integer"
                 },
                 "line": {
                     "type": "string"

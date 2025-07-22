@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { busStationsQueryOptions } from '@/api/query-options';
 import type { FC } from 'react';
-import { Combobox } from '@/components/ui/combobox.tsx';
+import { Combobox, type ComboboxOption } from '@/components/ui/combobox.tsx';
 
 type Props = {
   value?: string;
@@ -23,10 +23,12 @@ const BusStationCombobox: FC<Props> = ({
   const { data } = useQuery(busStationsQueryOptions());
 
   const options =
-    data?.map((station) => ({
-      label: station.name,
-      value: station.id.toString(),
-    })) || [];
+    data?.map(
+      (station): ComboboxOption => ({
+        label: station.name,
+        value: station.id.toString(),
+      })
+    ) || [];
 
   return (
     <Combobox

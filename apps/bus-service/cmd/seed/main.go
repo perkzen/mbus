@@ -48,7 +48,9 @@ func main() {
 	codeIDs := loadStationCodeIDs()
 
 	for _, day := range []string{"weekday", "saturday", "sunday"} {
-		insertDepartures(day, loadSeedData("seed-"+day+".json"), lineIDs, codeIDs)
+		seedData := loadSeedData("seed-" + day + ".json")
+		directionIDs := upsertDirections(seedData)
+		insertDepartures(day, seedData, lineIDs, codeIDs, directionIDs)
 	}
 	log.Println("✅ All departures inserted.")
 }
@@ -186,12 +188,39 @@ func upsertBusStations(stations []marprom.BusStationWithDetails, lineIDs map[str
 	return stationIDs, codeIDs
 }
 
-func insertDepartures(schedule string, stations []marprom.BusStationWithDetails, lineIDs, codeIDs map[string]int) {
+func upsertDirections(stations []marprom.BusStationWithDetails) map[string]int {
+	directionIDs := make(map[string]int)
+	unique := map[string]struct{}{}
+	for _, s := range stations {
+		for _, d := range s.Departures {
+			unique[d.Direction] = struct{}{}
+		}
+	}
+
+	for dir := range unique {
+		var id int
+		q, a, _ := qb.Select("id").From("directions").Where(sq.Eq{"name": dir}).ToSql()
+		err := pgDb.QueryRow(q, a...).Scan(&id)
+		if errors.Is(err, sql.ErrNoRows) {
+			q, a, _ = qb.Insert("directions").Columns("name").Values(dir).Suffix("RETURNING id").ToSql()
+			if err = pgDb.QueryRow(q, a...).Scan(&id); err != nil {
+				log.Fatalf("❌ insert direction %s: %v", dir, err)
+			}
+		} else if err != nil {
+			log.Fatalf("❌ select direction %s: %v", dir, err)
+		}
+		directionIDs[dir] = id
+	}
+
+	return directionIDs
+}
+
+func insertDepartures(schedule string, stations []marprom.BusStationWithDetails, lineIDs, codeIDs, directionIDs map[string]int) {
 	const batchSize = 1000
 	type row struct {
 		CodeID        int
 		LineID        int
-		Direction     string
+		DirectionID   int
 		DepartureTime string
 		ScheduleType  string
 	}
@@ -201,9 +230,9 @@ func insertDepartures(schedule string, stations []marprom.BusStationWithDetails,
 		if len(buffer) == 0 {
 			return
 		}
-		qbInsert := qb.Insert("departures").Columns("code_id", "line_id", "direction", "departure_time", "schedule_type")
+		qbInsert := qb.Insert("departures").Columns("code_id", "line_id", "direction_id", "departure_time", "schedule_type")
 		for _, r := range buffer {
-			qbInsert = qbInsert.Values(r.CodeID, r.LineID, r.Direction, r.DepartureTime, r.ScheduleType)
+			qbInsert = qbInsert.Values(r.CodeID, r.LineID, r.DirectionID, r.DepartureTime, r.ScheduleType)
 		}
 		query, args, err := qbInsert.ToSql()
 		if err != nil {
@@ -219,11 +248,15 @@ func insertDepartures(schedule string, stations []marprom.BusStationWithDetails,
 		codeID := codeIDs[s.Code]
 		for _, d := range s.Departures {
 			lineID := lineIDs[d.Line]
+			dirID, ok := directionIDs[d.Direction]
+			if !ok {
+				log.Fatalf("❌ unknown direction: %s", d.Direction)
+			}
 			for _, t := range d.Times {
 				buffer = append(buffer, row{
 					CodeID:        codeID,
 					LineID:        lineID,
-					Direction:     d.Direction,
+					DirectionID:   dirID,
 					DepartureTime: t,
 					ScheduleType:  schedule,
 				})

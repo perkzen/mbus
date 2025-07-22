@@ -7,7 +7,7 @@ import (
 	"github.com/perkzen/mbus/apps/bus-service/internal/api"
 	"github.com/perkzen/mbus/apps/bus-service/internal/config"
 	"github.com/perkzen/mbus/apps/bus-service/internal/db"
-	"github.com/perkzen/mbus/apps/bus-service/internal/integrations/ors"
+	"github.com/perkzen/mbus/apps/bus-service/internal/integrations/openrouteservice"
 	"github.com/perkzen/mbus/apps/bus-service/internal/service/departure"
 	"github.com/perkzen/mbus/apps/bus-service/internal/store"
 	"github.com/perkzen/mbus/apps/bus-service/migrations"
@@ -62,9 +62,10 @@ func NewApplication(env *config.Environment) (*Application, error) {
 	busLineStore := store.NewPostgresBusLineStore(pgDb)
 	busLineHandler := api.NewBusLineHandler(busLineStore, logger)
 
-	orsApiClient := ors.NewAPIClient(env.ORSApiKey)
+	orsApiClient := openrouteservice.NewAPIClient(env.ORSApiKey, rdb)
 	departureStore := store.NewPostgresDepartureStore(pgDb)
-	departureService := departure.NewService(orsApiClient, rdb, busStationStore, departureStore)
+	directionStore := store.NewPostgresDirectionStore(pgDb)
+	departureService := departure.NewService(orsApiClient, rdb, busStationStore, departureStore, busLineStore, directionStore)
 	departureHandler := api.NewDepartureHandler(departureService, logger)
 
 	return &Application{

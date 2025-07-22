@@ -45,6 +45,12 @@ const columns = [
     ),
   }),
 
+  columnHelper.accessor((row) => row.direction, {
+    id: 'direction',
+    header: 'Smer',
+    cell: (info) => <div>{info.getValue()}</div>,
+  }),
+
   columnHelper.accessor((row) => row.duration, {
     id: 'duration',
     header: 'Trajanje',

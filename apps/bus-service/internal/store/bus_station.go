@@ -10,12 +10,13 @@ import (
 )
 
 type BusStation struct {
-	ID       int     `json:"id"`
-	Name     string  `json:"name"`
-	ImageURL string  `json:"imageUrl"`
-	Lat      float64 `json:"lat"`
-	Lon      float64 `json:"lon"`
-	Codes    []int   `json:"codes,omitempty"`
+	ID       int      `json:"id"`
+	Name     string   `json:"name"`
+	ImageURL string   `json:"imageUrl"`
+	Lat      float64  `json:"lat"`
+	Lon      float64  `json:"lon"`
+	Codes    []int    `json:"codes,omitempty"`
+	Lines    []string `json:"lines,omitempty"`
 } // @name BusStation
 
 type StationCode struct {
@@ -46,18 +47,25 @@ func NewPostgresBusStationStore(db *sql.DB) *PostgresBusStationStore {
 }
 
 func (store *PostgresBusStationStore) ListBusStations(limit, offset int, opts *BusStationFilterOptions) ([]BusStation, error) {
-	builder := Qb.Select("bs.id", "bs.name", "bs.image_url", "bs.lat", "bs.lng").
+	builder := Qb.Select(
+		"bs.id",
+		"bs.name",
+		"bs.image_url",
+		"bs.lat",
+		"bs.lng",
+		"COALESCE(array_agg(DISTINCT bl.name ORDER BY bl.name), '{}') AS lines",
+	).
 		From("bus_stations bs").
+		LeftJoin("bus_stations_bus_lines bsl ON bsl.bus_station_id = bs.id").
+		LeftJoin("bus_lines bl ON bl.id = bsl.bus_line_id").
+		GroupBy("bs.id").
 		Limit(uint64(limit)).
 		Offset(uint64(offset)).
 		OrderBy("bs.name")
 
 	if opts != nil {
 		if opts.Line != "" {
-			builder = builder.
-				Join("bus_stations_bus_lines bsl ON bsl.bus_station_id = bs.id").
-				Join("bus_lines bl ON bl.id = bsl.bus_line_id").
-				Where(sq.ILike{"bl.name": "%" + opts.Line + "%"})
+			builder = builder.Where(sq.ILike{"bl.name": "%" + opts.Line + "%"})
 		}
 		if opts.Name != "" {
 			builder = builder.Where(sq.ILike{"bs.name": opts.Name + "%"})
@@ -78,9 +86,11 @@ func (store *PostgresBusStationStore) ListBusStations(limit, offset int, opts *B
 	stations := make([]BusStation, 0)
 	for rows.Next() {
 		var s BusStation
-		if err := rows.Scan(&s.ID, &s.Name, &s.ImageURL, &s.Lat, &s.Lon); err != nil {
+		var rawLines pq.StringArray
+		if err := rows.Scan(&s.ID, &s.Name, &s.ImageURL, &s.Lat, &s.Lon, &rawLines); err != nil {
 			return nil, err
 		}
+		s.Lines = rawLines
 		stations = append(stations, s)
 	}
 

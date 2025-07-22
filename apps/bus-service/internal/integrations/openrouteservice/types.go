@@ -1,4 +1,4 @@
-package ors
+package openrouteservice
 
 type MatrixRequest struct {
 	Locations        [][]float64 `json:"locations"`

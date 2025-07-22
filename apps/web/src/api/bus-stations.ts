@@ -9,8 +9,9 @@ export type BusStationSearchParams = {
 };
 
 export type BusStation = {
-  name: string;
   id: number;
+  name: string;
+  lines: string[];
 };
 
 export type GetBusStationsResponse = BusStation[];

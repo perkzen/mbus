@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { useState } from 'react';
+import { type FC, type ReactNode, useMemo, useState } from 'react';
 import { Check, ChevronsUpDown } from 'lucide-react';
 import { useVirtualizer } from '@tanstack/react-virtual';
 
@@ -22,6 +21,7 @@ import {
 export type ComboboxOption = {
   value: string;
   label: string;
+  render?: () => ReactNode;
 };
 
 type ComboboxProps = {
@@ -34,7 +34,7 @@ type ComboboxProps = {
   className?: string;
 };
 
-export const Combobox: React.FC<ComboboxProps> = ({
+export const Combobox: FC<ComboboxProps> = ({
   options,
   placeholder = 'Select an option...',
   searchPlaceholder = 'Search...',
@@ -48,7 +48,7 @@ export const Combobox: React.FC<ComboboxProps> = ({
   const [searchTerm, setSearchTerm] = useState('');
   const [scrollElement, setScrollElement] = useState<HTMLElement | null>(null);
 
-  const filteredOptions = React.useMemo(() => {
+  const filteredOptions = useMemo(() => {
     return options.filter((opt) =>
       opt.label.toLowerCase().includes(searchTerm.toLowerCase())
     );
@@ -132,7 +132,9 @@ export const Combobox: React.FC<ComboboxProps> = ({
                         transform: `translateY(${virtualRow.start}px)`,
                       }}
                     >
-                      <span>{option.label}</span>
+                      <span>
+                        {option?.render ? option.render() : option.label}
+                      </span>
                       <Check
                         className={cn(
                           'ml-auto h-4 w-4',

@@ -18,6 +18,10 @@ definitions:
         type: string
       lat:
         type: number
+      lines:
+        items:
+          type: string
+        type: array
       lon:
         type: number
       name:
@@ -37,6 +41,8 @@ definitions:
         type: string
       fromStation:
         $ref: '#/definitions/TimetableRow.Station'
+      id:
+        type: integer
       line:
         type: string
       toStation:
