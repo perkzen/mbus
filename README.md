@@ -106,11 +106,6 @@ Alternatively, you can use:
   air
   ```
 
----
-
-Here’s an improved and more descriptive version of that section:
-
----
 
 ## 📦 Scripts & Tooling
 
@@ -133,4 +128,12 @@ make help
 
 > The `Makefile` also supports environment variable loading via `.env`, so everything works out of the box.
 
+
+## To-Do
+* [ ] Add unit tests for critical components
+* [ ] translation for english
+* [ ] Add support for holiday schedules
+* [ ] Add a dark mode 
+* [ ] Move from postgres to sqlite
+* [ ] Add a feature to save favorite routes in local storage
 
