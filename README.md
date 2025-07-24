@@ -130,10 +130,11 @@ make help
 
 
 ## To-Do
-* [ ] Add unit tests for critical components
+* [ ] Add unit tests for critical parts
 * [ ] translation for english
 * [ ] Add support for holiday schedules
 * [ ] Add a dark mode 
 * [ ] Move from postgres to sqlite
 * [ ] Add a feature to save favorite routes in local storage
-
+* [ ] Add line filtering options for the departure list
+* [ ] Add skeleton loading states for better UX

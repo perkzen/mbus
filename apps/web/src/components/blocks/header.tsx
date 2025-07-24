@@ -10,8 +10,8 @@ const Header = () => {
         src="/assets/logo.png"
         className="h-12 w-12 md:h-16 md:w-16"
       />
-      <div className={'text-background ml-1 text-2xl font-bold md:text-2xl'}>
-        Mbus
+      <div className="text-background ml-1 text-2xl font-bold tracking-wide md:text-2xl">
+        mbus
       </div>
     </header>
   );

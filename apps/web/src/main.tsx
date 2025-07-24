@@ -26,19 +26,8 @@ declare module '@tanstack/react-router' {
   }
 }
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      refetchOnWindowFocus: true,
-      refetchOnReconnect: true,
-      retry: 0,
-      staleTime: 1000 * 60 * 5, // 5 minutes
-    },
-    mutations: {
-      retry: 0,
-    },
-  },
-});
+const queryClient = new QueryClient();
+
 // Render the app
 const rootElement = document.getElementById('app');
 if (rootElement && !rootElement.innerHTML) {
