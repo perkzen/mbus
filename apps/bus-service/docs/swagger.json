@@ -1,8 +1,8 @@
 {
     "swagger": "2.0",
     "info": {
-        "description": "This is the API for the MBus Bus Service.",
-        "title": "MBus Bus Service API",
+        "description": "This is the API documentation for the mubs Bus Service.",
+        "title": "mubs Bus Service API",
         "contact": {},
         "version": "1.0"
     },

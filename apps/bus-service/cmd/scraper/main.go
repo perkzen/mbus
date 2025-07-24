@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/perkzen/mbus/apps/bus-service/internal/integrations/marprom"
+	"github.com/perkzen/mbus/apps/bus-service/internal/provider/marprom"
 	"log"
 	"os"
 	"strconv"

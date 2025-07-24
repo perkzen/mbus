@@ -6,7 +6,6 @@ import (
 	"log"
 	"strings"
 
-	sq "github.com/Masterminds/squirrel"
 	_ "github.com/jackc/pgx/v5/stdlib"
 
 	"github.com/perkzen/mbus/apps/bus-service/internal/config"
@@ -25,28 +24,43 @@ func main() {
 	}
 	defer pgDb.Close()
 
-	tables := []string{
-		"departures",
-		"bus_stations_bus_lines",
-		"bus_lines",
-		"station_codes",
-		"bus_stations",
-	}
-
-	query := "TRUNCATE " + strings.Join(tables, ", ") + " RESTART IDENTITY CASCADE"
-
-	if err := execRaw(pgDb, query); err != nil {
+	if err := TruncateAllTables(pgDb); err != nil {
 		log.Fatalf("❌ Failed to truncate tables: %v", err)
 	}
 
 	log.Println("✅ All tables truncated successfully.")
 }
 
-func execRaw(db *sql.DB, query string) error {
-	sqlStr, args, err := sq.Expr(query).ToSql()
+func TruncateAllTables(db *sql.DB) error {
+	// Fetch all table names except goose_db_version
+	rows, err := db.Query(`
+		SELECT tablename
+		FROM pg_tables
+		WHERE schemaname = 'public'
+		AND tablename != 'goose_db_version'
+	`)
 	if err != nil {
-		return fmt.Errorf("build raw sql: %w", err)
+		return fmt.Errorf("failed to query table names: %w", err)
 	}
-	_, err = db.Exec(sqlStr, args...)
-	return err
+	defer rows.Close()
+
+	var tables []string
+	for rows.Next() {
+		var table string
+		if err := rows.Scan(&table); err != nil {
+			return fmt.Errorf("failed to scan table name: %w", err)
+		}
+		tables = append(tables, table)
+	}
+
+	if len(tables) == 0 {
+		return nil
+	}
+
+	query := fmt.Sprintf("TRUNCATE TABLE %s RESTART IDENTITY CASCADE;", strings.Join(tables, ", "))
+	if _, err := db.Exec(query); err != nil {
+		return fmt.Errorf("failed to truncate tables: %w", err)
+	}
+
+	return nil
 }

@@ -26,3 +26,16 @@ func SaveToCache(ctx context.Context, client *redis.Client, key string, value an
 		_ = client.Set(ctx, key, data, ttl).Err()
 	}
 }
+
+func WithCache[T any](ctx context.Context, cache *redis.Client, key string, ttl time.Duration, loader func() (T, error)) (T, error) {
+	if cached, ok := TryGetFromCache[T](ctx, cache, key); ok {
+		return *cached, nil
+	}
+	data, err := loader()
+	if err != nil {
+		var zero T
+		return zero, err
+	}
+	SaveToCache(ctx, cache, key, data, ttl)
+	return data, nil
+}

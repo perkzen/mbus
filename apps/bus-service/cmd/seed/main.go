@@ -14,7 +14,7 @@ import (
 	"github.com/perkzen/mbus/apps/bus-service/data"
 	"github.com/perkzen/mbus/apps/bus-service/internal/config"
 	"github.com/perkzen/mbus/apps/bus-service/internal/db"
-	"github.com/perkzen/mbus/apps/bus-service/internal/integrations/marprom"
+	"github.com/perkzen/mbus/apps/bus-service/internal/provider/marprom"
 	"github.com/perkzen/mbus/apps/bus-service/internal/store"
 	"github.com/perkzen/mbus/apps/bus-service/internal/utils"
 	"github.com/perkzen/mbus/apps/bus-service/migrations"

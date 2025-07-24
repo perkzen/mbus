@@ -12,9 +12,9 @@ import (
 	"time"
 )
 
-// @title MBus Bus Service API
+// @title mubs Bus Service API
 // @version 1.0
-// @description This is the API for the MBus Bus Service.
+// @description This is the API documentation for the mubs Bus Service.
 func main() {
 	env, err := config.LoadEnvironment()
 	if err != nil {

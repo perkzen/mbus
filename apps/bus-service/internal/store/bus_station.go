@@ -7,6 +7,7 @@ import (
 	sq "github.com/Masterminds/squirrel"
 	"github.com/lib/pq"
 	_ "github.com/lib/pq"
+	"strings"
 )
 
 type BusStation struct {
@@ -18,6 +19,10 @@ type BusStation struct {
 	Codes    []int    `json:"codes,omitempty"`
 	Lines    []string `json:"lines,omitempty"`
 } // @name BusStation
+
+func (s *BusStation) SanitizedName() string {
+	return strings.ReplaceAll(s.Name, "- ", "")
+}
 
 type StationCode struct {
 	ID        int `json:"id"`

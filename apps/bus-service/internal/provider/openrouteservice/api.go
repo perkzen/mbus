@@ -41,11 +41,19 @@ func (c *APIClient) GetMatrix(locations [][]float64) (*MatrixResponse, error) {
 	hash := sha256.Sum256(locBytes)
 	cacheKey := fmt.Sprintf("ors_matrix_%x", hash)
 
-	if cached, ok := utils.TryGetFromCache[MatrixResponse](ctx, c.cache, cacheKey); ok {
-		return cached, nil
+	loader := func() (MatrixResponse, error) {
+		return c.fetchMatrix(locations)
 	}
 
-	// Build request body
+	result, err := utils.WithCache(ctx, c.cache, cacheKey, 24*time.Hour, loader)
+	if err != nil {
+		return nil, err
+	}
+
+	return &result, nil
+}
+
+func (c *APIClient) fetchMatrix(locations [][]float64) (MatrixResponse, error) {
 	reqBody := MatrixRequest{
 		Locations:        locations,
 		Metrics:          []string{"distance", "duration"},
@@ -55,12 +63,12 @@ func (c *APIClient) GetMatrix(locations [][]float64) (*MatrixResponse, error) {
 
 	data, err := json.Marshal(reqBody)
 	if err != nil {
-		return nil, fmt.Errorf("failed to marshal request: %w", err)
+		return MatrixResponse{}, fmt.Errorf("failed to marshal request: %w", err)
 	}
 
 	req, err := http.NewRequest("POST", c.baseURL+"/matrix/driving-car", bytes.NewBuffer(data))
 	if err != nil {
-		return nil, fmt.Errorf("failed to build request: %w", err)
+		return MatrixResponse{}, fmt.Errorf("failed to build request: %w", err)
 	}
 
 	req.Header.Set("Authorization", c.apiKey)
@@ -69,31 +77,27 @@ func (c *APIClient) GetMatrix(locations [][]float64) (*MatrixResponse, error) {
 
 	resp, err := c.client.Do(req)
 	if err != nil {
-		return nil, fmt.Errorf("request error: %w", err)
+		return MatrixResponse{}, fmt.Errorf("request error: %w", err)
 	}
 	defer resp.Body.Close()
 
 	if resp.StatusCode >= 400 {
-		return nil, fmt.Errorf("ORS API error: %s", resp.Status)
+		return MatrixResponse{}, fmt.Errorf("ORS API error: %s", resp.Status)
 	}
 
 	var result MatrixResponse
 	if err := json.NewDecoder(resp.Body).Decode(&result); err != nil {
-		return nil, fmt.Errorf("failed to parse response: %w", err)
+		return MatrixResponse{}, fmt.Errorf("failed to parse response: %w", err)
 	}
 
-	// Convert durations from seconds to minutes
+	// Convert durations from seconds to minutes + 1min/km
 	for i := range result.Durations {
 		for j := range result.Durations[i] {
-			// Base duration in minutes
 			durationMin := result.Durations[i][j] / 60
-			// Add 1 minute per km
 			extraMinutes := result.Distances[i][j]
 			result.Durations[i][j] = math.Round(durationMin + extraMinutes)
 		}
 	}
 
-	utils.SaveToCache(ctx, c.cache, cacheKey, result, 24*time.Hour)
-
-	return &result, nil
+	return result, nil
 }
