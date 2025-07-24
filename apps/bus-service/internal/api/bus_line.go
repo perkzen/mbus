@@ -28,9 +28,7 @@ func NewBusLineHandler(busLineStore store.BusLineStore, logger *slog.Logger) *Bu
 // @Router /api/bus-lines [get]
 func (h *BusLineHandler) GetBusLines(w http.ResponseWriter, r *http.Request) error {
 	lines, err := h.busLineStore.ListBusLines()
-
 	if err != nil {
-		h.logger.Error("failed to fetch bus-lines", slog.Any("error", err))
 		return err
 	}
 

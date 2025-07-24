@@ -6,7 +6,6 @@ import (
 	"github.com/perkzen/mbus/apps/bus-service/internal/utils"
 	"log/slog"
 	"net/http"
-	"strconv"
 )
 
 type DepartureHandler struct {
@@ -36,7 +35,6 @@ func (h *DepartureHandler) GetDepartures(w http.ResponseWriter, r *http.Request)
 	fromID := QueryInt(r, "from", -1)
 	toID := QueryInt(r, "to", -1)
 	if fromID == -1 || toID == -1 {
-		h.logger.Error("Invalid request parameters", slog.String("from", strconv.Itoa(fromID)), slog.String("to", strconv.Itoa(toID)))
 		return errs.BadRequestError("Both 'from' and 'to' parameters are required")
 	}
 
@@ -44,7 +42,6 @@ func (h *DepartureHandler) GetDepartures(w http.ResponseWriter, r *http.Request)
 
 	data, err := h.departureService.GenerateTimetable(fromID, toID, date)
 	if err != nil {
-		h.logger.Error("Failed to generate timetable", slog.Any("error", err))
 		return err
 	}
 

@@ -2,6 +2,7 @@ package api
 
 import (
 	"github.com/go-chi/chi/v5"
+	"github.com/perkzen/mbus/apps/bus-service/internal/errs"
 	"github.com/perkzen/mbus/apps/bus-service/internal/store"
 	"log/slog"
 	"net/http"
@@ -44,7 +45,6 @@ func (h *BusStationHandler) GetBusStations(w http.ResponseWriter, r *http.Reques
 		Line: line,
 	})
 	if err != nil {
-		h.logger.Error(err.Error())
 		return err
 	}
 
@@ -61,26 +61,19 @@ func (h *BusStationHandler) GetBusStations(w http.ResponseWriter, r *http.Reques
 // @Success 200 {object} store.BusStation "Bus station details"
 // @Router /api/bus-stations/{id} [get]
 func (h *BusStationHandler) GetBusStationByID(w http.ResponseWriter, r *http.Request) error {
-
 	id := chi.URLParam(r, "id")
 	if id == "" {
-		return BadRequestError("Bus station id is required")
+		return errs.BadRequestError("Bus station id is required")
 	}
 
 	stationID, err := strconv.Atoi(id)
 	if err != nil {
-		return BadRequestError("Invalid bus station id format")
+		return errs.BadRequestError("Invalid bus station id format")
 	}
 
 	busStation, err := h.busStationStore.FindBusStationByID(stationID)
 	if err != nil {
-		h.logger.Error("failed to fetch station", slog.Any("error", err))
-		return err
-	}
-
-	if busStation == nil {
-		h.logger.Warn("bus station not found", slog.String("id", id))
-		return NotFoundError("Bus station not found")
+		return errs.BusStationNotFoundError(stationID)
 	}
 
 	return WriteJSON(w, http.StatusOK, busStation)
